@@ -1,11 +1,11 @@
 <?php
 
-class Jeux extends CI_Controller
+class Collection extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('jeux_model');
+        $this->load->model('collection_model');
         $this->load->helper('url');
     }
 
@@ -18,8 +18,8 @@ class Jeux extends CI_Controller
         
         
 
-        $data['content'] = 'jeux/main_jeux';
-        $data['jeuxlist'] = $this->jeux_model->get_jeux();
+        $data['content'] = 'collection/main_collection';
+        $data['collectionlist'] = $this->collection_model->get_collection('Michel1');
 
         $this->load->vars($data);
 

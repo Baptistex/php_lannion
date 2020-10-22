@@ -16,7 +16,7 @@ class User extends CI_Controller
         $this->load->library('form_validation');
         $data['title'] = 'Liste des utilisateurs';
         // a title to display above the list
-        $data['content'] = 'main';
+        $data['content'] = 'user/main_user';
         // template will call 'task_list ' sub -view
         $this->form_validation->set_rules('identifiant', 'Pseudo', 'required');
         $this->form_validation->set_rules('nom', 'Nom', 'required');
@@ -31,7 +31,7 @@ class User extends CI_Controller
         }
         $data['userlist'] = $this->user_model->get_user();
         $this->load->vars($data);
-        $this->load->view('template');
+        $this->load->view('templates/template');
     }
 
     public function create()
@@ -50,7 +50,7 @@ class User extends CI_Controller
             $prenom = $this->input->post('prenom');
             $mot_de_passe = $this->input->post('mot_de_passe');
             $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
-            $data['content'] = 'add_success';
+            $data['content'] = 'user/add_success';
         }
         $this->load->vars($data);
         $this->load->view('template');
