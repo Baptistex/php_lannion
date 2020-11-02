@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'servbdd.iutlan.etu.univ-rennes1.fr',
-	'username' => 'balix',
+	'hostname' => 'localhost',
+	'username' => 'postgres',
 	'password' => '',
-	'database' => 'pg_balix',
+	'database' => 'pg_b11',
 	'dbdriver' => 'postgre',
 	'dbprefix' => 'jeux.',
 	'pconnect' => FALSE,
@@ -126,4 +126,4 @@ $db['default'] = array(
 
 
 
-$db['default']['password'] = "";
+$db['default']['password'] = "azerty";
