@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => '',
+	'hostname' => 'pg.infolannion.com',
+	'username' => 'b11',
+	'password' => 'Injodecr5',
 	'database' => 'pg_b11',
 	'dbdriver' => 'postgre',
 	'dbprefix' => 'jeux.',
@@ -95,35 +95,4 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$db['default']['password'] = "azerty";
+?>
