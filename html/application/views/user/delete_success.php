@@ -1,1 +1,0 @@
-<h2>Suppression reussie</h2>

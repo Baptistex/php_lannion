@@ -10,18 +10,28 @@ class User extends CI_Controller
     }
 
     
-    public function index()
+    public function list()
+    {
+        $data['title'] = 'Liste des utilisateurs';
+        // a title to display above the list
+        $data['content'] = 'user/user_list';
+        $data['userlist'] = $this->user_model->get_user();
+        $this->load->vars($data);
+
+    }
+
+    public function signup()
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Liste des utilisateurs';
-        // a title to display above the list
-        $data['content'] = 'user/main_user';
+        
         // template will call 'task_list ' sub -view
         $this->form_validation->set_rules('identifiant', 'Pseudo', 'required');
         $this->form_validation->set_rules('nom', 'Nom', 'required');
         $this->form_validation->set_rules('prenom', 'Prenom', 'required');
-        $this->form_validation->set_rules('mot_de_passe', 'MDP', 'required');
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required');
+        $this->form_validation->set_rules('mot_de_passe_conf', 'Confirmation du mot de passe', 'required');
+
         if ($this->form_validation->run() !== FALSE) {
             $identifiant = $this->input->post('identifiant');
             $nom = $this->input->post('nom');
@@ -29,8 +39,7 @@ class User extends CI_Controller
             $mot_de_passe = $this->input->post('mot_de_passe');
             $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
         }
-        $data['userlist'] = $this->user_model->get_user();
-        $this->load->vars($data);
+        
         $this->load->view('templates/template');
     }
 
