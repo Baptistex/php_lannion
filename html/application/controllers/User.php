@@ -17,6 +17,7 @@ class User extends CI_Controller
         $data['content'] = 'user/user_list';
         $data['userlist'] = $this->user_model->get_user();
         $this->load->vars($data);
+        $this->load->view('templates/template');
 
     }
 
@@ -39,7 +40,11 @@ class User extends CI_Controller
             $mot_de_passe = $this->input->post('mot_de_passe');
             $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
         }
-        
+        $data['title'] = 'Création d\'un utilisateur';
+        // a title to display above the list
+        $data['content'] = 'user/user_signup';
+        $data['userlist'] = $this->user_model->get_user();
+        $this->load->vars($data);
         $this->load->view('templates/template');
     }
 

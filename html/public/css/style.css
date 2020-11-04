@@ -1,0 +1,202 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right, #034378, #2d4e68);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+nav {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.row {
+    padding-top: 3em;
+}
+
+.card {
+    float: left;
+    width: 15%;
+    margin-left: 2%;
+}
+
+.card .wrapper {
+    background-color: #fff;
+    min-height: 540px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    margin-left: 0;
+}
+
+.card .wrapper:hover .data {
+    transform: translateY(0);
+}
+
+.card .data {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(calc(70px + 1em));
+    transition: transform 0.3s;
+}
+
+.card .data .content {
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+}
+
+.card .author {
+    font-size: 12px;
+}
+
+.card .title {
+    margin-top: 10px;
+}
+
+.card .text {
+    height: 70px;
+    margin: 0;
+}
+
+.card input[type='checkbox'] {
+    display: none;
+}
+
+.card input[type='checkbox']:checked + .menu-content {
+    transform: translateY(-60px);
+}
+
+.example-1 .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #77d7b9;
+    color: #fff;
+    padding: 0.8em;
+}
+
+.example-1 .date span {
+    display: block;
+    text-align: center;
+}
+
+.example-1 .date .day {
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+
+.example-1 .date .month {
+    text-transform: uppercase;
+}
+
+.example-1 .date .month,
+.example-1 .date .year {
+    font-size: 12px;
+}
+
+.example-1 .content {
+    background-color: #fff;
+    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.example-1 .title a {
+    color: #808080;
+}
+
+.example-1 .menu-content li {
+    width: 33.333333%;
+    float: left;
+    background-color: #77d7b9;
+    height: 60px;
+    position: relative;
+}
+
+.example-1 .menu-content a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
+.example-1 .menu-content span {
+    top: -10px;
+}
+
+.container {
+    width: 500px;
+    height: 400px;
+    /*  Pour centrer le contenu d'un bloc  on utilise la prop text-align  */
+    text-align: center;
+    /*  Pour centrer un bloc on doit d'abord préciser le width et utiliser ensuite la prop margin  */
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 5px;
+}
+
+
+
+input {
+    height: 40px;
+    width: 300px;
+    font-size: 18px;
+    font-family: "Lato";
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-left: 35px;
+}
+
+.form-input {
+    position: relative;
+}
+
+.fa-lock,
+.fa-user {
+    position: absolute;
+    top: 8px;
+    left: 88px;
+    color: #3BA8A5;
+}
+
+#submit {
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    background-color: #D6D6D6;
+    border-style: none;
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+#submit:hover {
+    cursor: pointer;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
