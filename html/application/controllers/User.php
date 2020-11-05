@@ -102,7 +102,7 @@ class User extends CI_Controller
         $this->load->view('templates/template');
     }
   
-
+    //Supprimer un utilisateur
     public function delete($identifiant)
     {
         $this->user_model->delete_user($identifiant);
