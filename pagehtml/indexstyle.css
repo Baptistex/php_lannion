@@ -1,5 +1,15 @@
+html {
+  background-color: blue;
+}
+nav{
+  background-color: black;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .list li {
-    background: url("https://bradfrost.github.com/this-is-responsive/patterns/images/icon_arrow_right.png") no-repeat 97% 50%;
+    background-color: yellow;
     border-bottom: 1px solid #ccc;
     display: table;
     border-collapse: collapse;
