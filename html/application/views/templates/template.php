@@ -14,7 +14,7 @@
     <div id="global">
         <!--# entete -->
         <div id="entete">
-            <h1> Tests CI3 pour Jeux-- </h1>
+            <h1> Entete</h1>
         </div>
        
 
@@ -24,7 +24,7 @@
         <div id="contenu"><?php $this->load->view($content); ?></div>
 
         <!--#pied-->
-        <div id="pied"><strong>&copy;2020</strong></div>
+        <div id="pied">Pied</div>
         
     </div>
     <!--#global-->

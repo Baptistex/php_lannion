@@ -11,7 +11,6 @@ class User extends CI_Controller
     
     private function hash_password($password){
         return password_hash($password, PASSWORD_BCRYPT);
-        
     }
      
   
@@ -48,7 +47,7 @@ class User extends CI_Controller
             $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
             redirect('/user/login');
         }
-        $data['title'] = 'Connexion';
+        $data['title'] = 'Inscription d\'un utilisateur';
         $data['content'] = 'user/user_signup';
         $this->load->vars($data);
         $this->load->view('templates/template');
@@ -99,7 +98,6 @@ class User extends CI_Controller
 
         $data['title'] = 'Connexion d\'un utilisateur';
         $data['content'] = 'user/user_login';
-        $data['userlist'] = $this->user_model->get_user();
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -108,6 +106,7 @@ class User extends CI_Controller
     public function delete($identifiant)
     {
         $this->user_model->delete_user($identifiant);
-        $this->index();
+        $this->list();
     }
+
 }
