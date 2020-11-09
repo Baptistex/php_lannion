@@ -31,7 +31,6 @@ SET default_tablespace = '';
 -- Name: _jeu; Type: TABLE; Schema: jeux; Owner: postgres
 --
 
-SELECT COUNT(*) FROM jeux._collection WHERE identifiant = 'eee';
 
 CREATE TABLE jeux._jeu (
     id integer NOT NULL,

@@ -6,7 +6,7 @@
 <head>
     <title><?php echo $title;?></title>
     <meta charset="UTF-8">
-    <?php echo "<link rel='stylesheet' " ."href='". base_url().'public/css/style.css'."'"  ?>
+    <link rel = "stylesheet"href = "<?php echo base_url(); ?>public/css/style.css">
 </head>
 
 

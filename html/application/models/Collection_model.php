@@ -31,11 +31,6 @@ class Collection_model extends CI_Model
         $request = "INSERT INTO jeux._collection VALUES (".$this->db->escape($identifiant).",". $this->db->escape($id).");";
         $this->db->simple_query($request);
         return true;
-
-        
-   
-       
-        
     }
 
     public function rm_from_collection($identifiant, $id)
@@ -43,7 +38,6 @@ class Collection_model extends CI_Model
         $request = "DELETE FROM jeux._collection WHERE identifiant =".$this->db->escape($identifiant)." AND id=". $this->db->escape($id).";";
         $query = $this->db->query($request);
     }
-
 
     public function count_collection($identifiant){
         $sql = "SELECT COUNT(*) FROM jeux._collection WHERE identifiant = ?";
