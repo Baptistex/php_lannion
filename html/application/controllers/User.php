@@ -1,10 +1,12 @@
 <?php
-
+//Classe qui gère les logins utilisateurs
 class User extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
+
         $this->load->model('user_model');
         $this->load->helper('url');
     }
@@ -27,6 +29,9 @@ class User extends CI_Controller
 
     public function signup()
     {
+        if (isset($this->session->identifiant)){
+            redirect('/jeux');
+        };
         $this->load->helper('form');
         $this->load->library('form_validation');
         //TODO: verification du mot de passe
@@ -54,14 +59,28 @@ class User extends CI_Controller
     }
 
 
+    public function disconnect()
+    {
+        if (isset($this->session->identifiant)){
+            $this->session->sess_destroy();
+            redirect('user/login');
+        };
+    }
+
+
     public function login()
     {
+        if (isset($this->session->identifiant)){
+            redirect('/jeux');
+        };
+
         $this->load->helper('form');
         $this->load->library('form_validation');
         
         $this->form_validation->set_rules('identifiant', 'Pseudo', 'required');
         $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required');
 
+        
         if ($this->form_validation->run() !== FALSE) {
             try
             {
@@ -83,6 +102,7 @@ class User extends CI_Controller
                 if (!password_verify($password, $row->mot_de_passe)) throw new UnexpectedValueException("Invalid password!");
 
                 echo "valid user";
+                $this->session->identifiant = $identifiant;
                 redirect('/jeux');
 
             }
@@ -106,7 +126,7 @@ class User extends CI_Controller
     public function delete($identifiant)
     {
         $this->user_model->delete_user($identifiant);
-        $this->list();
+        redirect('user/list');
     }
 
 }

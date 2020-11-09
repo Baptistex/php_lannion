@@ -15,6 +15,7 @@
         <!--# entete -->
         <div id="entete">
             <h1> Entete</h1>
+            <?php echo "<h2><a href='". base_url().'collection'."'>Collection</a>"  ?>
         </div>
        
 

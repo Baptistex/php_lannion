@@ -6,6 +6,9 @@
 -- Dumped by pg_dump version 12.4
 
 -- Started on 2020-09-27 17:45:38 CEST
+DROP SCHEMA jeux CASCADE;
+CREATE SCHEMA jeux;
+
 SET SCHEMA 'jeux';
 
 SET statement_timeout = 0;
@@ -60,10 +63,10 @@ ADD CONSTRAINT _user_pkey PRIMARY KEY (identifiant);
 
 ALTER TABLE jeux._collection ADD CONSTRAINT _collection_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant);
 ALTER TABLE jeux._collection ADD CONSTRAINT _collection_jeu_fkey FOREIGN KEY (id) REFERENCES jeux._jeu(id);
+ALTER TABLE jeux._collection ADD CONSTRAINT _collection_unique UNIQUE (identifiant,id);
 
-  
 
-ALTER TABLE jeux._jeu OWNER TO postgres;
+ALTER TABLE jeux._jeu OWNER TO b11;
 
 --
 -- TOC entry 3373 (class 0 OID 17554)

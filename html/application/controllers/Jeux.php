@@ -5,6 +5,8 @@ class Jeux extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
+
         $this->load->model('jeux_model');
         $this->load->helper('url');
     }
@@ -13,12 +15,15 @@ class Jeux extends CI_Controller
     public function index()
     {
         $data['title'] = 'Liste des jeux';
-        $data['content'] = 'jeux/main_jeux';
+        $data['content'] = 'jeux/jeux_list';
         $data['jeuxlist'] = $this->jeux_model->get_jeux();
 
         $this->load->vars($data);
+        echo $this->session->identifiant;
         $this->load->view('templates/template');
     }
+
+
 
 
 }

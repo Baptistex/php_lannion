@@ -11,6 +11,8 @@
             <input type="password" name="mot_de_passe" placeholder="Mot de passe" />
         </div>
         <input type="submit" id="submit" value="valider" /><br>
-        <a href="#">Mot de passe oublier ?</a>
+        <a href="#">Mot de passe oublié ?</a>
+        <br >
+        <?php echo anchor("user/signup", "S'inscrire ?", "") ?>
     </div>
 </form>
