@@ -45,5 +45,11 @@ class Collection_model extends CI_Model
     }
 
 
+    public function count_collection($identifiant){
+        $sql = "SELECT COUNT(*) FROM jeux._collection WHERE identifiant = ?";
+        $query = $this->db->query($sql, $identifiant);
+        return $query->result_array()[0]["count"];
+    }
+
 
 }

@@ -1,6 +1,8 @@
 
 
 <h2><?php echo $title ?></h2>
+<?php echo "Nombre de jeux: ".$count;?>
+
 <ul>
     <?php foreach($collectionlist as $jeu):?>
 

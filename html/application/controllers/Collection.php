@@ -27,13 +27,14 @@ class Collection extends CI_Controller
         }
 
         
-        $data['title'] = 'Liste des jeux';
+        $data['title'] = 'Liste des jeux possédés';
         
         
 
         $data['content'] = 'collection/collection_list';
         $identifiant = $this->session->identifiant;
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
+        $data['count'] = $this->collection_model->count_collection($identifiant);
 
         $this->load->vars($data);
 
@@ -41,6 +42,8 @@ class Collection extends CI_Controller
         
     }
 
+
+    //TODO: mettre l'identifiant en paramètre
     public function add($id)
     {
         $identifiant = $this->session->identifiant;
@@ -50,12 +53,11 @@ class Collection extends CI_Controller
 
         } else {
             redirect('jeux');
-
-        }
-
-
-        
+        }     
     }
+
+    
+
 
     public function delete($id)
     {
