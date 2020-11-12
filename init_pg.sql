@@ -70,24 +70,30 @@ CREATE TABLE jeux._role(
 ALTER TABLE ONLY jeux._role
 ADD CONSTRAINT _role_pkey PRIMARY KEY (identifiant);
 
+
 ALTER TABLE jeux._role 
-ADD CONSTRAINT _role_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant);
+ADD CONSTRAINT _role_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant) ON DELETE CASCADE;
     
 
 
 
 
 ALTER TABLE jeux._collection 
-ADD CONSTRAINT _collection_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant);
+ADD CONSTRAINT _collection_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant) ON DELETE CASCADE;
 
 ALTER TABLE jeux._collection 
-ADD CONSTRAINT _collection_jeu_fkey FOREIGN KEY (id) REFERENCES jeux._jeu(id);
+ADD CONSTRAINT _collection_jeu_fkey FOREIGN KEY (id) REFERENCES jeux._jeu(id) ON DELETE CASCADE;
 
 ALTER TABLE jeux._collection 
 ADD CONSTRAINT _collection_unique UNIQUE (identifiant,id);
 
 
 ALTER TABLE jeux._jeu OWNER TO b11;
+
+
+INSERT INTO jeux._user VALUES ('admin','admin','admin','$2y$10$nO2SFUUIThEuvnwtG0VDPuO4sgEoh.0LrS2FWb4pgpKTP55BDEVJm');
+
+
 
 --
 -- TOC entry 3373 (class 0 OID 17554)
@@ -246,4 +252,6 @@ COPY jeux._jeu (id, guid, titre, sortie, description, couverture) FROM stdin;
 --
 -- PostgreSQL database dump complete
 --
+
+
 

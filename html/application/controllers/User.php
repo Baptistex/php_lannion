@@ -19,7 +19,7 @@ class User extends CI_Controller
     public function list()
     {
         //Titre de la page
-        if (!isset($this->session->role) && $this->session->role=='admin'){
+        if (!isset($this->session->role) && !$this->session->role=='admin'){
             redirect('/jeux');
         };
 
