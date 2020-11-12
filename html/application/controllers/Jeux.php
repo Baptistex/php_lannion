@@ -23,6 +23,20 @@ class Jeux extends CI_Controller
     }
 
 
+    public function game($id)
+    {
+        $gamedata=$this->jeux_model->get_gamedata($id);
+        
+        if (empty($gamedata)){
+            redirect('/jeux');
+        }
 
+        $data['title'] = '';
+        $data['content'] = 'jeux/jeux_game';
+        $data['gamedata'] = $gamedata[0];
+
+        $this->load->vars($data);
+        $this->load->view('templates/template');
+    }
 
 }

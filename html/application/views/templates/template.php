@@ -7,6 +7,7 @@
     <title><?php echo $title;?></title>
     <meta charset="UTF-8">
     <link rel = "stylesheet"href = "<?php echo base_url(); ?>public/css/style.css">
+    <link rel = "stylesheet"href = "<?php echo base_url(); ?>public/css/bootstrap.css">
 </head>
 
 
