@@ -9,6 +9,7 @@ class Collection extends CI_Controller
         $this->load->library('session');
         
         $this->load->model('collection_model');
+        $this->load->model('user_model');
 
         $this->load->helper('url');
     }
@@ -61,9 +62,6 @@ class Collection extends CI_Controller
         }     
     }
 
-    
-
-
     public function delete($id)
     {
         $identifiant = $this->session->identifiant;
@@ -71,5 +69,25 @@ class Collection extends CI_Controller
         redirect('/collection');
 
 
+    }
+
+    public function collection($identifiant)
+    {
+        
+        if (!isset($this->session->role) && !$this->session->role=='admin'){
+            redirect('/jeux');
+        };
+
+        $var=$this->user_model->log_user($identifiant);
+        
+
+        $data ['identifiant']=$identifiant;
+        $data ['nom']= $var['nom'];
+        $data ['prenom']= $var['prenom'];
+        $data['content'] = 'collection/collection_list';
+        $data['title']='Collectionneur';
+        $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
+        $this->load->vars($data);
+        $this->load->view('templates/template');
     }
 }

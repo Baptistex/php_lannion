@@ -1,11 +1,6 @@
-
+<?php echo $identifiant ." ".$nom ." ".$prenom;  ?>
 
 <h2><?php echo $title ?></h2>
-<?php echo "Nombre de jeux: ".$count;?>
-
-    
-
-
 
             <div id="carte" class="row col-lg-12 offset-lg-1 d-none d-lg-block">
             <?php foreach($collectionlist as $jeu):?>

@@ -1,10 +1,31 @@
 
 
 <h2><?php echo $title ?></h2>
-<ul>
-    <?php foreach($userlist as $user):?>
+
+<div id="demo">
+        
+
+        <div class="shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead>
+                    <tr>
+                        <th>Identifiant</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        
+                    </tr>
+                </thead>
+                <?php foreach($userlist as $user):?>
+                         <tr>
+                           <td><?php echo $user['identifiant']?></td>
+                           <td ><?php echo $user['nom']?></td>
+                           <td ><?php echo $user['prenom']?></td>
+                           <td><?php echo anchor('collection/collection/'.$user["identifiant"],'<button>Consulter</button>');?></td>
+                           <td><?php echo anchor('user/delete/'.$user["identifiant"],'<button>Supprimer</button>');?></td>
+                         </tr>
+                     
+                <?php endforeach ?>    
+                </table>
+                </div>
    
-    <?php echo "<li> ".$user['identifiant'].": ".$user['nom']." ".$user['prenom'].", ".$user['mot_de_passe']." -". anchor('user/delete/'.$user["identifiant"],'[del]');?>
-</li>
-<?php endforeach ?>
-</ul>
