@@ -26,7 +26,7 @@ class User extends CI_Controller
 
         $data['title'] = 'Liste des utilisateurs';
         $data['content'] = 'user/user_list';
-        $data['userlist'] = $this->user_model->get_user();
+        $data['userlist'] = $this->user_model->get_user_role();
         $this->load->vars($data);
         $this->load->view('templates/template');
 
@@ -153,8 +153,10 @@ class User extends CI_Controller
     //Supprimer un utilisateur
     public function delete($identifiant)
     {
-        $this->user_model->delete_user($identifiant);
-        redirect('user/list');
+        if ($this->session->identifiant!=$identifiant){
+            $this->user_model->delete_user($identifiant);
+            redirect('user/list');
+        }
     }
 
 }

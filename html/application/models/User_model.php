@@ -79,4 +79,13 @@ class User_model extends CI_Model
         return $query->result_array()[0];
     }
 
+    public function get_user_role(){
+        $query=$this->db
+            ->select('*')
+            ->from('_user')
+            ->join('_role', '_role.identifiant = _user.identifiant')
+            ->get();
+        return $query->result_array();
+    }
+
 }
