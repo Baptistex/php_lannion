@@ -151,8 +151,10 @@ class User extends CI_Controller
     //Supprimer un utilisateur
     public function delete($identifiant)
     {
-        $this->user_model->delete_user($identifiant);
-        redirect('user/list');
+        if ($this->session->identifiant!=$identifiant){
+            $this->user_model->delete_user($identifiant);
+            redirect('user/list');
+        }
     }
 
 }
