@@ -26,7 +26,7 @@ class Collection_model extends CI_Model
         ->where('id', $id)
         ->get();
 
-        if ($query->num_rows() > 0){
+        if ($querycheck->num_rows() > 0){
             return false;
         }
 

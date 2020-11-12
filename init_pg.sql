@@ -57,10 +57,15 @@ CREATE TABLE jeux._collection(
   id INTEGER NOT NULL
 );
 
-CREATE TABLE jeux._admin(
+CREATE TABLE jeux._role(
   identifiant VARCHAR(30) NOT NULL,
-  mot_de_passe INTEGER NOT NULL
+  role INTEGER NOT NULL
 );
+
+ALTER TABLE ONLY jeux._role
+ADD CONSTRAINT _role_pkey PRIMARY KEY (identifiant);
+    
+
 
 ALTER TABLE ONLY jeux._user
 ADD CONSTRAINT _user_pkey PRIMARY KEY (identifiant);

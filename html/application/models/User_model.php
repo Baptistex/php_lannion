@@ -15,6 +15,16 @@ class User_model extends CI_Model
         return $query->result_array();
     }
 
+    public function get_role($identifiant)
+    {
+        $query = $this->db
+        ->select("role")
+        ->from("_role")
+        ->where('identifiant', $identifiant)
+        ->get();
+        return $query->result_array();
+    }
+    
    
     public function add_user($identifiant, $nom, $prenom, $mot_de_passe)
     {
@@ -41,8 +51,6 @@ class User_model extends CI_Model
         ->where('identifiant', $identifiant)
         ->get();
         return $query->result_array();
-
-
     }
 
 }

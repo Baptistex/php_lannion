@@ -14,5 +14,5 @@
 
 <div id="bouton">
     <a href="index.html"><button>Retour</button></a>
-    <button>Ajouter à la collection</button>
+    <?php echo anchor('collection/add/'.$gamedata["id"],'<button>Ajouter à la collection</button>');?>
 </div>

@@ -44,15 +44,20 @@ class Collection extends CI_Controller
 
     public function add($id)
     {
-        $identifiant = $this->session->identifiant;
+        
         //TODO: handle l'erreur
         //TODO: verifier le maximum de 5 jeux et gérer le cas
 
-        if ($this->collection_model->add_to_collection($identifiant, $id)){
-            redirect('jeux');
 
+        if (isset($this->session->identifiant)){
+            $identifiant = $this->session->identifiant;
         } else {
-            redirect('jeux');
+            redirect('jeux/game/'.$id);
+        }
+        if ($this->collection_model->add_to_collection($identifiant, $id)){
+            redirect('collection');
+        } else {
+            redirect('jeux/game/'.$id);
         }     
     }
 

@@ -19,6 +19,10 @@ class User extends CI_Controller
     public function list()
     {
         //Titre de la page
+        if (!isset($this->session->role) && $this->session->role=='admin'){
+            redirect('/jeux');
+        };
+
         $data['title'] = 'Liste des utilisateurs';
         $data['content'] = 'user/user_list';
         $data['userlist'] = $this->user_model->get_user();
@@ -97,7 +101,11 @@ class User extends CI_Controller
             } elseif (!password_verify($password, $row->mot_de_passe)){
                 echo "Mot de passe invalide !";
             } else {
+                
+                $this->session->identifiant = $this->user_model->get_role($identifiant);
                 $this->session->identifiant = $identifiant;
+                
+
                 redirect('/jeux');
             }        
         }

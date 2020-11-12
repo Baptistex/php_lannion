@@ -6,7 +6,7 @@
         <div id="pattern" class="pattern">
             <ul class="list img-list">
                   <li>
-                      <a href="#" class="inner">
+                      <a href="<?php echo base_url()."jeux/game/".$jeu["id"]?>" class="inner">
                           <div class="li-img">
                               <img src="<?php echo $jeu['couverture']?>" width="100" height="200">
                           </div>
@@ -17,7 +17,7 @@
                       </a>
                   </li>
             </ul>
-                  
+        </div>  
           <!--End Pattern HTML-->
 
 <?php endforeach ?>
