@@ -15,5 +15,14 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
+    public function get_gamedata($id)
+    {
+        $query = $this->db
+            ->select("*")
+            ->from("_jeu")
+            ->where('id', $id)
+            ->get();
+        return $query->result_array();
+    }
 
 }
