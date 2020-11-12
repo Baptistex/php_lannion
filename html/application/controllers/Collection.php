@@ -37,7 +37,6 @@ class Collection extends CI_Controller
         $data['count'] = $this->collection_model->count_collection($identifiant);
 
         $this->load->vars($data);
-
         $this->load->view('templates/template');
         
     }
@@ -54,6 +53,10 @@ class Collection extends CI_Controller
         } else {
             redirect('jeux/game/'.$id);
         }
+        if ($this->collection_model->count_collection($identifiant)>=5){
+            $this->collection_model->rm_most_recent($identifiant);
+        }
+
         if ($this->collection_model->add_to_collection($identifiant, $id)){
             redirect('collection');
         } else {

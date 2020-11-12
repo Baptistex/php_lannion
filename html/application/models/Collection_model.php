@@ -30,9 +30,25 @@ class Collection_model extends CI_Model
             return false;
         }
 
-        $request = "INSERT INTO jeux._collection VALUES (".$this->db->escape($identifiant).",". $this->db->escape($id).");";
+        $request = "INSERT INTO jeux._collection  VALUES (".$this->db->escape($identifiant).",". $this->db->escape($id).");";
         $this->db->simple_query($request);
         return true;
+    }
+
+    public function get_most_recent($identifiant){
+        $query = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id ORDER BY sortie DESC LIMIT 1;";
+    }
+
+    public function rm_most_recent($identifiant){
+        $query = "DELETE FROM jeux._collection WHERE identifiant='".$identifiant."' AND id IN
+        (SELECT jeux._jeu.id FROM jeux._jeu RIGHT JOIN jeux._collection 
+        ON jeux._jeu.id = _collection.id WHERE identifiant='".$identifiant."' 
+        ORDER BY sortie DESC LIMIT 1);";
+
+        $this->db->simple_query($query);
+
+
+
     }
 
     public function rm_from_collection($identifiant, $id)
