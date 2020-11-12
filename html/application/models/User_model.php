@@ -43,6 +43,25 @@ class User_model extends CI_Model
         );
         $this->db->insert('_role', $roledata);
     }
+
+    public function add_admin($identifiant, $nom, $prenom, $mot_de_passe)
+    {
+        $userdata = array(
+            'identifiant' => $identifiant,
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'mot_de_passe' => $mot_de_passe
+        );
+        $this->db->insert('_user', $userdata);
+
+        $roledata = array(
+            'identifiant' => $identifiant,
+            'role' => 'admin'
+        );
+        $this->db->insert('_role', $roledata);
+    }
+
+
     
     public function delete_user($identifiant)
     {
@@ -57,7 +76,7 @@ class User_model extends CI_Model
         ->from("_user")
         ->where('identifiant', $identifiant)
         ->get();
-        return $query->result_array();
+        return $query->result_array()[0];
     }
 
 }

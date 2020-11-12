@@ -19,7 +19,8 @@ class User extends CI_Controller
     public function list()
     {
         //Titre de la page
-        if (!isset($this->session->role) && !$this->session->role=='admin'){
+
+        if (isset($this->session->role) && !$this->session->role=='admin'){
             redirect('/jeux');
         };
 
@@ -64,7 +65,7 @@ class User extends CI_Controller
 
     public function newadmin()
     {
-        if (!isset($this->session->identifiant) && !$this->session->role=='admin'){
+        if (isset($this->session->role) && !$this->session->role=='admin'){
             redirect('/jeux');
         };
         $this->load->helper('form');
@@ -84,10 +85,9 @@ class User extends CI_Controller
             $nom = $this->input->post('nom');
             $prenom = $this->input->post('prenom');
             $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe'));
-            $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
-            redirect('/user/login');
+            $this->user_model->add_admin($identifiant, $nom, $prenom, $mot_de_passe);
         }
-        $data['title'] = 'Inscription d\'un utilisateur';
+        $data['title'] = 'Ajout d\'un administrateur';
         $data['content'] = 'user/user_signup';
         $this->load->vars($data);
         $this->load->view('templates/template');
@@ -128,7 +128,7 @@ class User extends CI_Controller
 
             if (count($user_info) !=1){
                 echo "Utilisateur Invalide ! ";
-            } elseif (!password_verify($password, $user_info[0]['mot_de_passe'])){
+            } elseif (!password_verify($password, $user_info['mot_de_passe'])){
                 echo "Mot de passe invalide !";
             } else {
                 
