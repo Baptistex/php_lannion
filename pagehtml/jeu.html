@@ -4,16 +4,43 @@
 <head>
     <title>On verra plus tard</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="jeustyle.css">
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="index.html"><button>Catalogue</button></a>
+            <a href="collection.html"><button>Ma Collection</button></a>
+            <button>Deconnexion</button>
+        </nav>
+        <nav>
+          <a href="index.html"><button>Catalogue</button></a>
+          <a href="collection.html"><button>Ma Collection</button></a>
+          <a href="connexion.html"><button>Connexion</button></a>
+          <a href="inscrire.html"><button>S'inscrire</button></a>
+      </nav>
+    </header>
     <main>
-        
+        <div class="row col-lg-12 offset-lg-3">
+            <div>
+                <img src="images/deco.png" width="300" height="600">
+            </div>
+            <div>
+                <label>Nom du jeu :</label><br>
+                <label>ID :</label><br>
+                <label>Date de sortie :</label>
+            </div>
+        </div>
+        <label id="description">Description :</label>
 
     </main>
     <footer>
-        <a href="index.html"><button>Retour</button></a>
-        <button>Ajouter à la collection</button>
+        <div id="bouton">
+            <a href="index.html"><button>Retour</button></a>
+            <button>Ajouter à la collection</button>
+        </div>
     </footer>
 
 </body>
