@@ -13,6 +13,7 @@
                         <th>Identifiant</th>
                         <th>Nom</th>
                         <th>Prénom</th>
+                        <th>Rôle</th>
                         
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                            <td><?php echo $user['identifiant']?></td>
                            <td ><?php echo $user['nom']?></td>
                            <td ><?php echo $user['prenom']?></td>
+                           <td><?php echo $user['role']?></td>
                            <td><?php echo anchor('collection/collection/'.$user["identifiant"],'<button>Consulter</button>');?></td>
                            <td><?php echo anchor('user/delete/'.$user["identifiant"],'<button>Supprimer</button>');?></td>
                          </tr>
