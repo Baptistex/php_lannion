@@ -126,7 +126,7 @@ class User extends CI_Controller
             
             $user_info = $this->user_model->log_user($identifiant);
 
-            if (count($user_info) !=1){
+            if (empty($user_info)){
                 echo "Utilisateur Invalide ! ";
             } elseif (!password_verify($password, $user_info['mot_de_passe'])){
                 echo "Mot de passe invalide !";
