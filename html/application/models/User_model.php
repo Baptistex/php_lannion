@@ -22,7 +22,7 @@ class User_model extends CI_Model
         ->from("_role")
         ->where('identifiant', $identifiant)
         ->get();
-        return $query->result_array();
+        return $query->result_array()[0]['role'];
     }
     
    

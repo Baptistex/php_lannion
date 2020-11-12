@@ -20,7 +20,7 @@ class User extends CI_Controller
     {
         //Titre de la page
 
-        if (isset($this->session->role) && !$this->session->role=='admin'){
+        if (isset($this->session->role) && !(strcmp($this->session->role,'admin')==0)){
             redirect('/jeux');
         };
 
@@ -65,12 +65,14 @@ class User extends CI_Controller
 
     public function newadmin()
     {
-        if (isset($this->session->role) && !$this->session->role=='admin'){
+        if (isset($this->session->role) && !(strcmp($this->session->role,'admin')==0)){
             redirect('/jeux');
         };
+        
+
+
         $this->load->helper('form');
         $this->load->library('form_validation');
-        //TODO: verification du mot de passe
         $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', array('required' => 'Un identifiant est nécessaire.'));
         $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
         $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
@@ -113,8 +115,8 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         
-        $this->form_validation->set_rules('identifiant', 'Pseudo', 'required');
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required');
+        $this->form_validation->set_rules('identifiant', 'Pseudo', 'required', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Un mot de passe est nécessaire.'));
 
         
         if ($this->form_validation->run() !== FALSE) {

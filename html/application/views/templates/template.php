@@ -23,7 +23,6 @@
 
       </nav>
       <nav>
-            <a href="<?php echo base_url();?>jeux/index"><button>Catalogue</button></a>
             <a href="<?php echo base_url();?>user/list"><button>Collectionneur</button></a>
         </nav>
     </header>
