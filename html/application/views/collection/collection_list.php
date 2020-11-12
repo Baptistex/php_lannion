@@ -1,11 +1,6 @@
-
+<?php echo $identifiant ." ".$nom ." ".$prenom;  ?>
 
 <h2><?php echo $title ?></h2>
-<?php echo "Nombre de jeux: ".$count;?>
-
-    
-
-
 
             <div id="carte" class="row col-lg-12 offset-lg-1 d-none d-lg-block">
             <?php foreach($collectionlist as $jeu):?>
@@ -17,7 +12,7 @@
                         </div>
                         <div class="data">
                             <div class="content">
-                                <h1 class="title"><a href="#"><?php echo $jeu['titre']?></a></h1>
+                                <h1 class="title"> <a href="<?php echo base_url()."jeux/game/".$jeu["id"]?>" class="inner"><?php echo $jeu['titre']?></a></h1>
                                 <p class="text"><?php echo $jeu['description']?></p>
                             </div>
                         </div>
