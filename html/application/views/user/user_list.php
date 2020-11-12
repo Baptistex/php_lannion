@@ -7,6 +7,7 @@
 
         <div class="shadow-z-1">
             <!-- Table starts here -->
+            <div><?php echo $this->session->flashdata('self_delete');?></div>
             <table id="table" class="table table-hover table-mc-light-blue">
                 <thead>
                     <tr>

@@ -29,7 +29,9 @@ class Collection extends CI_Controller
 
         
         $data['title'] = 'Liste des jeux possédés';
-        
+        $data ['identifiant']="";
+        $data ['nom']= "";
+        $data ['prenom']= "";
         
 
         $data['content'] = 'collection/collection_list';
@@ -87,6 +89,7 @@ class Collection extends CI_Controller
         $data ['identifiant']=$identifiant;
         $data ['nom']= $var['nom'];
         $data ['prenom']= $var['prenom'];
+
         $data['content'] = 'collection/collection_list';
         $data['title']='Collectionneur';
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);

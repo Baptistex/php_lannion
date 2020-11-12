@@ -155,8 +155,12 @@ class User extends CI_Controller
     {
         if ($this->session->identifiant!=$identifiant){
             $this->user_model->delete_user($identifiant);
-            redirect('user/list');
+            
+        } else {
+            $this->session->set_flashdata('self_delete', 'Vous ne pouvez pas vous supprimer vous-même');
         }
+
+        redirect('user/list');
     }
 
 }
