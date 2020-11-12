@@ -62,6 +62,36 @@ class User extends CI_Controller
         $this->load->view('templates/template');
     }
 
+    public function newadmin()
+    {
+        if (!isset($this->session->identifiant) && !$this->session->role=='admin'){
+            redirect('/jeux');
+        };
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        //TODO: verification du mot de passe
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
+        $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
+        $this->form_validation->set_rules('mot_de_passe_conf', 'Confirmation du mot de passe', 'required|matches[mot_de_passe]', 
+        array(
+            'required' => 'Le mot de passe doit être confirmé.', 'matches' => 'Le mot de passe doit être identique.'
+        ));
+
+        if ($this->form_validation->run() !== FALSE) {
+            $identifiant = $this->input->post('identifiant');
+            $nom = $this->input->post('nom');
+            $prenom = $this->input->post('prenom');
+            $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe'));
+            $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
+            redirect('/user/login');
+        }
+        $data['title'] = 'Inscription d\'un utilisateur';
+        $data['content'] = 'user/user_signup';
+        $this->load->vars($data);
+        $this->load->view('templates/template');
+    }
 
     public function disconnect()
     {
@@ -102,7 +132,7 @@ class User extends CI_Controller
                 echo "Mot de passe invalide !";
             } else {
                 
-                $this->session->identifiant = $this->user_model->get_role($identifiant);
+                $this->session->role = $this->user_model->get_role($identifiant);
                 $this->session->identifiant = $identifiant;
                 
 
