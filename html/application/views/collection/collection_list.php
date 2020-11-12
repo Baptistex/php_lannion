@@ -3,10 +3,27 @@
 <h2><?php echo $title ?></h2>
 <?php echo "Nombre de jeux: ".$count;?>
 
-<ul>
-    <?php foreach($collectionlist as $jeu):?>
+    
 
-    <?php echo "<li> ".$jeu['id'].": ".$jeu['titre']." ".$jeu['sortie'] .anchor('collection/delete/'.$jeu["id"],'[Retirer]');?>
-</li>
-<?php endforeach ?>
-</ul>
+
+
+            <div id="carte" class="row col-lg-12 offset-lg-1 d-none d-lg-block">
+            <?php foreach($collectionlist as $jeu):?>
+                <div class="example-1 card ">
+                    <div class="wrapper">
+                        <img src="<?php echo $jeu['couverture']?>" width="272.95">
+                        <div class="date">
+                            <span class="day"><?php echo $jeu['sortie']?></span>
+                        </div>
+                        <div class="data">
+                            <div class="content">
+                                <h1 class="title"><a href="#"><?php echo $jeu['titre']?></a></h1>
+                                <p class="text"><?php echo $jeu['description']?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');?>
+                </div>
+                <?php endforeach ?>
+            </div>
+
