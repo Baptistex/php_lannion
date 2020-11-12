@@ -23,7 +23,6 @@ class User_model extends CI_Model
             'nom' => $nom,
             'prenom' => $prenom,
             'mot_de_passe' => $mot_de_passe
-            // Argument given to the method
         );
         return $this->db->insert('_user', $data);
     }

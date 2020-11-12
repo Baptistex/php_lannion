@@ -7,7 +7,7 @@ class Collection_model extends CI_Model
         parent::__construct();
         $this->load->database();
     }
-
+    //TODO: reformuler les requetes à la CodeIgniter
 
     public function get_collection($identifiant)
     {
@@ -19,15 +19,17 @@ class Collection_model extends CI_Model
     public function add_to_collection($identifiant, $id)
     {
 
-        //TODO: verifier le maximum de 5 jeux et gérer le cas
+        $querycheck = $this->db
+        ->select("*")
+        ->from("_collection")
+        ->where('identifiant', $identifiant)
+        ->where('id', $id)
+        ->get();
 
-        $verification = $this->get_collection($identifiant);
-
-        foreach ($verification as $row){
-            if ($row["id"]==$id){
-                return false;
-            }
+        if ($query->num_rows() > 0){
+            return false;
         }
+
         $request = "INSERT INTO jeux._collection VALUES (".$this->db->escape($identifiant).",". $this->db->escape($id).");";
         $this->db->simple_query($request);
         return true;
