@@ -52,6 +52,11 @@ CREATE TABLE jeux._user (
   mot_de_passe VARCHAR(255) NOT NULL
 );
 
+
+ALTER TABLE ONLY jeux._user
+ADD CONSTRAINT _user_pkey PRIMARY KEY (identifiant);
+
+
 CREATE TABLE jeux._collection(
   identifiant VARCHAR(30) NOT NULL,
   id INTEGER NOT NULL
@@ -59,22 +64,27 @@ CREATE TABLE jeux._collection(
 
 CREATE TABLE jeux._role(
   identifiant VARCHAR(30) NOT NULL,
-  role INTEGER NOT NULL
+  role VARCHAR(30) NOT NULL
 );
 
 ALTER TABLE ONLY jeux._role
 ADD CONSTRAINT _role_pkey PRIMARY KEY (identifiant);
+
+ALTER TABLE jeux._role 
+ADD CONSTRAINT _role_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant);
     
 
 
-ALTER TABLE ONLY jeux._user
-ADD CONSTRAINT _user_pkey PRIMARY KEY (identifiant);
 
 
+ALTER TABLE jeux._collection 
+ADD CONSTRAINT _collection_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant);
 
-ALTER TABLE jeux._collection ADD CONSTRAINT _collection_user_fkey FOREIGN KEY (identifiant) REFERENCES jeux._user(identifiant);
-ALTER TABLE jeux._collection ADD CONSTRAINT _collection_jeu_fkey FOREIGN KEY (id) REFERENCES jeux._jeu(id);
-ALTER TABLE jeux._collection ADD CONSTRAINT _collection_unique UNIQUE (identifiant,id);
+ALTER TABLE jeux._collection 
+ADD CONSTRAINT _collection_jeu_fkey FOREIGN KEY (id) REFERENCES jeux._jeu(id);
+
+ALTER TABLE jeux._collection 
+ADD CONSTRAINT _collection_unique UNIQUE (identifiant,id);
 
 
 ALTER TABLE jeux._jeu OWNER TO b11;

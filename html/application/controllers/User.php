@@ -98,7 +98,7 @@ class User extends CI_Controller
 
             if (count($user_info) !=1){
                 echo "Utilisateur Invalide ! ";
-            } elseif (!password_verify($password, $row->mot_de_passe)){
+            } elseif (!password_verify($password, $user_info[0]['mot_de_passe'])){
                 echo "Mot de passe invalide !";
             } else {
                 

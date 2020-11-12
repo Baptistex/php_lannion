@@ -28,13 +28,20 @@ class User_model extends CI_Model
    
     public function add_user($identifiant, $nom, $prenom, $mot_de_passe)
     {
-        $data = array(
+
+        $userdata = array(
             'identifiant' => $identifiant,
             'nom' => $nom,
             'prenom' => $prenom,
             'mot_de_passe' => $mot_de_passe
         );
-        return $this->db->insert('_user', $data);
+        $this->db->insert('_user', $userdata);
+
+        $roledata = array(
+            'identifiant' => $identifiant,
+            'role' => 'user'
+        );
+        $this->db->insert('_role', $roledata);
     }
     
     public function delete_user($identifiant)
