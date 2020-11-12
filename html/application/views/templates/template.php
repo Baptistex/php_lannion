@@ -11,6 +11,20 @@
 
 
 <body>
+    <header>
+        <nav>
+          <a href="jeux/index"><button>Catalogue</button></a>
+          <a href="collection/index"><button>Ma Collection</button></a>
+          <a href="user/login"><button>Connexion</button></a>
+          <a href="user/signup"><button>S'inscrire</button></a>
+          <a href="user/disconnect"><button>Déconnexion</button></a>
+      </nav>
+      <nav>
+            <a href="jeux/index"><button>Catalogue</button></a>
+            <a href="user/list"><button>Collectionneur</button></a>
+            <button>Deconnexion</button>
+        </nav>
+    </header>
     <div id="global">
         <!--# entete -->
         <div id="entete">
