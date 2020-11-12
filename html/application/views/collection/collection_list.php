@@ -12,7 +12,7 @@
                         </div>
                         <div class="data">
                             <div class="content">
-                                <h1 class="title"><a href="#"><?php echo $jeu['titre']?></a></h1>
+                                <h1 class="title"> <a href="<?php echo base_url()."jeux/game/".$jeu["id"]?>" class="inner"><?php echo $jeu['titre']?></a></h1>
                                 <p class="text"><?php echo $jeu['description']?></p>
                             </div>
                         </div>
