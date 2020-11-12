@@ -21,6 +21,10 @@ h1 {
     font-weight: 300;
 }
 
+.content h1{
+    font-size: 2em;
+}
+
 nav {
     text-align: center;
     padding-top: 1em;
@@ -38,7 +42,7 @@ nav {
 
 .card .wrapper {
     background-color: #fff;
-    min-height: 540px;
+    min-height: 450px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
@@ -55,6 +59,7 @@ nav {
     width: 100%;
     transform: translateY(calc(70px + 1em));
     transition: transform 0.3s;
+    height: 55%;
 }
 
 .card .data .content {
@@ -74,6 +79,14 @@ nav {
 .card .text {
     height: 70px;
     margin: 0;
+}
+
+.text{
+    color: white;
+}
+
+.text:hover{
+    color: black;
 }
 
 .card input[type='checkbox'] {
@@ -115,31 +128,164 @@ nav {
 
 .example-1 .content {
     background-color: #fff;
-    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
 }
 
 .example-1 .title a {
     color: #808080;
 }
 
-.example-1 .menu-content li {
-    width: 33.333333%;
-    float: left;
-    background-color: #77d7b9;
-    height: 60px;
-    position: relative;
-}
 
-.example-1 .menu-content a {
+
+.example-2 .date {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
+    top: 0;
+    left: 0;
+    background-color: #77d7b9;
+    color: #fff;
+    padding: 0.8em;
 }
 
-.example-1 .menu-content span {
-    top: -10px;
+.example-2 .date span {
+    display: block;
+    text-align: center;
+}
+
+.example-2 .date .day {
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+
+.example-2 .date .month {
+    text-transform: uppercase;
+}
+
+.example-2 .date .month,
+.example-2 .date .year {
+    font-size: 12px;
+}
+
+.example-2 .content {
+    background-color: #fff;
+    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.example-2 .title a {
+    color: #808080;
+}
+
+.example-3 .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #77d7b9;
+    color: #fff;
+    padding: 0.8em;
+}
+
+.example-3 .date span {
+    display: block;
+    text-align: center;
+}
+
+.example-3 .date .day {
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+
+.example-3 .date .month {
+    text-transform: uppercase;
+}
+
+.example-3 .date .month,
+.example-3 .date .year {
+    font-size: 12px;
+}
+
+.example-3 .content {
+    background-color: #fff;
+    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.example-3 .title a {
+    color: #808080;
+}
+
+.example-4 .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #77d7b9;
+    color: #fff;
+    padding: 0.8em;
+}
+
+.example-4 .date span {
+    display: block;
+    text-align: center;
+}
+
+.example-4 .date .day {
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+
+.example-4 .date .month {
+    text-transform: uppercase;
+}
+
+.example-4 .date .month,
+.example-4 .date .year {
+    font-size: 12px;
+}
+
+.example-4 .content {
+    background-color: #fff;
+    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.example-4 .title a {
+    color: #808080;
+}
+
+.example-5 .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #77d7b9;
+    color: #fff;
+    padding: 0.8em;
+}
+
+.example-5 .date span {
+    display: block;
+    text-align: center;
+}
+
+.example-5 .date .day {
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+
+.example-5 .date .month {
+    text-transform: uppercase;
+}
+
+.example-5 .date .month,
+.example-5 .date .year {
+    font-size: 12px;
+}
+
+.example-5 .content {
+    background-color: #fff;
+    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.example-5 .title a {
+    color: #808080;
 }
 
 .container {
