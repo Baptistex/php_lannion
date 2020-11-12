@@ -34,4 +34,15 @@ class User_model extends CI_Model
     }
 
 
+    public function log_user($identifiant){
+        $query = $this->db
+        ->select("*")
+        ->from("_user")
+        ->where('identifiant', $identifiant)
+        ->get();
+        return $query->result_array();
+
+
+    }
+
 }

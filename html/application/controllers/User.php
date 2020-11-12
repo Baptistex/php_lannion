@@ -65,6 +65,8 @@ class User extends CI_Controller
             $this->session->sess_destroy();
             redirect('user/login');
         };
+        redirect('user/login');
+
     }
 
 
@@ -82,36 +84,22 @@ class User extends CI_Controller
 
         
         if ($this->form_validation->run() !== FALSE) {
-            try
-            {
-                //TODO changer la structure, retirer le try
-                //TODO changer les exceptions
-                if (!$this->form_validation->run()) throw new UnexpectedValueException(validation_errors());
+            //TODO changer la structure, retirer le try
+            //TODO changer les exceptions
 
-                $identifiant = $this->input->post('identifiant');
-                $password = $this->input->post('mot_de_passe');
-                $query = $this->db
-                    ->select("*")
-                    ->from("_user")
-                    ->where('identifiant', $identifiant)
-                    ->get();
+            $identifiant = $this->input->post('identifiant');
+            $password = $this->input->post('mot_de_passe');
+            
+            $user_info = $this->user_model->log_user($identifiant);
 
-                if ($query->num_rows() != 1)    throw new UnexpectedValueException("Wrong user!");
-
-                $row = $query->row();
-                if (!password_verify($password, $row->mot_de_passe)) throw new UnexpectedValueException("Invalid password!");
-
-                echo "valid user";
+            if (count($user_info) !=1){
+                echo "Utilisateur Invalide ! ";
+            } elseif (!password_verify($password, $row->mot_de_passe)){
+                echo "Mot de passe invalide !";
+            } else {
                 $this->session->identifiant = $identifiant;
                 redirect('/jeux');
-
-            }
-            catch(Excecption $e)
-            {
-                echo "azeaea";
-                //echo $e->getMessage();
-                
-            }
+            }        
         }
 
 

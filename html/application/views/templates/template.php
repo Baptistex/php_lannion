@@ -14,16 +14,15 @@
 <body>
     <header>
         <nav>
-          <a href="jeux/index"><button>Catalogue</button></a>
-          <a href="collection/index"><button>Ma Collection</button></a>
-          <a href="user/login"><button>Connexion</button></a>
-          <a href="user/signup"><button>S'inscrire</button></a>
-          <a href="user/disconnect"><button>Déconnexion</button></a>
+          <a href="<?php echo base_url();?>jeux/index"><button>Catalogue</button></a>
+          <a href="<?php echo base_url();?>collection/index"><button>Ma Collection</button></a>
+          <a href="<?php echo base_url();?>user/login"><button>Connexion</button></a>
+          <a href="<?php echo base_url();?>user/signup"><button>S'inscrire</button></a>
+          <a href="<?php echo base_url();?>user/disconnect"><button>Déconnexion</button></a>
       </nav>
       <nav>
-            <a href="jeux/index"><button>Catalogue</button></a>
-            <a href="user/list"><button>Collectionneur</button></a>
-            <button>Deconnexion</button>
+            <a href="<?php echo base_url();?>jeux/index"><button>Catalogue</button></a>
+            <a href="<?php echo base_url();?>user/list"><button>Collectionneur</button></a>
         </nav>
     </header>
     <div id="global">
