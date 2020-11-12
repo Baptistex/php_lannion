@@ -26,13 +26,24 @@ class Collection extends CI_Controller
             //redirige sur jeux par défaut
             redirect('jeux');
         }
-
+        $identifiant = $this->session->identifiant;
         
         $data['title'] = 'Liste des jeux possédés';
-        $data ['identifiant']="";
-        $data ['nom']= "";
-        $data ['prenom']= "";
+
+
+        $var=$this->user_model->log_user($identifiant);
         
+        if (($this->session->role)=='admin'){
+            $data['delete'] = "";
+        } else {
+            $data['delete'] = "<a href='".base_url()."user/delete/".$identifiant."'><button>Supprimer mon compte</button></a>";
+        }
+       
+
+        $data ['identifiant']=$identifiant;
+        $data ['nom']= $var['nom'];
+        $data ['prenom']= $var['prenom'];
+
 
         $data['content'] = 'collection/collection_list';
         $identifiant = $this->session->identifiant;
@@ -79,7 +90,7 @@ class Collection extends CI_Controller
     public function collection($identifiant)
     {
         
-        if (!isset($this->session->role) && !$this->session->role=='admin'){
+        if (!isset($this->session->role) && !($this->session->role=='admin')){
             redirect('/jeux');
         };
 

@@ -20,7 +20,7 @@ class User extends CI_Controller
     {
         //Titre de la page
 
-        if (isset($this->session->role) && !(strcmp($this->session->role,'admin')==0)){
+        if (!isset($this->session->role) || !(strcmp($this->session->role,'admin')==0)){
             redirect('/jeux');
         };
 
@@ -65,7 +65,7 @@ class User extends CI_Controller
 
     public function newadmin()
     {
-        if (isset($this->session->role) && !(strcmp($this->session->role,'admin')==0)){
+        if (!isset($this->session->role) || !(strcmp($this->session->role,'admin')==0)){
             redirect('/jeux');
         };
         
@@ -155,9 +155,12 @@ class User extends CI_Controller
     {
         if ($this->session->identifiant!=$identifiant){
             $this->user_model->delete_user($identifiant);
-            
-        } else {
+        } elseif ($this->session->role=='admin'){
             $this->session->set_flashdata('self_delete', 'Vous ne pouvez pas vous supprimer vous-même');
+        } else {
+            
+            $this->session->sess_destroy();
+            $this->user_model->delete_user($identifiant);
         }
 
         redirect('user/list');
