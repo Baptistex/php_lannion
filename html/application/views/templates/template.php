@@ -13,18 +13,7 @@
 
 <body>
     <header>
-        <nav>
-          <a href="<?php echo base_url();?>jeux/index"><button>Catalogue</button></a>
-          <a href="<?php echo base_url();?>collection/index"><button>Ma Collection</button></a>
-          <a href="<?php echo base_url();?>user/login"><button>Connexion</button></a>
-          <a href="<?php echo base_url();?>user/signup"><button>S'inscrire</button></a>
-          <a href="<?php echo base_url();?>user/disconnect"><button>Déconnexion</button></a>
-          <a href="<?php echo base_url();?>user/newadmin"><button>Administration</button></a>
-
-      </nav>
-      <nav>
-            <a href="<?php echo base_url();?>user/list"><button>Collectionneur</button></a>
-        </nav>
+        <?php $this->load->view($header); ?>
     </header>
     <div id="global">
         <!--# entete -->
@@ -41,6 +30,7 @@
 
         <!--#pied-->
         <div id="pied">Pied</div>
+        
         
     </div>
     <!--#global-->

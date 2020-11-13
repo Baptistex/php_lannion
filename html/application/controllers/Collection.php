@@ -12,6 +12,8 @@ class Collection extends CI_Controller
         $this->load->model('user_model');
 
         $this->load->helper('url');
+        $this->load->helper('header');
+
     }
 
 
@@ -49,6 +51,7 @@ class Collection extends CI_Controller
         $identifiant = $this->session->identifiant;
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
         $data['count'] = $this->collection_model->count_collection($identifiant);
+        set_template($data, $this->session->role);
 
         $this->load->vars($data);
         $this->load->view('templates/template');
@@ -104,6 +107,8 @@ class Collection extends CI_Controller
         $data['content'] = 'collection/collection_list';
         $data['title']='Collectionneur';
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
+        set_template($data, $this->session->role);
+
         $this->load->vars($data);
         $this->load->view('templates/template');
     }

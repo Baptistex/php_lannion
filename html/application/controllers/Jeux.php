@@ -8,6 +8,7 @@ class Jeux extends CI_Controller
         $this->load->library('session');
         $this->load->model('jeux_model');
         $this->load->helper('url');
+        $this->load->helper('header');
     }
 
     
@@ -17,8 +18,8 @@ class Jeux extends CI_Controller
         $data['content'] = 'jeux/jeux_list';
         $data['jeuxlist'] = $this->jeux_model->get_jeux();
 
+        set_template($data, $this->session->role);
         $this->load->vars($data);
-        echo $this->session->identifiant;
         $this->load->view('templates/template');
     }
 
@@ -34,7 +35,7 @@ class Jeux extends CI_Controller
         $data['title'] = '';
         $data['content'] = 'jeux/jeux_game';
         $data['gamedata'] = $gamedata[0];
-
+        set_template($data, $this->session->role);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }

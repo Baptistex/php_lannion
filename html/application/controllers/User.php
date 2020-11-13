@@ -6,9 +6,10 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
-
         $this->load->model('user_model');
         $this->load->helper('url');
+        $this->load->helper('header');
+
     }
     
     private function hash_password($password){
@@ -27,6 +28,7 @@ class User extends CI_Controller
         $data['title'] = 'Liste des utilisateurs';
         $data['content'] = 'user/user_list';
         $data['userlist'] = $this->user_model->get_user_role();
+        set_template($data, $this->session->role);
         $this->load->vars($data);
         $this->load->view('templates/template');
 
@@ -59,6 +61,8 @@ class User extends CI_Controller
         }
         $data['title'] = 'Inscription d\'un utilisateur';
         $data['content'] = 'user/user_signup';
+        set_template($data, $this->session->role);
+
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -91,6 +95,8 @@ class User extends CI_Controller
         }
         $data['title'] = 'Ajout d\'un administrateur';
         $data['content'] = 'user/user_signup';
+        set_template($data, $this->session->role);
+
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -146,6 +152,7 @@ class User extends CI_Controller
 
         $data['title'] = 'Connexion d\'un utilisateur';
         $data['content'] = 'user/user_login';
+        set_template($data, $this->session->role);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -165,5 +172,5 @@ class User extends CI_Controller
 
         redirect('user/list');
     }
-
+    //TODO: function delete_self() avec message de confirmation
 }
