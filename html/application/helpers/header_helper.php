@@ -17,9 +17,6 @@ function set_template(&$data, $role){
         $data['header'] = 'templates/header_off';
     }
 
-
-
-
 }
 
 

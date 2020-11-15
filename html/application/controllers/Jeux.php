@@ -14,6 +14,7 @@ class Jeux extends CI_Controller
     
     public function index()
     {
+        //TODO: dans le header: afficher le pseudo echo $this->session->identifiant;
         $data['title'] = 'Liste des jeux';
         $data['content'] = 'jeux/jeux_list';
         $data['jeuxlist'] = $this->jeux_model->get_jeux();
