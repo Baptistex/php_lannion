@@ -3,7 +3,7 @@
 <h2><?php echo $title ?></h2>
 
 <div id="carte" class="row col-lg-12 offset-lg-1 d-none d-lg-block">
-    <?php foreach($collectionlist as $jeu):?>
+<?php foreach($collectionlist as $jeu):?>
     <div class="example-1 card ">
         <div class="wrapper">
             <img src="<?php echo $jeu['couverture']?>" width="272.95">
@@ -16,5 +16,10 @@
                     <p class="text"><?php echo $jeu['description']?></p>
                 </div>
             </div>
-            <?php echo $delete?>
+        </div>
+        <?php echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');?>
+    </div>
+    <?php endforeach ?>
+</div>
+<?php echo $delete?>
 
