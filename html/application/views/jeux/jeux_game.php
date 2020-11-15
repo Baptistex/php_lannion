@@ -5,7 +5,7 @@
         <img src="<?php echo $gamedata['couverture']?>" width="300" height="600">
     </div>
     <div>
-        <label>Nom du jeu : <?php echo $gamedata['titre']?>label><br>
+        <label>Nom du jeu : <?php echo $gamedata['titre']?></label><br>
         <label>ID : <?php echo $gamedata['id']?></label><br>
         <label>Date de sortie : <?php echo $gamedata['sortie']?></label>
     </div>
