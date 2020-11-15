@@ -12,6 +12,8 @@ class Collection extends CI_Controller
         $this->load->model('user_model');
 
         $this->load->helper('url');
+        $this->load->helper('header');
+
     }
 
 
@@ -26,16 +28,30 @@ class Collection extends CI_Controller
             //redirige sur jeux par défaut
             redirect('jeux');
         }
-
+        $identifiant = $this->session->identifiant;
         
         $data['title'] = 'Liste des jeux possédés';
+
+
+        $var=$this->user_model->log_user($identifiant);
         
-        
+        if (($this->session->role)=='admin'){
+            $data['delete'] = "";
+        } else {
+            $data['delete'] = "<a href='".base_url()."user/delete/".$identifiant."'><button>Supprimer mon compte</button></a>";
+        }
+       
+
+        $data ['identifiant']=$identifiant;
+        $data ['nom']= $var['nom'];
+        $data ['prenom']= $var['prenom'];
+
 
         $data['content'] = 'collection/collection_list';
         $identifiant = $this->session->identifiant;
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
         $data['count'] = $this->collection_model->count_collection($identifiant);
+        set_template($data, $this->session->role);
 
         $this->load->vars($data);
         $this->load->view('templates/template');
@@ -77,7 +93,7 @@ class Collection extends CI_Controller
     public function collection($identifiant)
     {
         
-        if (!isset($this->session->role) && !$this->session->role=='admin'){
+        if (!isset($this->session->role) && !($this->session->role=='admin')){
             redirect('/jeux');
         };
 
@@ -87,9 +103,12 @@ class Collection extends CI_Controller
         $data ['identifiant']=$identifiant;
         $data ['nom']= $var['nom'];
         $data ['prenom']= $var['prenom'];
+
         $data['content'] = 'collection/collection_list';
         $data['title']='Collectionneur';
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
+        set_template($data, $this->session->role);
+
         $this->load->vars($data);
         $this->load->view('templates/template');
     }

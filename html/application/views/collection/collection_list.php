@@ -16,8 +16,5 @@
                     <p class="text"><?php echo $jeu['description']?></p>
                 </div>
             </div>
-        </div>
-        <?php echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');?>
-    </div>
-    <?php endforeach ?>
-</div>
+            <?php echo $delete?>
+

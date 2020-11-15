@@ -6,9 +6,10 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
-
         $this->load->model('user_model');
         $this->load->helper('url');
+        $this->load->helper('header');
+
     }
     
     private function hash_password($password){
@@ -20,13 +21,14 @@ class User extends CI_Controller
     {
         //Titre de la page
 
-        if (isset($this->session->role) && !$this->session->role=='admin'){
+        if (!isset($this->session->role) || !(strcmp($this->session->role,'admin')==0)){
             redirect('/jeux');
         };
 
         $data['title'] = 'Liste des utilisateurs';
         $data['content'] = 'user/user_list';
         $data['userlist'] = $this->user_model->get_user_role();
+        set_template($data, $this->session->role);
         $this->load->vars($data);
         $this->load->view('templates/template');
 
@@ -59,18 +61,22 @@ class User extends CI_Controller
         }
         $data['title'] = 'Inscription d\'un utilisateur';
         $data['content'] = 'user/user_signup';
+        set_template($data, $this->session->role);
+
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
 
     public function newadmin()
     {
-        if (isset($this->session->role) && !$this->session->role=='admin'){
+        if (!isset($this->session->role) || !(strcmp($this->session->role,'admin')==0)){
             redirect('/jeux');
         };
+        
+
+
         $this->load->helper('form');
         $this->load->library('form_validation');
-        //TODO: verification du mot de passe
         $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', array('required' => 'Un identifiant est nécessaire.'));
         $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
         $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
@@ -89,6 +95,8 @@ class User extends CI_Controller
         }
         $data['title'] = 'Ajout d\'un administrateur';
         $data['content'] = 'user/user_signup';
+        set_template($data, $this->session->role);
+
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -113,8 +121,8 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         
-        $this->form_validation->set_rules('identifiant', 'Pseudo', 'required');
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required');
+        $this->form_validation->set_rules('identifiant', 'Pseudo', 'required', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Un mot de passe est nécessaire.'));
 
         
         if ($this->form_validation->run() !== FALSE) {
@@ -144,6 +152,7 @@ class User extends CI_Controller
 
         $data['title'] = 'Connexion d\'un utilisateur';
         $data['content'] = 'user/user_login';
+        set_template($data, $this->session->role);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -153,8 +162,15 @@ class User extends CI_Controller
     {
         if ($this->session->identifiant!=$identifiant){
             $this->user_model->delete_user($identifiant);
-            redirect('user/list');
+        } elseif ($this->session->role=='admin'){
+            $this->session->set_flashdata('self_delete', 'Vous ne pouvez pas vous supprimer vous-même');
+        } else {
+            
+            $this->session->sess_destroy();
+            $this->user_model->delete_user($identifiant);
         }
-    }
 
+        redirect('user/list');
+    }
+    //TODO: function delete_self() avec message de confirmation
 }
