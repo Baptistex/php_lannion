@@ -15,20 +15,8 @@
         <?php $this->load->view($header); ?>
     </header>
     <div id="global">
-        <!--# entete -->
-        <div id="entete">
-            <?php echo "<h2><a href='". base_url().'collection'."'>Collection</a>"  ?>
-        </div>
-
-
-
-
         <!--# contenu -->
         <div id="contenu"><?php $this->load->view($content); ?></div>
-
-        <!--#pied-->
-
-
     </div>
     <!--#global-->
     <div class="d-none d-lg-block">
