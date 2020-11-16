@@ -93,13 +93,20 @@ class Collection extends CI_Controller
     public function collection($identifiant)
     {
         
-        if (!isset($this->session->role) && !($this->session->role=='admin')){
+        if (!isset($this->session->role) || !($this->session->role=='admin')){
             redirect('/jeux');
         };
 
         $var=$this->user_model->log_user($identifiant);
         
 
+        if (($this->session->identifiant)==$identifiant){
+            $data['delete'] = "";
+        } else {
+            $data['delete'] =  "<a href='".base_url()."user/delete/".$identifiant."'><button>Supprimer le compte</button></a>";
+        }
+
+        
         $data ['identifiant']=$identifiant;
         $data ['nom']= $var['nom'];
         $data ['prenom']= $var['prenom'];

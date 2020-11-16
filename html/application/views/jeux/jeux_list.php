@@ -1,8 +1,10 @@
 <h2><?php echo $title ?></h2>
 
 <div class="recherche">
-    <input type="text" placeholder="Rechercher un jeu">
+    <?php echo form_open('jeux/index') ?>
+    <input type="text" name="searchtext" placeholder="Rechercher un jeu">
     <div class="search"></div>
+    </form>
 </div>
 
 <div class="col-lg-10 offset-lg-1">

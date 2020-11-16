@@ -25,4 +25,14 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
+    public function get_search($text){
+        $query = $this->db
+        ->select("*")
+        ->from("_jeu")
+        // Produit: WHERE `titre` LIKE '%text%' ESCAPE '!'
+        ->like('LOWER(titre)', strtolower($text), 'both')
+        ->get();
+        return $query->result_array();
+    }
+
 }

@@ -21,7 +21,7 @@ class User extends CI_Controller
     {
         //Titre de la page
 
-        if (!isset($this->session->role) || !(strcmp($this->session->role,'admin')==0)){
+        if (!isset($this->session->role) || $this->session->role!='admin'){
             redirect('/jeux');
         };
 
