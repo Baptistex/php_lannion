@@ -76,7 +76,7 @@ class User_model extends CI_Model
         ->from("_user")
         ->where('identifiant', $identifiant)
         ->get();
-        return $query->result_array()[0];
+        return $query->result_array();
     }
 
     public function get_user_role(){
