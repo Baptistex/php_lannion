@@ -10,6 +10,8 @@ BUGFIXES:
 -titres cachés par le header
 -Header de la page game
 -Bouton de la page game dans la box
+-Deplacer le "connecté en tant que"
+-titre du site, logo?
 
 Possiblement: 
 -Ajax pour la barre de recherche
@@ -21,3 +23,5 @@ Joli code:
 Query de la forme de CodeIgniter
 Commentaire
 Indentation correcte
+renommer les controllers, etc?
+routes
