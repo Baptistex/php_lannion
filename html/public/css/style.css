@@ -548,8 +548,8 @@ a {
 /*Page jeu*/
 
 label{
-    padding-top: 8em;
-    margin-left: 12em;
+    padding-top: 15%;
+    padding-left: 5%;
 }
 
 #bouton{
@@ -558,7 +558,24 @@ label{
 }
 
 #description{
+    padding-top: 2%;
     padding-left: 20%;
+    font-size: xx-large;
+    color: white;
+}
+
+#game{
+    padding-top: 10%;
+    padding-left: 20%;
+}
+
+#labeljeux{
+    font-size: xx-large;
+    color: white;
+}
+
+#jeux_game{
+    padding-left: 17%;
 }
 
 /*-------------------------------------------------------------*/
