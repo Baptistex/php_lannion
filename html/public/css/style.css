@@ -199,12 +199,13 @@ nav {
 }
 
 .recherche {
-    position: absolute;
+    position: fixed;
     right: 1em;
-    top: 10em; 
+    top: 0.5em; 
 	margin: auto;
 	width: 300px;
-	height: 100px;
+    height: 100px;
+    z-index: 2;
 }
  .recherche .search {
 	 position: absolute;
