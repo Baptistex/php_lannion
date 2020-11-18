@@ -33,7 +33,7 @@ class Collection extends CI_Controller
         $data['title'] = 'Liste des jeux possédés';
 
 
-        $var=$this->user_model->log_user($identifiant);
+        $var=$this->user_model->log_user($identifiant)[0];
         
         if (($this->session->role)=='admin'){
             $data['delete'] = "";
