@@ -8,6 +8,8 @@ TODO:
 BUGFIXES:
 
 -titres cachés par le header
+-Header de la page game
+-Bouton de la page game dans la box
 
 Possiblement: 
 -Ajax pour la barre de recherche
@@ -18,3 +20,4 @@ Possiblement:
 Joli code:
 Query de la forme de CodeIgniter
 Commentaire
+Indentation correcte
