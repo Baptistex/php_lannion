@@ -16,6 +16,6 @@ TODO:
 
 Possiblement: 
 -Ajax pour la barre de recherche
--Produit séléctionnés par les admins
--Produit les plus récents
+-Produits séléctionnés par les admins
+-Produits les plus récents
 

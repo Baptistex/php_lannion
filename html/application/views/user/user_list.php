@@ -26,6 +26,9 @@
             </tr>
 
             <?php endforeach ?>
+            <tr>
+                <td colspan="6"><?php echo anchor('user/newadmin','<button>Ajouter un administrateur</button>');?></td>
+            </tr>
         </table>
     </div>
 </div>

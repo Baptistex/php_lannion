@@ -7,7 +7,6 @@
                 <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
                 <a href="<?php echo base_url();?>collection/index"><button class="raise">Ma Collection</button></a>
                 <a href="<?php echo base_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>
-                <a href="<?php echo base_url();?>user/newadmin"><button class="raise">Administration</button></a>
                 <a href="<?php echo base_url();?>user/list"><button class="raise">Collectionneur</button></a>
             </div>
             

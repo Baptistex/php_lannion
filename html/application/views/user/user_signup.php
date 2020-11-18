@@ -1,6 +1,6 @@
 
 
-<h1 id="connexion">S'inscrire</h1>
+<h1 id="connexion"><?php echo $title?></h1>
 <?php echo validation_errors(); ?>
 <?php echo form_open('user/signup') ?>
     <div class="container">
