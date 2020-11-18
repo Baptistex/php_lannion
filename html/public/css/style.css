@@ -311,7 +311,7 @@ nav {
 /*Liste des jeux du catalogue*/
 
 .list li {
-    background-color: #034378;
+    background-color: yellow;
     border-bottom: 1px solid #ccc;
     display: table;
     border-collapse: collapse;
