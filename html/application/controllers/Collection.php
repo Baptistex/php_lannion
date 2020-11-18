@@ -43,6 +43,7 @@ class Collection extends CI_Controller
         $data ['identifiant']=$identifiant;
         $data ['nom']= $var['nom'];
         $data ['prenom']= $var['prenom'];
+        $data ['isadmin'] = FALSE;
 
 
         $data['content'] = 'collection/collection_list';
@@ -91,7 +92,7 @@ class Collection extends CI_Controller
             redirect('/jeux');
         };
 
-        $var=$this->user_model->log_user($identifiant);
+        $var=$this->user_model->log_user($identifiant)[0];
         
 
         if (($this->session->identifiant)==$identifiant){
@@ -103,7 +104,7 @@ class Collection extends CI_Controller
         $data ['identifiant']=$identifiant;
         $data ['nom']= $var['nom'];
         $data ['prenom']= $var['prenom'];
-
+        $data ['isadmin'] = TRUE;
         $data['content'] = 'collection/collection_list';
         $data['title']='Collectionneur';
         $data['collectionlist'] = $this->collection_model->get_collection($identifiant);
