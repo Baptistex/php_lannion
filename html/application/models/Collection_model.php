@@ -11,7 +11,7 @@ class Collection_model extends CI_Model
 
     public function get_collection($identifiant)
     {
-        $request = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id  WHERE identifiant =" . $this->db->escape($identifiant).";";
+        $request = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id  WHERE identifiant =" . $this->db->escape($identifiant)." ORDER BY sortie;";
         $query = $this->db->query($request);
         return $query->result_array();
     }

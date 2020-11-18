@@ -41,7 +41,6 @@ class Jeux extends CI_Controller
         if (empty($gamedata)){
             redirect('/jeux');
         }
-        $data['title'] = '';
         $data['content'] = 'jeux/jeux_game';
         $data['gamedata'] = $gamedata[0];
         set_template($data, $this->session->role, $this->session->identifiant);
