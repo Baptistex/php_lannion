@@ -31,8 +31,6 @@ class Collection extends CI_Controller
         $identifiant = $this->session->identifiant;
         
         $data['title'] = 'Liste des jeux possédés';
-
-
         $var=$this->user_model->log_user($identifiant)[0];
         
         if (($this->session->role)=='admin'){
@@ -63,8 +61,6 @@ class Collection extends CI_Controller
         
         //TODO: handle l'erreur
         //TODO: verifier le maximum de 5 jeux et gérer le cas
-
-
         if (isset($this->session->identifiant)){
             $identifiant = $this->session->identifiant;
         } else {
@@ -86,8 +82,6 @@ class Collection extends CI_Controller
         $identifiant = $this->session->identifiant;
         $this->collection_model->rm_from_collection($identifiant, $id);
         redirect('/collection');
-
-
     }
 
     public function collection($identifiant)
@@ -105,8 +99,7 @@ class Collection extends CI_Controller
         } else {
             $data['delete'] =  "<a href='".base_url()."user/delete/".$identifiant."'><button>Supprimer le compte</button></a>";
         }
-
-        
+     
         $data ['identifiant']=$identifiant;
         $data ['nom']= $var['nom'];
         $data ['prenom']= $var['prenom'];
