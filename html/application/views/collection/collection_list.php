@@ -2,7 +2,7 @@
 
 <h2><?php echo $title ?></h2>
 
-<div id="carte" class="row col-lg-12 offset-lg-1 d-none d-lg-block">
+<div class="row col-lg-12 offset-lg-1 d-none d-lg-block">
 <?php foreach($collectionlist as $jeu):?>
     <div class="example-1 card ">
         <div class="wrapper">
@@ -21,9 +21,9 @@
     </div>
     <?php endforeach ?>
 </div>
-<div id="carte" class="col-12 offset-1 d-lg-none">
+<div class="col-12 offset-1 d-lg-none">
 <?php foreach($collectionlist as $jeu):?>
-    <div class="example-1 card ">
+    <div id="cardtel" class="example-1 card ">
         <div class="wrapper">
             <img src="<?php echo $jeu['couverture']?>" width="272.95">
             <div class="date">
