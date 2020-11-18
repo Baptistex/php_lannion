@@ -3,7 +3,7 @@
 
 <nav>
             <nav>
-            <div class="button">
+            <div class="button d-none d-lg-block">
                 <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
                 <a href="<?php echo base_url();?>collection/index"><button class="raise">Ma Collection</button></a>
                 <a href="<?php echo base_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>

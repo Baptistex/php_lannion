@@ -568,6 +568,7 @@ label{
 #demo {
     margin: 20px auto;
     width: 960px;
+    padding-top: 15%;
 }
 
 .shadow-z-1 {
