@@ -28,7 +28,7 @@ class Jeux extends CI_Controller
         }
        
 
-        set_template($data, $this->session->role);
+        set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
@@ -44,7 +44,7 @@ class Jeux extends CI_Controller
         $data['title'] = '';
         $data['content'] = 'jeux/jeux_game';
         $data['gamedata'] = $gamedata[0];
-        set_template($data, $this->session->role);
+        set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }

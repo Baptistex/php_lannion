@@ -6,7 +6,7 @@
                 <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
                 <a href="<?php echo base_url();?>user/login"><button class="raise">Connexion</button></a>
                 <a href="<?php echo base_url();?>user/signup"><button class="raise">S'inscrire</button></a>
-
+                <?php echo $pseudonyme?>
             </div>
 
         </nav>
@@ -18,6 +18,7 @@
                 <span></span>
                 <span></span>
                 <ul id="menu">
+                    <?php echo $pseudonyme?>
                     <a href="<?php echo base_url();?>jeux/index">
                         <li>Catalogue</li>
                     </a>

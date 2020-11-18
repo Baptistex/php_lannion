@@ -8,6 +8,7 @@
                 <a href="<?php echo base_url();?>collection/index"><button class="raise">Ma Collection</button></a>
                 <a href="<?php echo base_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>
                 <a href="<?php echo base_url();?>user/list"><button class="raise">Collectionneur</button></a>
+                <?php echo $pseudonyme?>
             </div>
             
         </nav>
@@ -18,7 +19,9 @@
                 <span></span>
                 <span></span>
                 <span></span>
+                
                 <ul id="menu">
+                    <?php echo $pseudonyme?>
                     <a href="<?php echo base_url();?>jeux/index">
                         <li>Catalogue</li>
                     </a>

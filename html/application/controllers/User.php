@@ -28,7 +28,7 @@ class User extends CI_Controller
         $data['title'] = 'Liste des utilisateurs';
         $data['content'] = 'user/user_list';
         $data['userlist'] = $this->user_model->get_user_role();
-        set_template($data, $this->session->role);
+        set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('templates/template');
 
@@ -61,7 +61,7 @@ class User extends CI_Controller
         }
         $data['title'] = 'Inscription d\'un utilisateur';
         $data['content'] = 'user/user_signup';
-        set_template($data, $this->session->role);
+        set_template($data, $this->session->role, $this->session->identifiant);
 
         $this->load->vars($data);
         $this->load->view('templates/template');
@@ -93,7 +93,7 @@ class User extends CI_Controller
         }
         $data['title'] = 'Ajout d\'un administrateur';
         $data['content'] = 'user/user_signup';
-        set_template($data, $this->session->role);
+        set_template($data, $this->session->role, $this->session->identifiant);
 
         $this->load->vars($data);
         $this->load->view('templates/template');
@@ -152,7 +152,7 @@ class User extends CI_Controller
 
         $data['title'] = 'Connexion d\'un utilisateur';
         $data['content'] = 'user/user_login';
-        set_template($data, $this->session->role);
+        set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }

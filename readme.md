@@ -2,7 +2,6 @@ Projet WEB de S3
 
 TODO: 
 -Header qui affiche l'identifiant de l'utilisateur connecté
--? Nouvelle vue pour la collection d'un autre utilisateur depuis un admin ?
 
 -Regler les problème de scrolling horizontal
 -Amélioration de l'affichage des messages d'erreur
