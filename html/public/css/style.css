@@ -603,6 +603,14 @@ label{
     z-index: 1;
 }
 
+#labels{
+    width: 50%;
+}
+
+#labeldescription{
+    width: 100%;
+}
+
 /*-------------------------------------------------------------*/
 /*Liste collectionneurs*/
 

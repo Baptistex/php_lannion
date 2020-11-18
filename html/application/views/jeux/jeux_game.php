@@ -5,13 +5,13 @@
     <div>
         <img src="<?php echo $gamedata['couverture']?>" width="300" height="600">
     </div>
-    <div>
+    <div id="labels">
         <label id="labeljeux">Nom du jeu : <?php echo $gamedata['titre']?></label><br>
         <label id="labeljeux">Date de sortie : <?php echo $gamedata['sortie']?></label>
     </div>
 
-<div>
-<label id="description" class="col-lg-8">Description : <?php echo $gamedata['description']?></label>
+<div id="labeldescription">
+<label id="description">Description : <?php echo $gamedata['description']?></label>
 </div>
 </div>
 </div>

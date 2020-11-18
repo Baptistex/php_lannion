@@ -1,6 +1,6 @@
 
 
-<h1 id="connexion">Connexion</h1>
+<h2 id="connexion">Connexion</h2>
 <?php echo validation_errors(); ?>
 <?php echo form_open('user/login') ?>
     <div class="container">
