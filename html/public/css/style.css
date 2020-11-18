@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: linear-gradient(to right, #034378, #2d4e68);
+    background-image: linear-gradient(to right, #bce3ff, #eff8ff);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100vh;
@@ -315,12 +315,12 @@ nav {
 /*Liste des jeux du catalogue*/
 
 .list li {
-    background-color: #034378;
-    border-bottom: 1px solid #ccc;
+    background-color: #d2d2d28f;
     display: table;
     border-collapse: collapse;
     width: 100%;
     word-break: break-word;
+    border-radius: 25px;
   }
   .inner {
     display: table-row;
@@ -354,13 +354,14 @@ nav {
   @media all and (min-width: 45em) {
     .list li {
       float: left;
-      width: 50%;
+      width: 48%;
+      margin: 1% 1%;
     }
   }
   
-  @media all and (min-width: 75em) {
+  @media all and (min-width: 90em) {
     .list li {
-      width: 33.33333%;
+      width: 31.1111%;
     }
   }
 
