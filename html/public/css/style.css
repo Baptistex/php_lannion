@@ -320,6 +320,7 @@ nav {
     display: table;
     border-collapse: collapse;
     width: 100%;
+    word-break: break-word;
   }
   .inner {
     display: table-row;

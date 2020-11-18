@@ -18,7 +18,7 @@
                     </div>
                     <div class="li-text">
                         <h4 class="li-head"><?php echo $jeu['titre']?></h4>
-                        <p class="li-sub d-none d-lg-block"><?php echo substr($jeu['description'],0,200); if (strlen($jeu['description'])>200){echo '...';}?></p>
+                        <p class="li-sub d-none d-lg-block"><?php echo substr($jeu['description'],0,100); if (strlen($jeu['description'])>100){echo '...';}?></p>
                     </div>
                 </a>
             </li>

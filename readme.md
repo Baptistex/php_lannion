@@ -1,7 +1,6 @@
 Projet WEB de S3
 
 TODO: 
--Header qui affiche l'identifiant de l'utilisateur connecté
 
 -Regler les problème de scrolling horizontal
 -Amélioration de l'affichage des messages d'erreur
