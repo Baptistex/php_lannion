@@ -2,10 +2,7 @@ Projet WEB de S3
 
 TODO: 
 
--Regler les problème de scrolling horizontal
 -Amélioration de l'affichage des messages d'erreur
--Amelioration du CSS global (charte graphique)
--Amelioration du CSS de la page catalogue
 -Amelioration du CSS de la page d'un jeu individuel
 -Amelioration du CSS de la page collection
 
@@ -14,3 +11,7 @@ Possiblement:
 -Produits séléctionnés par les admins
 -Produits les plus récents
 
+
+Joli code:
+Query de la forme de CodeIgniter
+Commentaire

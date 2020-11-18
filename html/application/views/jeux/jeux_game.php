@@ -1,5 +1,4 @@
 
-
 <div id="jeux_game">
 <div id="game" class="row col-lg-12">
     <div>
