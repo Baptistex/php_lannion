@@ -73,8 +73,6 @@ class User extends CI_Controller
             redirect('/jeux');
         };
         
-
-
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', array('required' => 'Un identifiant est nécessaire.'));

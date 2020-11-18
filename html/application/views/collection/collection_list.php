@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <?php echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');?>
+        <?php if ($isadmin==FALSE){ echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');} ?>
     </div>
     <?php endforeach ?>
 </div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <?php echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');?>
+        <?php if ($isadmin==FALSE){ echo anchor('collection/delete/'.$jeu["id"],'<button>Supprimer</button>');} ?>
     </div>
     <?php endforeach ?>
 </div>

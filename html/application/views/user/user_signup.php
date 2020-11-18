@@ -20,7 +20,6 @@
             <input type="password" name="mot_de_passe_conf" placeholder="Confirmer mot de passe" />
         </div>
         <input type="submit" name="submit" id="submit" value="Valider" /><br>
-        <button>Retour WIP</button>
     </div>
 </form>
 
