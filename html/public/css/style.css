@@ -212,7 +212,7 @@ nav {
 	margin: auto;
 	width: 300px;
     height: 100px;
-    z-index: 2;
+    z-index: 6;
 }
  .recherche .search {
 	 position: absolute;
