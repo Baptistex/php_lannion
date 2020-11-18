@@ -576,7 +576,7 @@ label{
 }
 
 #game{
-    padding-top: 20%;
+    padding-top: 10%;
     padding-left: 20%;
 }
 
@@ -691,7 +691,6 @@ label{
 .table div p {
     display: inline-block;
     width: 15%;
-    float: left;
     text-align: left;
     line-height: 200%;
     padding-top: 5%;

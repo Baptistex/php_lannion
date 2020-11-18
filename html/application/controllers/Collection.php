@@ -36,7 +36,7 @@ class Collection extends CI_Controller
         if (($this->session->role)=='admin'){
             $data['delete'] = "";
         } else {
-            $data['delete'] = "<a href='".base_url()."user/delete/".$identifiant."'><button>Supprimer mon compte</button></a>";
+            $data['delete'] = "<button class='btn btn-light'><a href='".base_url()."user/delete/".$identifiant."'>Supprimer mon compte</a></button>";
         }
        
 

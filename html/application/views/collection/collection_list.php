@@ -43,5 +43,5 @@
 </div>
     
 <div class="row col-lg-5 offset-lg-5 offset-3">
-    <button class="btn btn-light"><?php echo $delete?></button>
+    <?php echo $delete?>
 </div>
