@@ -4,7 +4,10 @@ TODO:
 
 -Amélioration de l'affichage des messages d'erreur
 -Amelioration du CSS de la page d'un jeu individuel
--Amelioration du CSS de la page collection
+
+BUGFIXES:
+
+-titres cachés par le header
 
 Possiblement: 
 -Ajax pour la barre de recherche

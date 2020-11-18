@@ -588,6 +588,15 @@ label{
 
 #jeux_game{
     padding-left: 17%;
+    margin: 10% 20%;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    background-color: rgba(240, 240, 240, .1);
+    border: 2px solid rgba(240, 240, 240, .3);
+    border-radius: 2px;
+    box-shadow: 0px 6px 17px 6px rgba(0, 0, 0, 0.46);
+    margin-bottom: 1.5em;
+    z-index: 1;
 }
 
 /*-------------------------------------------------------------*/
