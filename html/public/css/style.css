@@ -30,6 +30,11 @@ h1 {
     font-weight: 300;
 }
 
+h2{
+    padding-top: 10%;
+    text-align: center;
+}
+
 .content h1{
     font-size: 2em;
 }
@@ -351,7 +356,7 @@ nav {
   }
   
 #listejeu{
-    padding-top: 15%;
+    padding-top: 5%;
 }
 
   @media all and (min-width: 45em) {
