@@ -16,6 +16,9 @@ body {
 
 header{
     background-color: #08056a;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 
 a {
@@ -342,6 +345,10 @@ nav {
     margin: 0;
   }
   
+#listejeu{
+    padding-top: 15%;
+}
+
   @media all and (min-width: 45em) {
     .list li {
       float: left;

@@ -7,7 +7,7 @@
     </form>
 </div>
 
-<div class="col-lg-10 offset-lg-1">
+<div id="listejeu" class="col-lg-10 offset-lg-1">
     <?php foreach($jeuxlist as $jeu):?>
     <div id="pattern" class="pattern">
         <ul class="list img-list">
