@@ -2,7 +2,8 @@
 
 <h2><?php echo $title ?></h2>
 
-<div class="row col-lg-12 offset-lg-1 d-none d-lg-block">
+<div id="collec">
+<div class="row col-lg-11 offset-lg-1 d-none d-lg-block">
 <?php foreach($collectionlist as $jeu):?>
     <div class="example-1 card ">
         <div class="wrapper">
@@ -40,4 +41,7 @@
     </div>
     <?php endforeach ?>
 </div>
-<?php echo $delete?>
+<div class="col-lg-12">
+    <button><?php echo $delete?></button>
+</div>
+<div>
