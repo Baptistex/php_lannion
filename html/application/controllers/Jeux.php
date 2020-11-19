@@ -23,8 +23,10 @@ class Jeux extends CI_Controller
 
         if ($search==""){
             $data['jeuxlist'] = $this->jeux_model->get_jeux();
+            $data['recent'] = $this->jeux_model->get_recent_games();
         } else {
             $data['jeuxlist'] = $this->jeux_model->get_search($search);
+            $data['recent'] = "";
         }
        
 

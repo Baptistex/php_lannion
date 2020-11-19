@@ -8,79 +8,23 @@
 </div>
 
 <div class="row col-lg-10 offset-lg-1 d-none d-lg-block">
+    <?php foreach($recent as $jeu):?>
+    <div class="example-1 card ">
+        <div class="wrapper">
+            <img src=<?php echo $jeu['couverture']?> width="272.95">
+            <div class="date">
+                <span class="day"><?php echo $jeu['sortie']?></span>
+            </div>
+            <div class="data">
+                <div class="content">
+                    <h1 class="title"> <a href="<?php echo base_url()."jeux/game/".$jeu["id"]?>" class="inner"><?php echo $jeu['titre']?></a></h1>
+                    <p class="text"><?php echo $jeu["description"];?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach ?>
 
-    <div class="example-1 card ">
-        <div class="wrapper">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnetfrance.fr%2Fnews%2Fa-15h-la-premiere-image-d-un-trou-noir-pourrait-changer-notre-perception-de-l-univers-39883293.htm&psig=AOvVaw3OYKuwlROZrtgHf0CJhkGb&ust=1605881846645000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiPyJnmju0CFQAAAAAdAAAAABAD" width="272.95">
-            <div class="date">
-                <span class="day"><?php echo $jeu['sortie']?></span>
-            </div>
-            <div class="data">
-                <div class="content">
-                    <h1 class="title"> <a href="#" class="inner">jeu</a></h1>
-                    <p class="text">jeu</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="example-1 card ">
-        <div class="wrapper">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnetfrance.fr%2Fnews%2Fa-15h-la-premiere-image-d-un-trou-noir-pourrait-changer-notre-perception-de-l-univers-39883293.htm&psig=AOvVaw3OYKuwlROZrtgHf0CJhkGb&ust=1605881846645000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiPyJnmju0CFQAAAAAdAAAAABAD" width="272.95">
-            <div class="date">
-                <span class="day"><?php echo $jeu['sortie']?></span>
-            </div>
-            <div class="data">
-                <div class="content">
-                    <h1 class="title"> <a href="#" class="inner">jeu</a></h1>
-                    <p class="text">jeu</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="example-1 card ">
-        <div class="wrapper">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnetfrance.fr%2Fnews%2Fa-15h-la-premiere-image-d-un-trou-noir-pourrait-changer-notre-perception-de-l-univers-39883293.htm&psig=AOvVaw3OYKuwlROZrtgHf0CJhkGb&ust=1605881846645000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiPyJnmju0CFQAAAAAdAAAAABAD" width="272.95">
-            <div class="date">
-                <span class="day"><?php echo $jeu['sortie']?></span>
-            </div>
-            <div class="data">
-                <div class="content">
-                    <h1 class="title"> <a href="#" class="inner">jeu</a></h1>
-                    <p class="text">jeu</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="example-1 card ">
-        <div class="wrapper">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnetfrance.fr%2Fnews%2Fa-15h-la-premiere-image-d-un-trou-noir-pourrait-changer-notre-perception-de-l-univers-39883293.htm&psig=AOvVaw3OYKuwlROZrtgHf0CJhkGb&ust=1605881846645000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiPyJnmju0CFQAAAAAdAAAAABAD" width="272.95">
-            <div class="date">
-                <span class="day"><?php echo $jeu['sortie']?></span>
-            </div>
-            <div class="data">
-                <div class="content">
-                    <h1 class="title"> <a href="#" class="inner">jeu</a></h1>
-                    <p class="text">jeu</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="example-1 card ">
-        <div class="wrapper">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnetfrance.fr%2Fnews%2Fa-15h-la-premiere-image-d-un-trou-noir-pourrait-changer-notre-perception-de-l-univers-39883293.htm&psig=AOvVaw3OYKuwlROZrtgHf0CJhkGb&ust=1605881846645000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiPyJnmju0CFQAAAAAdAAAAABAD" width="272.95">
-            <div class="date">
-                <span class="day"><?php echo $jeu['sortie']?></span>
-            </div>
-            <div class="data">
-                <div class="content">
-                    <h1 class="title"> <a href="#" class="inner">jeu</a></h1>
-                    <p class="text">jeu</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </div>
                     

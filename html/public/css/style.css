@@ -449,6 +449,8 @@ nav {
 
 .card .title {
     margin-top: 10px;
+    padding-left: 0 !important;
+
 }
 
 
