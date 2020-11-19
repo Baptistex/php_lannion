@@ -2,9 +2,10 @@
 
 <div id="demo">
 
-
+<?php echo $this->session->flashdata('self_delete');?>
     <div class="shadow-z-1">
         <!-- Table starts here -->
+        
         <table id="table" class="table table-hover table-mc-light-blue">
             <thead>
                 <tr>
@@ -22,7 +23,7 @@
                 <td><?php echo $user['prenom']?></td>
                 <td><?php echo $user['role']?></td>
                 <td><?php echo anchor('collection/collection/'.$user["identifiant"],'<button>Consulter</button>');?></td>
-                <td><?php echo anchor('user/delete/'.$user["identifiant"],'<button>Supprimer</button>');?></td>
+                <td><?php if ($adminid!=$user["identifiant"]) {echo anchor('user/delete/'.$user["identifiant"],'<button>Supprimer</button>');}?></td>    
             </tr>
 
             <?php endforeach ?>

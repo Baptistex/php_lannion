@@ -19,7 +19,7 @@ class User extends CI_Controller
   
     public function list()
     {
-        //Titre de la page
+        //Fonction pour la page affichant la liste des utilisateurs (visible seulement par un admin)
 
         if (!isset($this->session->role) || $this->session->role!='admin'){
             redirect('/jeux');
@@ -42,13 +42,18 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         //TODO: verification du mot de passe
-        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', array('required' => 'Un identifiant est nécessaire.'));
-        $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
-        $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Un identifiant est nécessaire.</div>'));
+        $this->form_validation->set_rules('nom', 'Nom', 'required',  
+        array('required' => '<div class="alert alert-danger" role="alert">Le nom est nécessaire.</div>'));
+        $this->form_validation->set_rules('prenom', 'Prenom', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Le prénom est nécessaire.</div>'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Le mot de passe est nécessaire.</div>'));
         $this->form_validation->set_rules('mot_de_passe_conf', 'Confirmation du mot de passe', 'required|matches[mot_de_passe]', 
         array(
-            'required' => 'Le mot de passe doit être confirmé.', 'matches' => 'Le mot de passe doit être identique.'
+            'required' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être confirmé.</div>', 
+            'matches' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être identique.</div>'
         ));
 
         if ($this->form_validation->run() !== FALSE) {
@@ -75,13 +80,18 @@ class User extends CI_Controller
         
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', array('required' => 'Un identifiant est nécessaire.'));
-        $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
-        $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Un identifiant est nécessaire.</div>'));
+        $this->form_validation->set_rules('nom', 'Nom', 'required',  
+        array('required' => '<div class="alert alert-danger" role="alert">Le nom est nécessaire.</div>'));
+        $this->form_validation->set_rules('prenom', 'Prenom', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Le prénom est nécessaire.</div>'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Le mot de passe est nécessaire.</div>'));
         $this->form_validation->set_rules('mot_de_passe_conf', 'Confirmation du mot de passe', 'required|matches[mot_de_passe]', 
         array(
-            'required' => 'Le mot de passe doit être confirmé.', 'matches' => 'Le mot de passe doit être identique.'
+            'required' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être confirmé.</div>', 
+            'matches' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être identique.</div>'
         ));
 
         if ($this->form_validation->run() !== FALSE) {
@@ -119,8 +129,10 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         
-        $this->form_validation->set_rules('identifiant', 'Pseudo', 'required', array('required' => 'Un identifiant est nécessaire.'));
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Un mot de passe est nécessaire.'));
+        $this->form_validation->set_rules('identifiant', 'Pseudo', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Un identifiant est nécessaire.</div>'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', 
+        array('required' => '<div class="alert alert-danger" role="alert">Un mot de passe est nécessaire.</div>'));
 
         
         if ($this->form_validation->run() !== FALSE) {
@@ -135,9 +147,9 @@ class User extends CI_Controller
 
             //TODO: mettre dans la vue
             if (empty($user_info)){
-                echo "Utilisateur Invalide ! ";
+                $this->session->set_flashdata('login_attempt', '<div class="alert alert-danger" role="alert">Utilisateur Invalide !</div>');
             } elseif (!password_verify($password, $user_info[0]['mot_de_passe'])){
-                echo "Mot de passe invalide !";
+                $this->session->set_flashdata('login_attempt', '<div class="alert alert-danger" role="alert">Mot de passe incorrect !</div>');
             } else {
                 
                 $this->session->role = $this->user_model->get_role($identifiant);
@@ -163,7 +175,7 @@ class User extends CI_Controller
         if ($this->session->identifiant!=$identifiant){
             $this->user_model->delete_user($identifiant);
         } elseif ($this->session->role=='admin'){
-            $this->session->set_flashdata('self_delete', 'Vous ne pouvez pas vous supprimer vous-même');
+            $this->session->set_flashdata('self_delete', '<div class="alert alert-danger" role="alert">Vous ne pouvez pas vous supprimer vous-même en tant qu\'admin.</div>');
         } else {
             
             $this->session->sess_destroy();

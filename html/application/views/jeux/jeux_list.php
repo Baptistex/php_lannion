@@ -14,7 +14,7 @@
             <li>
                 <a href="<?php echo base_url()."jeux/game/".$jeu["id"]?>" class="inner">
                     <div class="li-img">
-                        <img src="<?php echo $jeu['couverture']?>" width="200" height="300">
+                        <img src="<?php echo $jeu['couverture']?>" width="200" height="240">
                     </div>
                     <div class="li-text">
                         <h4 class="li-head"><?php echo $jeu['titre']?></h4>

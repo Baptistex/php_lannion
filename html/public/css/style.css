@@ -35,7 +35,10 @@ h1 {
 }
 
 h2{
-    padding-top: 10%;
+    padding-top: 5em;
+    text-align: center;
+}
+h4{
     text-align: center;
 }
 
@@ -72,6 +75,9 @@ nav {
     margin-top: 2em;
 }
 
+.btn-light{
+    background-color: #94ffc9 !important;
+}
 
 /*--------------------------------------------------------------------------------------------*/
 /*menu burger*/
@@ -424,6 +430,12 @@ nav {
     padding: 1em;
     position: relative;
     z-index: 1;
+    color: white;
+    transition: 0.3s;
+}
+
+.card .data .content:hover {
+    color: black;
 }
 
 .card .author {
@@ -434,18 +446,13 @@ nav {
     margin-top: 10px;
 }
 
+
 .card .text {
     height: 70px;
     margin: 0;
 }
 
-.text{
-    color: white;
-}
 
-.text:hover{
-    color: black;
-}
 
 .card input[type='checkbox'] {
     display: none;
@@ -494,11 +501,11 @@ nav {
 
 
 .container {
-    width: 500px;
+    width: 500px !important;
     height: 400px;
     text-align: center;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 4em;
     border-radius: 5px;
 }
 
@@ -569,8 +576,8 @@ a {
 /*Page jeu*/
 
 label{
-    padding-top: 15%;
-    padding-left: 5%;
+    padding-top: 1em;
+    padding-left: 1em;
 }
 
 #bouton{
@@ -623,7 +630,7 @@ label{
 #demo {
     margin: 20px auto;
     width: 960px;
-    padding-top: 15%;
+    padding-top: 2%;
 }
 
 .shadow-z-1 {

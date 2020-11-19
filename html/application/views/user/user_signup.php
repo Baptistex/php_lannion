@@ -1,9 +1,10 @@
 
 
 <h2 id="connexion"><?php echo $title?></h2>
-<?php echo validation_errors(); ?>
 <?php echo form_open('user/signup') ?>
     <div class="container">
+    <?php echo validation_errors(); ?>
+
         <div class="form-input">
             <input type="text" name="nom" placeholder="Nom" />
         </div>

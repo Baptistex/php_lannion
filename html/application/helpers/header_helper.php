@@ -15,6 +15,8 @@ function set_template(&$data, $role, $identifiant){
     } elseif ($role=='admin'){
         $data['header'] = 'templates/header_admin';
         $data['pseudonyme'] = 'Connecté(e) en tant que : '.$identifiant;
+        $data['adminid'] = $identifiant;
+
     } else {
         //Dans le cas d'une erreur, affiche le header deconnecté
         $data['header'] = 'templates/header_off';

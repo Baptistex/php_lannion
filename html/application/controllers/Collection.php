@@ -65,6 +65,8 @@ class Collection extends CI_Controller
         if (isset($this->session->identifiant)){
             $identifiant = $this->session->identifiant;
         } else {
+            $this->session->set_flashdata('add_attempt', '<div class="alert alert-danger" role="alert">Connectez vous avant de pouvoir ajouter un jeu !</div>');
+
             redirect('jeux/game/'.$id);
         }
         if ($this->collection_model->count_collection($identifiant)>=5){
@@ -74,6 +76,8 @@ class Collection extends CI_Controller
         if ($this->collection_model->add_to_collection($identifiant, $id)){
             redirect('collection');
         } else {
+            $this->session->set_flashdata('add_attempt', '<div class="alert alert-danger" role="alert">Le jeu est déjà présent dans votre collection !</div>');
+
             redirect('jeux/game/'.$id);
         }     
     }

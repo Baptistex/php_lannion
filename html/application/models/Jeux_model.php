@@ -34,5 +34,16 @@ class Jeux_model extends CI_Model
         ->get();
         return $query->result_array();
     }
+    
+    public function get_recent_games(){
+        $query = $this->db
+        ->select("*")
+        ->from("_jeu")
+        ->where("sortie !=", "null")
+        ->order_by("sortie", "DESC")
+        ->limit(5)
+        ->get();
+        return $query->result_array();
+    }
 
 }

@@ -48,8 +48,8 @@ class Jeux extends CI_Controller
         $this->load->view('templates/template');
     }
 
-    public function search(){
-        
+    public function last_releases(){
+        print_r($this->jeux_model->get_recent_games());
     }
 
 

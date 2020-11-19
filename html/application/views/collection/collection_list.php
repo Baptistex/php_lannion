@@ -1,6 +1,7 @@
-<?php echo $identifiant ." ".$nom ." ".$prenom;  ?>
 
 <h2><?php echo $title ?></h2>
+
+<h4><?php echo "Collection de: ".$prenom ." \"".$identifiant."\" ".$nom ;  ?></h4>
 
 
 <div class="row offset-lg-1 col-lg-11 center d-none d-lg-block">
