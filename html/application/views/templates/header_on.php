@@ -3,11 +3,11 @@
 </div>
 
 <div class="row">
+    <div class="d-none d-lg-block">
+        <h1>LANNION GAME</h1>
+    </div>
     <div>
-<h1>LANNION GAME</h1>
-</div>
-<div>
-<nav>
+        <nav>
             <div class="button d-none d-lg-block">
                 <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
                 <a href="<?php echo base_url();?>collection/index"><button class="raise">Ma Collection</button></a>
@@ -38,5 +38,7 @@
                 </ul>
             </div>
         </nav>
+        <div class="d-block d-lg-none">
+<h1>LANNION GAME</h1>
 </div>
 </div>
