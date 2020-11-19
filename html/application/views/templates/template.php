@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/js/bootstrap.min.js">
     <script src="<?php echo base_url(); ?>public/js/jquery-1.11.3.min.js"></script>
 </head>
 
