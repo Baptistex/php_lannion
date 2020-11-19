@@ -7,7 +7,7 @@
     </form>
 </div>
 
-<div class="row col-lg-10 offset-lg-1 d-none d-lg-block">
+<div class="row col-lg-12 d-none d-lg-block">
 
     <div class="example-1 card ">
         <div class="wrapper">
