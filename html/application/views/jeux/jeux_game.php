@@ -13,9 +13,12 @@
 <div id="labeldescription">
 <label id="description"><?php echo $gamedata['description']?></label>
 </div>
-</div>
-</div>
-</div>
-<div id="bouton">
+<div id="bouton" class="offset-lg-10">
     <?php echo anchor('collection/add/'.$gamedata["id"],'<button class="btn btn-light">Ajouter à la collection</button>');?>
 </div>
+</div>
+
+</div>
+
+</div>
+

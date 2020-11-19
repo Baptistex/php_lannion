@@ -21,6 +21,10 @@ header{
     z-index: 4;
 }
 
+#pseudo{
+    color: white;
+}
+
 a {
     text-decoration: none;
 }
