@@ -7,11 +7,11 @@ BUGFIXES:
 
 Possiblement: 
 -Ajax pour la barre de recherche
--Produits les plus récents
-
-
 
 Joli code:
+Titre Lannion Game centré en vertical
+Pages sans scroll nécessaire
+
 Query de la forme de CodeIgniter
 Commentaire
 Indentation correcte
