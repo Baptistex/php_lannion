@@ -5,8 +5,12 @@ TODO:
 
 BUGFIXES:
 
+
+Verifier tous les boutons
 Possiblement: 
--Ajax pour la barre de recherche
+
+
+
 
 Joli code:
 Titre Lannion Game centré en vertical

@@ -21,14 +21,18 @@ class Jeux extends CI_Controller
         $data['title'] = 'Liste des jeux';
         $data['content'] = 'jeux/jeux_list';
 
+        $data['jeuxlist'] = $this->jeux_model->get_jeux();
+        $data['recent'] = $this->jeux_model->get_recent_games();
+        /*
         if ($search==""){
             $data['jeuxlist'] = $this->jeux_model->get_jeux();
             $data['recent'] = $this->jeux_model->get_recent_games();
+
         } else {
             $data['jeuxlist'] = $this->jeux_model->get_search($search);
-            $data['recent'] = "";
+            $data['recent'] = array();
         }
-       
+       */
 
         set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
@@ -50,11 +54,27 @@ class Jeux extends CI_Controller
         $this->load->view('templates/template');
     }
 
-    public function last_releases(){
-        print_r($this->jeux_model->get_recent_games());
+    public function ajax_search(){
+        $this->load->library('form_validation');
+        $search = $this->input->post('searchtext');
+
+        
+        $data['title'] = 'Liste des jeux';
+        $data['content'] = 'jeux/jeux_list';
+
+        if ($search==""){
+            $data['jeuxlist'] = $this->jeux_model->get_jeux();
+            $data['recent'] = $this->jeux_model->get_recent_games();
+        } else {
+            $data['jeuxlist'] = $this->jeux_model->get_search($search);
+            $data['recent'] = array();
+        }
+       
+
+        set_template($data, $this->session->role, $this->session->identifiant);
+        $this->load->vars($data);
+        $this->load->view('jeux/jeux_list_ajax');
     }
-
-
-    
+  
 
 }

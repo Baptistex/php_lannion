@@ -136,16 +136,12 @@ class User extends CI_Controller
 
         
         if ($this->form_validation->run() !== FALSE) {
-            //TODO changer la structure, retirer le try
-            //TODO changer les exceptions
 
             $identifiant = $this->input->post('identifiant');
             $password = $this->input->post('mot_de_passe');
             
             $user_info = $this->user_model->log_user($identifiant);
 
-
-            //TODO: mettre dans la vue
             if (empty($user_info)){
                 $this->session->set_flashdata('login_attempt', '<div class="alert alert-danger" role="alert">Utilisateur Invalide !</div>');
             } elseif (!password_verify($password, $user_info[0]['mot_de_passe'])){
@@ -184,5 +180,4 @@ class User extends CI_Controller
 
         redirect('user/list');
     }
-    //TODO: function delete_self() avec message de confirmation
 }
