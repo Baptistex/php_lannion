@@ -1,6 +1,10 @@
 
 
-
+<div class="row">
+    <div>
+<h1>LANNION GAME</h1>
+</div>
+<div>
 <nav>
             <div class="button d-none d-lg-block">
                 <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
@@ -32,4 +36,5 @@
             </div>
         </nav>
 
-</nav>
+</div>
+</div>

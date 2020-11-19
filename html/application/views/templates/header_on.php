@@ -1,6 +1,12 @@
 <div id="pseudo" class="d-none d-lg-block">
     <?php echo $pseudonyme?>
 </div>
+
+<div class="row">
+    <div>
+<h1>LANNION GAME</h1>
+</div>
+<div>
 <nav>
             <div class="button d-none d-lg-block">
                 <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
@@ -32,3 +38,5 @@
                 </ul>
             </div>
         </nav>
+</div>
+</div>
