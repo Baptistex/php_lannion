@@ -1,9 +1,9 @@
 
 
 <div class="row">
-    <div>
-<h1>LANNION GAME</h1>
-</div>
+    <div class="d-none d-lg-block">
+        <h1>LANNION GAME</h1>
+    </div>
 <div>
 <nav>
             <div class="button d-none d-lg-block">
@@ -35,6 +35,7 @@
                 </ul>
             </div>
         </nav>
-
+        <div class="d-block d-lg-none">
+<h1>LANNION GAME</h1>
 </div>
 </div>
