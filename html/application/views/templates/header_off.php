@@ -9,9 +9,9 @@
 
     <div class="button d-none d-lg-block">
 
-                <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
-                <a href="<?php echo base_url();?>user/login"><button class="raise">Connexion</button></a>
-                <a href="<?php echo base_url();?>user/signup"><button class="raise">S'inscrire</button></a>
+                <a href="<?php echo site_url();?>jeux/index"><button class="raise">Catalogue</button></a>
+                <a href="<?php echo site_url();?>user/login"><button class="raise">Connexion</button></a>
+                <a href="<?php echo site_url();?>user/signup"><button class="raise">S'inscrire</button></a>
                 <?php echo $pseudonyme?>
             </div>
 
@@ -26,13 +26,13 @@
                 <span></span>
                 <ul id="menu">
                     <?php echo $pseudonyme?>
-                    <a href="<?php echo base_url();?>jeux/index">
+                    <a href="<?php echo site_url();?>jeux/index">
                         <li>Catalogue</li>
                     </a>
-                    <a href="<?php echo base_url();?>user/login">
+                    <a href="<?php echo site_url();?>user/login">
                         <li>Connexion</li>
                     </a>
-                    <a href="<?php echo base_url();?>user/signup">
+                    <a href="<?php echo site_url();?>user/signup">
                         <li>S'inscrire</li>
                     </a>
                 </ul>

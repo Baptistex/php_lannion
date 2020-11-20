@@ -9,10 +9,10 @@
 <div>
             <nav>
             <div class="button d-none d-lg-block">
-                <a href="<?php echo base_url();?>jeux/index"><button class="raise">Catalogue</button></a>
-                <a href="<?php echo base_url();?>collection/index"><button class="raise">Ma Collection</button></a>
-                <a href="<?php echo base_url();?>user/list"><button class="raise">Collectionneur</button></a>
-                <a href="<?php echo base_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>
+                <a href="<?php echo site_url();?>jeux/index"><button class="raise">Catalogue</button></a>
+                <a href="<?php echo site_url();?>collection/index"><button class="raise">Ma Collection</button></a>
+                <a href="<?php echo site_url();?>user/list"><button class="raise">Collectionneur</button></a>
+                <a href="<?php echo site_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>
             </div>
             
         </nav>
@@ -26,18 +26,18 @@
                 
                 <ul id="menu">
                     <?php echo $pseudonyme?>
-                    <a href="<?php echo base_url();?>jeux/index">
+                    <a href="<?php echo site_url();?>jeux/index">
                         <li>Catalogue</li>
                     </a>
-                    <a href="<?php echo base_url();?>collection/index">
+                    <a href="<?php echo site_url();?>collection/index">
                         <li>Ma Collection</li>
                     </a>
-                    <a href="<?php echo base_url();?>user/list"><li>Collectionneur</li></a>
+                    <a href="<?php echo site_url();?>user/list"><li>Collectionneur</li></a>
                     
-                    <a href="<?php echo base_url();?>user/disconnect">
+                    <a href="<?php echo site_url();?>user/disconnect">
                         <li>Déconnexion</li>
                     </a>
-                    <a href="<?php echo base_url();?>user/newadmin">
+                    <a href="<?php echo site_url();?>user/newadmin">
                         <li>Administration</li>
                     </a>
                 </ul>
