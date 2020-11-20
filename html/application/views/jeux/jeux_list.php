@@ -54,7 +54,7 @@
 function ajaxSearch(str){
     $.ajax({
         type:"post",
-        url: "<?php echo base_url();?>jeux/ajax_search",
+        url: "<?php echo site_url();?>jeux/ajax_search",
         data:{ "searchtext" : str},
         success:function(response)
         {

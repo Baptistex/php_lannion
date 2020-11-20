@@ -9,7 +9,7 @@ BUGFIXES:
 Verifier tous les boutons
 Possiblement: 
 
-
+Fonction de tri
 
 
 Joli code:
