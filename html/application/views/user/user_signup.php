@@ -1,7 +1,7 @@
 
 
 <h2 id="connexion"><?php echo $title?></h2>
-<?php echo form_open('user/signup') ?>
+<?php echo form_open($formlink) ?>
     <div class="container">
     <?php echo validation_errors(); ?>
 

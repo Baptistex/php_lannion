@@ -1,6 +1,8 @@
 Projet WEB de S3
 
 TODO: 
+Important:
+Gérer la rupture de la contrainte(erreur)
 
 
 BUGFIXES:

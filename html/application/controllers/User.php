@@ -66,6 +66,8 @@ class User extends CI_Controller
         }
         $data['title'] = 'Inscription d\'un utilisateur';
         $data['content'] = 'user/user_signup';
+        $data['formlink'] = 'user/signup';
+
         set_template($data, $this->session->role, $this->session->identifiant);
 
         $this->load->vars($data);
@@ -74,10 +76,10 @@ class User extends CI_Controller
 
     public function newadmin()
     {
-        if (!isset($this->session->role) || !(strcmp($this->session->role,'admin')==0)){
+        if (!isset($this->session->role) || $this->session->role!='admin'){
             redirect('/jeux');
         };
-        
+
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', 
@@ -100,9 +102,11 @@ class User extends CI_Controller
             $prenom = $this->input->post('prenom');
             $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe'));
             $this->user_model->add_admin($identifiant, $nom, $prenom, $mot_de_passe);
+            redirect('/user/list');            
         }
         $data['title'] = 'Ajout d\'un administrateur';
         $data['content'] = 'user/user_signup';
+        $data['formlink'] = 'user/newadmin';
         set_template($data, $this->session->role, $this->session->identifiant);
 
         $this->load->vars($data);
