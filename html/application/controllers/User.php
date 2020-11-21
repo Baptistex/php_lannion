@@ -42,27 +42,24 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         //TODO: verification du mot de passe
-        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', 
-        array('required' => '<div class="alert alert-danger" role="alert">Un identifiant est nécessaire.</div>'));
-        $this->form_validation->set_rules('nom', 'Nom', 'required',  
-        array('required' => '<div class="alert alert-danger" role="alert">Le nom est nécessaire.</div>'));
-        $this->form_validation->set_rules('prenom', 'Prenom', 'required', 
-        array('required' => '<div class="alert alert-danger" role="alert">Le prénom est nécessaire.</div>'));
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', 
-        array('required' => '<div class="alert alert-danger" role="alert">Le mot de passe est nécessaire.</div>'));
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required|callback_existing_user|callback_valid_chain', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
+        $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
         $this->form_validation->set_rules('mot_de_passe_conf', 'Confirmation du mot de passe', 'required|matches[mot_de_passe]', 
         array(
-            'required' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être confirmé.</div>', 
-            'matches' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être identique.</div>'
+            'required' => 'Le mot de passe doit être confirmé.', 
+            'matches' => 'Le mot de passe doit être identique.'
         ));
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
         if ($this->form_validation->run() !== FALSE) {
             $identifiant = $this->input->post('identifiant');
             $nom = $this->input->post('nom');
             $prenom = $this->input->post('prenom');
-            $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe'));
+            $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe')); 
             $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
-            redirect('/user/login');
+            redirect('/user/login');          
         }
         $data['title'] = 'Inscription d\'un utilisateur';
         $data['content'] = 'user/user_signup';
@@ -82,19 +79,17 @@ class User extends CI_Controller
 
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required', 
-        array('required' => '<div class="alert alert-danger" role="alert">Un identifiant est nécessaire.</div>'));
-        $this->form_validation->set_rules('nom', 'Nom', 'required',  
-        array('required' => '<div class="alert alert-danger" role="alert">Le nom est nécessaire.</div>'));
-        $this->form_validation->set_rules('prenom', 'Prenom', 'required', 
-        array('required' => '<div class="alert alert-danger" role="alert">Le prénom est nécessaire.</div>'));
-        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', 
-        array('required' => '<div class="alert alert-danger" role="alert">Le mot de passe est nécessaire.</div>'));
+        
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required|callback_existing_user|callback_valid_chain', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
+        $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
+        $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
         $this->form_validation->set_rules('mot_de_passe_conf', 'Confirmation du mot de passe', 'required|matches[mot_de_passe]', 
         array(
-            'required' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être confirmé.</div>', 
-            'matches' => '<div class="alert alert-danger" role="alert">Le mot de passe doit être identique.</div>'
+            'required' => 'Le mot de passe doit être confirmé.', 
+            'matches' => 'Le mot de passe doit être identique.'
         ));
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 
         if ($this->form_validation->run() !== FALSE) {
             $identifiant = $this->input->post('identifiant');
@@ -111,6 +106,25 @@ class User extends CI_Controller
 
         $this->load->vars($data);
         $this->load->view('templates/template');
+    }
+
+    public function existing_user($identifiant)
+    {
+        if (!empty($this->user_model->log_user($identifiant))){
+            $this->form_validation->set_message('existing_user','Cet identifiant est déjà utilisé !');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+    public function valid_chain($chaine){
+        if (preg_match("/^[a-zA-Z0-9]+$/", $chaine)){
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('valid_chain','Utiliser uniquement charactères alphanumériques !');
+            return FALSE;
+        }
     }
 
     public function disconnect()
@@ -154,8 +168,6 @@ class User extends CI_Controller
                 
                 $this->session->role = $this->user_model->get_role($identifiant);
                 $this->session->identifiant = $identifiant;
-                
-
                 redirect('/jeux');
             }        
         }
