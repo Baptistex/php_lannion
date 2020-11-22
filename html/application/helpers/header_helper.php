@@ -4,7 +4,7 @@
 
 
 function set_template(&$data, $role, $identifiant){
-        
+    
     //Permet de changer le header en fonction de la connexion
     if (!isset($role)){
         $data['header'] = 'templates/header_off';
@@ -24,6 +24,17 @@ function set_template(&$data, $role, $identifiant){
 
     }
 
+}
+
+function user_exists(){
+    $CI =& get_instance();
+    if (isset($CI->session->identifiant)){
+        $CI->load->model('user_model');
+        if (empty($CI->user_model->log_user($CI->session->identifiant))){
+            session_unset();
+            $CI->session->sess_destroy();
+        }
+    }
 }
 
 

@@ -19,6 +19,7 @@ class Collection extends CI_Controller
 
     public function index()
     {
+        user_exists();
         //Si l'utilisateur n'est pas connecté, il ne peut pas accéder à sa collection
         if (!isset($this->session->identifiant)){
             if ( $this->agent->is_referral()){
@@ -59,7 +60,7 @@ class Collection extends CI_Controller
 
     public function add($id)
     {
-        
+        user_exists();
         //TODO: handle l'erreur
         //TODO: verifier le maximum de 5 jeux et gérer le cas
         if (isset($this->session->identifiant)){
@@ -84,6 +85,7 @@ class Collection extends CI_Controller
 
     public function delete($id)
     {
+        user_exists();
         $identifiant = $this->session->identifiant;
         $this->collection_model->rm_from_collection($identifiant, $id);
         redirect('/collection');
@@ -91,7 +93,7 @@ class Collection extends CI_Controller
 
     public function collection($identifiant)
     {
-        
+        user_exists();
         if (!isset($this->session->role) || !($this->session->role=='admin')){
             redirect('/jeux');
         };

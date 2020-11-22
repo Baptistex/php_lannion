@@ -14,6 +14,7 @@ class Jeux extends CI_Controller
     //TODO: dans le header: afficher le pseudo echo $this->session->identifiant;
     public function index()
     {
+        user_exists();
         $this->load->library('form_validation');
         $search = $this->input->post('searchtext');
 
@@ -42,6 +43,7 @@ class Jeux extends CI_Controller
 
     public function game($id)
     {
+        user_exists();
         $gamedata=$this->jeux_model->get_gamedata($id);
         
         if (empty($gamedata)){
@@ -55,6 +57,7 @@ class Jeux extends CI_Controller
     }
 
     public function ajax_search(){
+        
         $this->load->library('form_validation');
         $search = $this->input->post('searchtext');
         $data['title'] = 'Liste des jeux';

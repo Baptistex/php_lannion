@@ -16,15 +16,15 @@ class User extends CI_Controller
         return password_hash($password, PASSWORD_BCRYPT);
     }
      
-  
+    //Fonction pour la page affichant la liste des utilisateurs (visible seulement par un admin)
     public function list()
     {
-        //Fonction pour la page affichant la liste des utilisateurs (visible seulement par un admin)
-
+        
+        user_exists();
         if (!isset($this->session->role) || $this->session->role!='admin'){
             redirect('/jeux');
         };
-
+        
         $data['title'] = 'Liste des utilisateurs';
         $data['content'] = 'user/user_list';
         $data['userlist'] = $this->user_model->get_user_role();
@@ -36,13 +36,17 @@ class User extends CI_Controller
 
     public function signup()
     {
+        user_exists();
         if (isset($this->session->identifiant)){
             redirect('/jeux');
         };
         $this->load->helper('form');
         $this->load->library('form_validation');
-        //TODO: verification du mot de passe
-        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required|callback_existing_user|callback_valid_chain', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required|callback_existing_user|alpha_numeric', 
+        array(
+            'required' => 'Un identifiant est nécessaire.',
+            'alpha_numeric' => 'Utiliser uniquement charactères alphanumériques !'
+        ));
         $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
         $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
         $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
@@ -73,6 +77,7 @@ class User extends CI_Controller
 
     public function newadmin()
     {
+        user_exists();
         if (!isset($this->session->role) || $this->session->role!='admin'){
             redirect('/jeux');
         };
@@ -80,7 +85,11 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         
-        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required|callback_existing_user|callback_valid_chain', array('required' => 'Un identifiant est nécessaire.'));
+        $this->form_validation->set_rules('identifiant', 'Identifiant', 'required|callback_existing_user|alpha_numeric', 
+        array(
+            'required' => 'Un identifiant est nécessaire.',
+            'alpha_numeric' => 'Utiliser uniquement charactères alphanumériques !'
+        ));
         $this->form_validation->set_rules('nom', 'Nom', 'required',  array('required' => 'Le nom est nécessaire.'));
         $this->form_validation->set_rules('prenom', 'Prenom', 'required', array('required' => 'Le prénom est nécessaire.'));
         $this->form_validation->set_rules('mot_de_passe', 'Mot de passe', 'required', array('required' => 'Le mot de passe est nécessaire.'));
@@ -110,6 +119,7 @@ class User extends CI_Controller
 
     public function existing_user($identifiant)
     {
+        user_exists();
         if (!empty($this->user_model->log_user($identifiant))){
             $this->form_validation->set_message('existing_user','Cet identifiant est déjà utilisé !');
             return FALSE;
@@ -118,14 +128,6 @@ class User extends CI_Controller
         }
     }
 
-    public function valid_chain($chaine){
-        if (preg_match("/^[a-zA-Z0-9]+$/", $chaine)){
-            return TRUE;
-        } else {
-            $this->form_validation->set_message('valid_chain','Utiliser uniquement charactères alphanumériques !');
-            return FALSE;
-        }
-    }
 
     public function disconnect()
     {
@@ -140,6 +142,7 @@ class User extends CI_Controller
 
     public function login()
     {
+        user_exists();
         if (isset($this->session->identifiant)){
             redirect('/jeux');
         };
@@ -184,6 +187,7 @@ class User extends CI_Controller
     //Supprimer un utilisateur
     public function delete($identifiant)
     {
+        user_exists();
         if ($this->session->identifiant!=$identifiant){
             $this->user_model->delete_user($identifiant);
         } elseif ($this->session->role=='admin'){
