@@ -92,7 +92,7 @@ ALTER TABLE jeux._jeu OWNER TO b11;
 
 
 INSERT INTO jeux._user VALUES ('admin','admin','admin','$2y$10$nO2SFUUIThEuvnwtG0VDPuO4sgEoh.0LrS2FWb4pgpKTP55BDEVJm');
-UPDATE jeux._role SET role = 'admin' WHERE identifiant = 'admin';
+INSERT INTO jeux._role VALUES ('admin','admin');
 
 --
 -- TOC entry 3373 (class 0 OID 17554)

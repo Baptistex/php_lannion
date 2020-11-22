@@ -57,10 +57,6 @@ class Jeux extends CI_Controller
     public function ajax_search(){
         $this->load->library('form_validation');
         $search = $this->input->post('searchtext');
-        if (valid_chain($search)){
-            echo "valide";
-        }
-
         $data['title'] = 'Liste des jeux';
         $data['content'] = 'jeux/jeux_list';
 

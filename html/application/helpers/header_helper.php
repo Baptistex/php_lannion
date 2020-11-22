@@ -19,7 +19,7 @@ function set_template(&$data, $role, $identifiant){
 
     } else {
         //Dans le cas d'une erreur, affiche le header deconnecté
-        $data['header'] = 'templates/header_off';
+        $data['header'] = 'templates/header_on';
         $data['pseudonyme'] = "";
 
     }
