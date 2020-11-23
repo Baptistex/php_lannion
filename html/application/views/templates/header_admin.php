@@ -6,24 +6,21 @@
     <div class="d-none d-lg-block">
         <h1>LANNION GAME</h1>
     </div>
-<div>
-            <nav>
+    <div>
+        <nav>
             <div class="button d-none d-lg-block">
                 <a href="<?php echo site_url();?>jeux/index"><button class="raise">Catalogue</button></a>
                 <a href="<?php echo site_url();?>collection/index"><button class="raise">Ma Collection</button></a>
                 <a href="<?php echo site_url();?>user/list"><button class="raise">Collectionneur</button></a>
                 <a href="<?php echo site_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>
             </div>
-            
         </nav>
-
         <nav role="navigation" class="d-block d-lg-none">
             <div id="menuToggle">
                 <input type="checkbox" />
                 <span></span>
                 <span></span>
                 <span></span>
-                
                 <ul id="menu">
                     <?php echo $pseudonyme?>
                     <a href="<?php echo site_url();?>jeux/index">
@@ -32,8 +29,9 @@
                     <a href="<?php echo site_url();?>collection/index">
                         <li>Ma Collection</li>
                     </a>
-                    <a href="<?php echo site_url();?>user/list"><li>Collectionneur</li></a>
-                    
+                    <a href="<?php echo site_url();?>user/list">
+                        <li>Collectionneur</li>
+                    </a>
                     <a href="<?php echo site_url();?>user/disconnect">
                         <li>Déconnexion</li>
                     </a>
@@ -44,6 +42,6 @@
             </div>
         </nav>
         <div class="d-block d-lg-none">
-<h1>LANNION GAME</h1>
-</div>
-</div>
+            <h1>LANNION GAME</h1>
+        </div>
+    </div>

@@ -8,7 +8,8 @@
             </div>
             <div class="data">
                 <div class="content">
-                    <h1 class="title"> <a href="<?php echo site_url()."jeux/game/".$jeu["id"]?>" class="inner"><?php echo $jeu['titre']?></a></h1>
+                    <h1 class="title"> <a href="<?php echo site_url()."jeux/game/".$jeu["id"]?>"
+                            class="inner"><?php echo $jeu['titre']?></a></h1>
                     <p class="text"><?php echo $jeu["description"];?></p>
                 </div>
             </div>
@@ -16,7 +17,7 @@
     </div>
     <?php endforeach?>
 </div>
-                    
+
 
 <div id="listejeu" class="col-lg-10 offset-lg-1">
     <?php foreach($jeuxlist as $jeu):?>
@@ -29,7 +30,9 @@
                     </div>
                     <div class="li-text">
                         <h4 class="li-head"><?php echo $jeu['titre']?></h4>
-                        <p class="li-sub d-none d-lg-block"><?php echo substr($jeu['description'],0,150); if (strlen($jeu['description'])>150){echo '...';}?></p>
+                        <p class="li-sub d-none d-lg-block">
+                            <?php echo substr($jeu['description'],0,150); if (strlen($jeu['description'])>150){echo '...';}?>
+                        </p>
                     </div>
                 </a>
             </li>

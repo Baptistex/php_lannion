@@ -1,7 +1,6 @@
 <div id="pseudo" class="d-none d-lg-block">
     <?php echo $pseudonyme?>
 </div>
-
 <div class="row">
     <div class="d-none d-lg-block">
         <h1>LANNION GAME</h1>
@@ -12,12 +11,8 @@
                 <a href="<?php echo site_url();?>jeux/index"><button class="raise">Catalogue</button></a>
                 <a href="<?php echo site_url();?>collection/index"><button class="raise">Ma Collection</button></a>
                 <a href="<?php echo site_url();?>user/disconnect"><button class="raise">Déconnexion</button></a>
-                
             </div>
-
         </nav>
-
-
         <nav role="navigation" class="d-block d-lg-none">
             <div id="menuToggle">
                 <input type="checkbox" />
@@ -39,6 +34,6 @@
             </div>
         </nav>
         <div class="d-block d-lg-none">
-<h1>LANNION GAME</h1>
-</div>
-</div>
+            <h1>LANNION GAME</h1>
+        </div>
+    </div>
