@@ -18,14 +18,14 @@ class User_model extends CI_Model
     public function get_role($identifiant)
     {
         $query = $this->db
-        ->select("role")
-        ->from("_role")
-        ->where('identifiant', $identifiant)
-        ->get();
+            ->select("role")
+            ->from("_role")
+            ->where('identifiant', $identifiant)
+            ->get();
         return $query->result_array()[0]['role'];
     }
-    
-   
+
+
     public function add_user($identifiant, $nom, $prenom, $mot_de_passe)
     {
 
@@ -62,7 +62,7 @@ class User_model extends CI_Model
     }
 
 
-    
+
     public function delete_user($identifiant)
     {
         $data = array('identifiant' => $identifiant);
@@ -70,23 +70,23 @@ class User_model extends CI_Model
     }
 
 
-    public function log_user($identifiant){
+    public function log_user($identifiant)
+    {
         $query = $this->db
-        ->select("*")
-        ->from("_user")
-        ->where('identifiant', $identifiant)
-        ->get();
+            ->select("*")
+            ->from("_user")
+            ->where('identifiant', $identifiant)
+            ->get();
         return $query->result_array();
     }
 
-    public function get_user_role(){
-        $query=$this->db
+    public function get_user_role()
+    {
+        $query = $this->db
             ->select('*')
             ->from('_user')
             ->join('_role', '_role.identifiant = _user.identifiant')
             ->get();
         return $query->result_array();
     }
-
-
 }

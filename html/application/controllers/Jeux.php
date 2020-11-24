@@ -18,12 +18,11 @@ class Jeux extends CI_Controller
         $this->load->library('form_validation');
         $search = $this->input->post('searchtext');
 
-        
-        $data['title'] = 'Liste des jeux';
-        $data['content'] = 'jeux/jeux_list';
 
-        $data['jeuxlist'] = $this->jeux_model->get_jeux();
-        $data['recent'] = $this->jeux_model->get_recent_games();
+        $data['title']      =   'Liste des jeux';
+        $data['content']    =   'jeux/jeux_list';
+        $data['jeuxlist']   =   $this->jeux_model->get_jeux();
+        $data['recent']     =   $this->jeux_model->get_recent_games();
         /*
         if ($search==""){
             $data['jeuxlist'] = $this->jeux_model->get_jeux();
@@ -44,38 +43,36 @@ class Jeux extends CI_Controller
     public function game($id)
     {
         user_exists();
-        $gamedata=$this->jeux_model->get_gamedata($id);
-        
-        if (empty($gamedata)){
+        $gamedata = $this->jeux_model->get_gamedata($id);
+
+        if (empty($gamedata)) {
             redirect('/jeux');
         }
-        $data['content'] = 'jeux/jeux_game';
-        $data['gamedata'] = $gamedata[0];
+        $data['content']    =    'jeux/jeux_game';
+        $data['gamedata']   =    $gamedata[0];
         set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
 
-    public function ajax_search(){
-        
+    public function ajax_search()
+    {
+
         $this->load->library('form_validation');
         $search = $this->input->post('searchtext');
         $data['title'] = 'Liste des jeux';
         $data['content'] = 'jeux/jeux_list';
 
-        if ($search==""){
-            $data['jeuxlist'] = $this->jeux_model->get_jeux();
-            $data['recent'] = $this->jeux_model->get_recent_games();
+        if ($search == "") {
+            $data['jeuxlist']   = $this->jeux_model->get_jeux();
+            $data['recent']     = $this->jeux_model->get_recent_games();
         } else {
-            $data['jeuxlist'] = $this->jeux_model->get_search($search);
-            $data['recent'] = array();
+            $data['jeuxlist']   = $this->jeux_model->get_search($search);
+            $data['recent']     = array();
         }
-       
 
         set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('jeux/jeux_list_ajax');
     }
-  
-
 }

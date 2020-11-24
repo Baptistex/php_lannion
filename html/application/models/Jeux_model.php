@@ -25,25 +25,26 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
-    public function get_search($text){
+    public function get_search($text)
+    {
         $query = $this->db
-        ->select("*")
-        ->from("_jeu")
-        // Produit: WHERE `titre` LIKE '%text%' ESCAPE '!'
-        ->like('LOWER(titre)', strtolower($text), 'both')
-        ->get();
-        return $query->result_array();
-    }
-    
-    public function get_recent_games(){
-        $query = $this->db
-        ->select("*")
-        ->from("_jeu")
-        ->where("sortie !=", "null")
-        ->order_by("sortie", "DESC")
-        ->limit(5)
-        ->get();
+            ->select("*")
+            ->from("_jeu")
+            // Produit: WHERE `titre` LIKE '%text%' ESCAPE '!'
+            ->like('LOWER(titre)', strtolower($text), 'both')
+            ->get();
         return $query->result_array();
     }
 
+    public function get_recent_games()
+    {
+        $query = $this->db
+            ->select("*")
+            ->from("_jeu")
+            ->where("sortie !=", "null")
+            ->order_by("sortie", "DESC")
+            ->limit(5)
+            ->get();
+        return $query->result_array();
+    }
 }

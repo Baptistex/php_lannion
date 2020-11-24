@@ -11,7 +11,7 @@ class Collection_model extends CI_Model
 
     public function get_collection($identifiant)
     {
-        $request = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id  WHERE identifiant =" . $this->db->escape($identifiant)." ORDER BY sortie;";
+        $request = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id  WHERE identifiant =" . $this->db->escape($identifiant) . " ORDER BY sortie;";
         $query = $this->db->query($request);
         return $query->result_array();
     }
@@ -20,48 +20,46 @@ class Collection_model extends CI_Model
     {
 
         $querycheck = $this->db
-        ->select("*")
-        ->from("_collection")
-        ->where('identifiant', $identifiant)
-        ->where('id', $id)
-        ->get();
+            ->select("*")
+            ->from("_collection")
+            ->where('identifiant', $identifiant)
+            ->where('id', $id)
+            ->get();
 
-        if ($querycheck->num_rows() > 0){
+        if ($querycheck->num_rows() > 0) {
             return false;
         }
 
-        $request = "INSERT INTO jeux._collection  VALUES (".$this->db->escape($identifiant).",". $this->db->escape($id).");";
+        $request = "INSERT INTO jeux._collection  VALUES (" . $this->db->escape($identifiant) . "," . $this->db->escape($id) . ");";
         $this->db->simple_query($request);
         return true;
     }
 
-    public function get_most_recent($identifiant){
+    public function get_most_recent($identifiant)
+    {
         $query = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id ORDER BY sortie DESC LIMIT 1;";
     }
 
-    public function rm_most_recent($identifiant){
-        $query = "DELETE FROM jeux._collection WHERE identifiant='".$identifiant."' AND id IN
+    public function rm_most_recent($identifiant)
+    {
+        $query = "DELETE FROM jeux._collection WHERE identifiant='" . $identifiant . "' AND id IN
         (SELECT jeux._jeu.id FROM jeux._jeu RIGHT JOIN jeux._collection 
-        ON jeux._jeu.id = _collection.id WHERE identifiant='".$identifiant."' 
+        ON jeux._jeu.id = _collection.id WHERE identifiant='" . $identifiant . "' 
         ORDER BY sortie DESC LIMIT 1);";
 
         $this->db->simple_query($query);
-
-
-
     }
 
     public function rm_from_collection($identifiant, $id)
     {
-        $request = "DELETE FROM jeux._collection WHERE identifiant =".$this->db->escape($identifiant)." AND id=". $this->db->escape($id).";";
+        $request = "DELETE FROM jeux._collection WHERE identifiant =" . $this->db->escape($identifiant) . " AND id=" . $this->db->escape($id) . ";";
         $query = $this->db->query($request);
     }
 
-    public function count_collection($identifiant){
+    public function count_collection($identifiant)
+    {
         $sql = "SELECT COUNT(*) FROM jeux._collection WHERE identifiant = ?";
         $query = $this->db->query($sql, $identifiant);
         return $query->result_array()[0]["count"];
     }
-
-
 }
