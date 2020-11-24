@@ -9,7 +9,7 @@
 </div>
 <div id="catalogue">
     <div class="jeux_recents">
-        <h3>Jeux récents</h3>
+        <?php echo $recent_title ?>
         <div class="row col-lg-10 offset-lg-1 d-none d-lg-block">
             <?php foreach ($recent as $jeu) : ?>
             <div class="example-1 card ">
@@ -30,7 +30,6 @@
             <?php endforeach ?>
         </div>
     </div>
-
     <div id="listejeu" class="col-lg-10 offset-lg-1">
         <?php foreach ($jeuxlist as $jeu) : ?>
         <div id="pattern" class="pattern">
@@ -60,8 +59,8 @@
 <script>
 function ajaxSearch(str) {
     $.ajax({
-        type: "post",
-        url: "<?php echo site_url(); ?>jeux/ajax_search",
+        method: "post",
+        url: "<?php echo site_url(); ?>jeux/index",
         data: {
             "searchtext": str
         },

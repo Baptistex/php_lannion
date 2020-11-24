@@ -20,23 +20,34 @@ class Jeux extends CI_Controller
 
 
         $data['title']      =   'Liste des jeux';
-        $data['content']    =   'jeux/jeux_list';
-        $data['jeuxlist']   =   $this->jeux_model->get_jeux();
-        $data['recent']     =   $this->jeux_model->get_recent_games();
-        /*
-        if ($search==""){
+        if (!isset($search)) {
             $data['jeuxlist'] = $this->jeux_model->get_jeux();
             $data['recent'] = $this->jeux_model->get_recent_games();
-
+            $data['recent_title']      =   '<h3>Jeux récents</h3>';
+            $data['content']    =   'jeux/jeux_list';
+            set_template($data, $this->session->role, $this->session->identifiant);
+            $this->load->vars($data);
+            $this->load->view('templates/template');
         } else {
+            if ($search == "") {
+                $data['recent'] = $this->jeux_model->get_recent_games();
+                $data['recent_title']      =   '<h3>Jeux récents</h3>';
+            } else {
+                $data['recent'] = array();
+                $data['recent_title']      =   '';
+            }
             $data['jeuxlist'] = $this->jeux_model->get_search($search);
-            $data['recent'] = array();
+            $this->load->vars($data);
+            $this->load->view('jeux/jeux_list_ajax');
         }
-       */
 
-        set_template($data, $this->session->role, $this->session->identifiant);
-        $this->load->vars($data);
-        $this->load->view('templates/template');
+
+
+        //$data['jeuxlist']   =   $this->jeux_model->get_jeux();
+        //$data['recent']     =   $this->jeux_model->get_recent_games();
+
+
+
     }
 
 
@@ -53,26 +64,5 @@ class Jeux extends CI_Controller
         set_template($data, $this->session->role, $this->session->identifiant);
         $this->load->vars($data);
         $this->load->view('templates/template');
-    }
-
-    public function ajax_search()
-    {
-
-        $this->load->library('form_validation');
-        $search = $this->input->post('searchtext');
-        $data['title'] = 'Liste des jeux';
-        $data['content'] = 'jeux/jeux_list';
-
-        if ($search == "") {
-            $data['jeuxlist']   = $this->jeux_model->get_jeux();
-            $data['recent']     = $this->jeux_model->get_recent_games();
-        } else {
-            $data['jeuxlist']   = $this->jeux_model->get_search($search);
-            $data['recent']     = array();
-        }
-
-        set_template($data, $this->session->role, $this->session->identifiant);
-        $this->load->vars($data);
-        $this->load->view('jeux/jeux_list_ajax');
     }
 }
