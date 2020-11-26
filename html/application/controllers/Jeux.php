@@ -38,18 +38,10 @@ class Jeux extends CI_Controller
                 $data['recent_title']      =   '';
             }
             $tri = $this->input->post('liste');
-            $data['jeuxlist'] = $this->jeux_model->sort($tri, $search);
+            $data['jeuxlist'] = $this->jeux_model->get_jeux($tri, $search);
             $this->load->vars($data);
             $this->load->view('jeux/jeux_list_ajax');
         }
-
-
-
-        //$data['jeuxlist']   =   $this->jeux_model->get_jeux();
-        //$data['recent']     =   $this->jeux_model->get_recent_games();
-
-
-
     }
 
 
@@ -57,7 +49,6 @@ class Jeux extends CI_Controller
     {
         user_exists();
         $gamedata = $this->jeux_model->get_gamedata($id);
-
         if (empty($gamedata)) {
             redirect('/jeux');
         }
@@ -67,5 +58,4 @@ class Jeux extends CI_Controller
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
-
 }

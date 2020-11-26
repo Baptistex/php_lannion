@@ -9,12 +9,6 @@ class Jeux_model extends CI_Model
     }
 
 
-    public function get_jeux()
-    {
-        $query = $this->db->get('_jeu');
-        return $query->result_array();
-    }
-
 
     /**
      * Retourne un tableau contenant 1 ligne avec les informations d'un jeu.
@@ -33,16 +27,6 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
-    public function get_search($text)
-    {
-        $query = $this->db
-            ->select("*")
-            ->from("_jeu")
-            // Produit: WHERE `titre` LIKE '%text%' ESCAPE '!'
-            ->like('LOWER(titre)', strtolower($text), 'both')
-            ->get();
-        return $query->result_array();
-    }
 
     /**
      * Retourne un tableau contenant les 5 jeux les plus récents.
@@ -61,36 +45,57 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
-    public function sort($tri, $text)
+    /**
+     * Retourne un tableau contenant tous les jeux qui matchent la recherche, dans l'ordonné selon $tri
+     *
+     * @param string    $tri ="none"    peut prendre les valeurs "none", "az", "za", "old" et "new" selon l'ordre voulu
+     * @param string    $text = ""      Le texte de la recherche
+     * 
+     * @return array 
+     */
+
+    public function get_jeux($tri = "none", $text = "")
     {
-        if ($tri == 2) {
-            $query = $this->db
-                ->select("*")
-                ->from("_jeu")
-                ->like('LOWER(titre)', strtolower($text), 'both')
-                ->order_by("titre", "ASC")
-                ->get();
-        } elseif ($tri == 3) {
-            $query = $this->db
-                ->select("*")
-                ->from("_jeu")
-                ->like('LOWER(titre)', strtolower($text), 'both')
-                ->order_by("titre", "DESC")
-                ->get();
-        } elseif ($tri == 4) {
-            $query = $this->db
-                ->select("*")
-                ->from("_jeu")
-                ->like('LOWER(titre)', strtolower($text), 'both')
-                ->order_by("sortie", "ASC")
-                ->get();
-        } elseif ($tri == 5) {
-            $query = $this->db
-                ->select("*")
-                ->from("_jeu")
-                ->like('LOWER(titre)', strtolower($text), 'both')
-                ->order_by("sortie", "DESC")
-                ->get();
+        switch ($tri) {
+            case "none":
+                $query = $this->db
+                    ->like('LOWER(titre)', strtolower($text), 'both')
+                    ->get('_jeu');
+                break;
+            case "az":
+                $query = $this->db
+                    ->select("*")
+                    ->from("_jeu")
+                    ->like('LOWER(titre)', strtolower($text), 'both')
+                    ->order_by("titre", "ASC")
+                    ->get();
+                break;
+            case "za":
+                $query = $this->db
+                    ->select("*")
+                    ->from("_jeu")
+                    ->like('LOWER(titre)', strtolower($text), 'both')
+                    ->order_by("titre", "DESC")
+                    ->get();
+                break;
+            case "old":
+                $query = $this->db
+                    ->select("*")
+                    ->from("_jeu")
+                    ->like('LOWER(titre)', strtolower($text), 'both')
+                    ->order_by("sortie", "ASC")
+                    ->get();
+                break;
+            case "new":
+                $query = $this->db
+                    ->select("*")
+                    ->from("_jeu")
+                    ->like('LOWER(titre)', strtolower($text), 'both')
+                    ->order_by("sortie", "DESC")
+                    ->get();
+                break;
+            default:
+                $query = $this->db->get('_jeu');
         }
         return $query->result_array();
     }

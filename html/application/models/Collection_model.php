@@ -30,8 +30,8 @@ class Collection_model extends CI_Model
     /**
      * Ajoute un jeu à la collection d'un utilisateur.
      *
-     * @param int   $identifiant L'identifiant de l'utilisateur.
-     *              $id L'id du jeu dont on cherche les informations.
+     * @param string    $identifiant L'identifiant de l'utilisateur.
+     * @param int       $id L'id du jeu dont on cherche les informations.
      *
      * @return bool Faux si le jeux est déjà présent dans la liste, faux sinon .
      */
@@ -64,6 +64,7 @@ class Collection_model extends CI_Model
      */
     public function rm_most_recent($identifiant)
     {
+        //Obtention de l'id du jeu le plus récent.
         $most_recent = $this->db
             ->select("_jeu.id")
             ->from("_jeu")
@@ -73,6 +74,7 @@ class Collection_model extends CI_Model
             ->limit(1)
             ->get();
         $most_recent = $most_recent->result_array()[0]['id'];
+        //Suppression du jeu.
         $this->db
             ->where('identifiant', $identifiant)
             ->where('id', $most_recent)
@@ -83,8 +85,8 @@ class Collection_model extends CI_Model
     /**
      * Supprime un jeu de la collection d'un utilisateur.
      *
-     * @param int   $identifiant L'identifiant de l'utilisateur.
-     *              $id L'id du jeu.
+     * @param string    $identifiant L'identifiant de l'utilisateur.
+     * @param int       $id L'id du jeu.
      *
      * @return void 
      */

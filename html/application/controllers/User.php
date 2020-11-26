@@ -69,7 +69,7 @@ class User extends CI_Controller
             $nom = $this->input->post('nom');
             $prenom = $this->input->post('prenom');
             $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe'));
-            $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe);
+            $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe, "user");
             redirect('/user/login');
         }
         $data['title']      = 'Inscription d\'un utilisateur';
@@ -120,7 +120,7 @@ class User extends CI_Controller
             $nom = $this->input->post('nom');
             $prenom = $this->input->post('prenom');
             $mot_de_passe = $this->hash_password($this->input->post('mot_de_passe'));
-            $this->user_model->add_admin($identifiant, $nom, $prenom, $mot_de_passe);
+            $this->user_model->add_user($identifiant, $nom, $prenom, $mot_de_passe, "admin");
             redirect('/user/list');
         }
         $data['title']      = 'Ajout d\'un administrateur';

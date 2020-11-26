@@ -15,8 +15,6 @@ corriger la barre de recherceh
 Joli code:
 Pages sans scroll nécessaire
 
-Query de la forme de CodeIgniter
 Commentaire
-Indentation correcte
 renommer les controllers, etc?
 routes
