@@ -47,4 +47,31 @@ class Jeux_model extends CI_Model
             ->get();
         return $query->result_array();
     }
+
+    public function sort()
+    {
+        if(($_POST['liste'])==2){
+            $query = $this->bd
+                ->select("*")
+                ->from("_jeu")
+                ->order_by("titre", "DESC")
+                ->get();
+            }
+        elseif(($_POST['liste'])==3){
+            $query = $this->bd
+                ->select("*")
+                ->from("_jeu")
+                ->order_by("titre", "ASC")
+                ->get();
+            }
+         elseif(($_POST['liste'])==4){
+                $query = $this->bd
+                    ->select("*")
+                    ->from("_jeu")
+                    ->order_by("date", "ASC")
+                    ->get();
+                }
+        }
+        return $query->result_array();
+    }
 }

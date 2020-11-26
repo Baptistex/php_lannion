@@ -7,6 +7,15 @@
     <div class="search"></div>
     </form>
 </div>
+<form method="post">
+<select name="liste">
+    <option value="1" Selected> </option>
+    <option value="2">A-Z</option>
+    <option value="3">Z-A</option>
+    <option value="4">Date</option>
+</select>
+<input type="submit" value="ok">
+</form>
 <div id="catalogue">
     <div class="jeux_recents">
         <?php echo $recent_title ?>
