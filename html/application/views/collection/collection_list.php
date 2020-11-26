@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <?php if ($isadmin==FALSE){ echo anchor('collection/delete/'.$jeu["id"],'<button id="suppr">Supprimer</button>');} ?>
+        <?php if ($isadmin==FALSE){ echo anchor('collection/delete/'.$jeu["id"],'<button class="btn btn-light" id="suppr">Supprimer</button>');} ?>
     </div>
     <?php endforeach ?>
 </div>
