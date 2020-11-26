@@ -64,7 +64,7 @@ class Jeux_model extends CI_Model
                 ->select("*")
                 ->from("_jeu")
                 ->like('LOWER(titre)', strtolower($text), 'both')
-                ->order_by("titre", "DSC")
+                ->order_by("titre", "DESC")
                 ->get();
         }
          elseif($tri==4)

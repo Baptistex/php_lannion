@@ -382,6 +382,10 @@ nav {
     margin-top: 2em;
 }
 
+select{
+    position: fixed;
+}
+
   @media all and (min-width: 45em) {
     .list li {
       float: left;
@@ -395,6 +399,8 @@ nav {
       width: 31.1111%;
     }
   }
+
+
 
 /*--------------------------------------------------------------------------------------------------*/
 /*Ma Collection*/
