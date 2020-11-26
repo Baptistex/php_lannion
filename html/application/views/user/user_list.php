@@ -22,15 +22,15 @@
                 <td><?php echo $user['nom']?></td>
                 <td><?php echo $user['prenom']?></td>
                 <td><?php echo $user['role']?></td>
-                <td><?php echo anchor('collection/collection/'.$user["identifiant"],'<button>Consulter</button>');?>
+                <td><?php echo anchor('collection/collection/'.$user["identifiant"],'<button class="btn btn-light">Consulter</button>');?>
                 </td>
-                <td><?php if ($adminid!=$user["identifiant"]) {echo anchor('user/delete/'.$user["identifiant"],'<button>Supprimer</button>');}?>
+                <td><?php if ($adminid!=$user["identifiant"]) {echo anchor('user/delete/'.$user["identifiant"],'<button class="btn btn-light">Supprimer</button>');}?>
                 </td>
             </tr>
 
             <?php endforeach ?>
             <tr>
-                <td colspan="6"><?php echo anchor('user/newadmin','<button>Ajouter un administrateur</button>');?></td>
+                <td colspan="6"><?php echo anchor('user/newadmin','<button class="btn btn-light">Ajouter un administrateur</button>');?></td>
             </tr>
         </table>
     </div>
