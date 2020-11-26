@@ -15,6 +15,14 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
+
+    /**
+     * Retourne un tableau contenant 1 ligne avec les informations d'un jeu.
+     *
+     * @param int $id L'id du jeu dont on cherche les informations.
+     *
+     * @return array 
+     */
     public function get_gamedata($id)
     {
         $query = $this->db

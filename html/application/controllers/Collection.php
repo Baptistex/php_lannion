@@ -41,6 +41,7 @@ class Collection extends CI_Controller
 
         $identifiant = $this->session->identifiant;
 
+        //Paramètres de la page
         $data['identifiant']    =   $identifiant;
         $data['nom']            =   $var['nom'];
         $data['prenom']         =   $var['prenom'];

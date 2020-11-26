@@ -9,6 +9,15 @@ class Collection_model extends CI_Model
     }
     //TODO: reformuler les requetes à la CodeIgniter
 
+
+
+    /**
+     * Retourne un tableau contenant les jeux d'un utilisateur
+     *
+     * @param int   $identifiant L'identifiant de l'utilisateur.
+     *              
+     * @return array 
+     */
     public function get_collection($identifiant)
     {
         $request = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id  WHERE identifiant =" . $this->db->escape($identifiant) . " ORDER BY sortie;";
@@ -16,16 +25,23 @@ class Collection_model extends CI_Model
         return $query->result_array();
     }
 
+    /**
+     * Ajoute un jeu à la collection d'un utilisateur.
+     *
+     * @param int   $identifiant L'identifiant de l'utilisateur.
+     *              $id L'id du jeu dont on cherche les informations.
+     *
+     * @return bool Faux si le jeux est déjà présent dans la liste, faux sinon .
+     */
     public function add_to_collection($identifiant, $id)
     {
-
+        //Vérification que l'utilisateur ne possède pas déjà le jeu.
         $querycheck = $this->db
             ->select("*")
             ->from("_collection")
             ->where('identifiant', $identifiant)
             ->where('id', $id)
             ->get();
-
         if ($querycheck->num_rows() > 0) {
             return false;
         }
@@ -35,11 +51,13 @@ class Collection_model extends CI_Model
         return true;
     }
 
-    public function get_most_recent($identifiant)
-    {
-        $query = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id ORDER BY sortie DESC LIMIT 1;";
-    }
-
+    /**
+     * Supprime de la collection d'un utilisateur le jeu le plus récent.
+     *
+     * @param int   $identifiant L'identifiant de l'utilisateur.
+     *
+     * @return void 
+     */
     public function rm_most_recent($identifiant)
     {
         $query = "DELETE FROM jeux._collection WHERE identifiant='" . $identifiant . "' AND id IN
@@ -50,12 +68,28 @@ class Collection_model extends CI_Model
         $this->db->simple_query($query);
     }
 
+
+    /**
+     * Supprime un jeu de la collection d'un utilisateur.
+     *
+     * @param int   $identifiant L'identifiant de l'utilisateur.
+     *              $id L'id du jeu.
+     *
+     * @return void 
+     */
     public function rm_from_collection($identifiant, $id)
     {
         $request = "DELETE FROM jeux._collection WHERE identifiant =" . $this->db->escape($identifiant) . " AND id=" . $this->db->escape($id) . ";";
         $query = $this->db->query($request);
     }
 
+    /**
+     * Compte le nombre de jeux dans la collection d'un utilsateur.
+     *
+     * @param int   $identifiant L'identifiant de l'utilisateur.
+     *
+     * @return int  Le nombre de jeux dans la collection de l'utilisateur.
+     */
     public function count_collection($identifiant)
     {
         $sql = "SELECT COUNT(*) FROM jeux._collection WHERE identifiant = ?";
