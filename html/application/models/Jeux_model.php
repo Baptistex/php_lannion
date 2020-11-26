@@ -83,7 +83,7 @@ class Jeux_model extends CI_Model
                     ->select("*")
                     ->from("_jeu")
                     ->like('LOWER(titre)', strtolower($text), 'both')
-                    ->order_by("sortie", "ASC")
+                    ->order_by("(CASE WHEN sortie = 'null' THEN 0 ELSE 1 END), sortie", "ASC")
                     ->get();
                 break;
             case "new":
@@ -91,7 +91,7 @@ class Jeux_model extends CI_Model
                     ->select("*")
                     ->from("_jeu")
                     ->like('LOWER(titre)', strtolower($text), 'both')
-                    ->order_by("sortie", "DESC")
+                    ->order_by("(CASE WHEN sortie = 'null' THEN 0 ELSE 1 END), sortie", "DESC")
                     ->get();
                 break;
             default:

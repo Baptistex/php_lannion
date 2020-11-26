@@ -10,8 +10,6 @@ class Jeux extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('header');
     }
-
-    //TODO: dans le header: afficher le pseudo echo $this->session->identifiant;
     public function index()
     {
         user_exists();
@@ -24,7 +22,7 @@ class Jeux extends CI_Controller
         if (!isset($search) && !isset($tri)) {
             $data['jeuxlist'] = $this->jeux_model->get_jeux();
             $data['recent'] = $this->jeux_model->get_recent_games();
-            $data['recent_title']      =   '<h3>Jeux récents</h3>';
+            $data['recent_title']      =   '<h3>En tendance</h3>';
             $data['content']    =   'jeux/jeux_list';
             set_template($data, $this->session->role, $this->session->identifiant);
             $this->load->vars($data);
@@ -32,7 +30,7 @@ class Jeux extends CI_Controller
         } else {
             if ($search == "") {
                 $data['recent'] = $this->jeux_model->get_recent_games();
-                $data['recent_title']      =   '<h3>Jeux récents</h3>';
+                $data['recent_title']      =   '<h3>En tendance</h3>';
             } else {
                 $data['recent'] = array();
                 $data['recent_title']      =   '';

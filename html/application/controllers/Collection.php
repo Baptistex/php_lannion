@@ -12,10 +12,15 @@ class Collection extends CI_Controller
         $this->load->model('user_model');
 
         $this->load->helper('url');
+        //fichier helper custom se trouvant dans application/helpers/
         $this->load->helper('header');
     }
 
-
+    /**
+     * Affiche la collection d'un utilisateur.
+     * 
+     * Si l'utilisateur n'est pas connecté, redirige vers sa page précédente, ou vers l'accueil
+     */
     public function index()
     {
         user_exists();
@@ -29,8 +34,6 @@ class Collection extends CI_Controller
             redirect('jeux');
         }
         $identifiant = $this->session->identifiant;
-
-        $data['title'] = 'Liste des jeux possédés';
         $var = $this->user_model->log_user($identifiant)[0];
 
         if (($this->session->role) == 'admin') {
@@ -39,9 +42,8 @@ class Collection extends CI_Controller
             $data['delete'] = "<button class='btn btn-light'><a href='" . site_url() . "user/delete/" . $identifiant . "'>Supprimer mon compte</a></button>";
         }
 
-        $identifiant = $this->session->identifiant;
-
         //Paramètres de la page
+        $data['title'] = 'Liste des jeux possédés';
         $data['identifiant']    =   $identifiant;
         $data['nom']            =   $var['nom'];
         $data['prenom']         =   $var['prenom'];
@@ -57,13 +59,12 @@ class Collection extends CI_Controller
     public function add($id)
     {
         user_exists();
-        //TODO: handle l'erreur
-        //TODO: verifier le maximum de 5 jeux et gérer le cas
+
+        //Vérification que l'utilisateur est connecté.
         if (isset($this->session->identifiant)) {
             $identifiant = $this->session->identifiant;
         } else {
             $this->session->set_flashdata('add_attempt', '<div class="alert alert-danger" role="alert">Connectez vous avant de pouvoir ajouter un jeu !</div>');
-
             redirect('jeux/game/' . $id);
         }
         if ($this->collection_model->count_collection($identifiant) >= 5) {
@@ -79,6 +80,10 @@ class Collection extends CI_Controller
         }
     }
 
+    /**
+     * Supprime un jeu de l'utilisateur
+     * @param int   $id L'id du jeu à supprimer.
+     */
     public function delete($id)
     {
         user_exists();
@@ -87,9 +92,14 @@ class Collection extends CI_Controller
         redirect('/collection');
     }
 
+    /**
+     * Affiche la collection d'un utilisateur autre que soi. Seuls les administrateurs y ont accès.
+     * @param int   $identifiant de l'utilisateur.
+     */
     public function collection($identifiant)
     {
         user_exists();
+        //redirection si l'utilisateur n'est pas connecté ou n'est pas admin
         if (!isset($this->session->role) || !($this->session->role == 'admin')) {
             redirect('/jeux');
         };
