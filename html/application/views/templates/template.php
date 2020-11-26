@@ -4,8 +4,12 @@
 <head>
     <title><?php echo $title;?></title>
     <meta charset="UTF-8">
+    <meta name="description" content="Lannion Game"/>
+    <meta name="keywords" content="jeux, game, retro, gaming, lannion"/>
+    <meta name="author" content="ALIX Baptiste, LAHAROTTE Thomas"/>
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/bootstrap.css">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>public/images/fusee.png">
     <script src="<?php echo base_url(); ?>public/js/jquery-1.11.3.min.js"></script>
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
 </head>

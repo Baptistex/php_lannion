@@ -10,6 +10,11 @@ class Jeux extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('header');
     }
+
+       /**
+     * Permet de trier la liste des jeux et de rechercher un jeu.
+     */
+
     public function index()
     {
         user_exists();
@@ -42,6 +47,10 @@ class Jeux extends CI_Controller
         }
     }
 
+    /**
+     * Affiche les détails d'un jeu.
+     * @param int   $identifiant de l'utilisateur.
+     */
 
     public function game($id)
     {
