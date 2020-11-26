@@ -7,15 +7,13 @@
     <div class="search"></div>
     </form>
 </div>
-<form method="post">
-<select id='liste' name="liste" onclick="ajaxSearch()">
-    <option value="1" Selected> </option>
+<select id='liste' name="liste" class="offset-lg-11 browser-default custom-select" onclick="ajaxSearch()">
+    <option value="1" Selected>Trier par</option>
     <option value="2">A-Z</option>
     <option value="3">Z-A</option>
     <option value="4">Plus ancien</option>
     <option value="5">Plus récent</option>
 </select>
-</form>
 <div id="catalogue">
     <div class="jeux_recents">
         <?php echo $recent_title ?>
@@ -39,6 +37,7 @@
             <?php endforeach ?>
         </div>
     </div>
+    <div>
     <div id="listejeu" class="col-lg-10 offset-lg-1">
         <?php foreach ($jeuxlist as $jeu) : ?>
         <div id="pattern" class="pattern">
