@@ -7,9 +7,6 @@ class Collection_model extends CI_Model
         parent::__construct();
         $this->load->database();
     }
-    //TODO: reformuler les requetes à la CodeIgniter
-
-
 
     /**
      * Retourne un tableau contenant les jeux d'un utilisateur
@@ -20,8 +17,13 @@ class Collection_model extends CI_Model
      */
     public function get_collection($identifiant)
     {
-        $request = "SELECT * FROM jeux._jeu RIGHT JOIN jeux._collection ON jeux._jeu.id = _collection.id  WHERE identifiant =" . $this->db->escape($identifiant) . " ORDER BY sortie;";
-        $query = $this->db->query($request);
+        $query = $this->db
+            ->select("*")
+            ->from("_jeu")
+            ->join('_collection', '_jeu.id = _collection.id', 'right')
+            ->where('identifiant', $identifiant)
+            ->order_by('sortie')
+            ->get();
         return $query->result_array();
     }
 
@@ -45,9 +47,11 @@ class Collection_model extends CI_Model
         if ($querycheck->num_rows() > 0) {
             return false;
         }
-
-        $request = "INSERT INTO jeux._collection  VALUES (" . $this->db->escape($identifiant) . "," . $this->db->escape($id) . ");";
-        $this->db->simple_query($request);
+        $data = array(
+            'identifiant'   => $identifiant,
+            'id'            => $id
+        );
+        $this->db->insert('_collection', $data);
         return true;
     }
 
@@ -60,12 +64,19 @@ class Collection_model extends CI_Model
      */
     public function rm_most_recent($identifiant)
     {
-        $query = "DELETE FROM jeux._collection WHERE identifiant='" . $identifiant . "' AND id IN
-        (SELECT jeux._jeu.id FROM jeux._jeu RIGHT JOIN jeux._collection 
-        ON jeux._jeu.id = _collection.id WHERE identifiant='" . $identifiant . "' 
-        ORDER BY sortie DESC LIMIT 1);";
-
-        $this->db->simple_query($query);
+        $most_recent = $this->db
+            ->select("_jeu.id")
+            ->from("_jeu")
+            ->join('_collection', '_jeu.id = _collection.id', 'right')
+            ->where('identifiant', $identifiant)
+            ->order_by('sortie', 'DESC')
+            ->limit(1)
+            ->get();
+        $most_recent = $most_recent->result_array()[0]['id'];
+        $this->db
+            ->where('identifiant', $identifiant)
+            ->where('id', $most_recent)
+            ->delete('_collection');
     }
 
 
@@ -79,8 +90,10 @@ class Collection_model extends CI_Model
      */
     public function rm_from_collection($identifiant, $id)
     {
-        $request = "DELETE FROM jeux._collection WHERE identifiant =" . $this->db->escape($identifiant) . " AND id=" . $this->db->escape($id) . ";";
-        $query = $this->db->query($request);
+        $this->db
+            ->where('identifiant', $identifiant)
+            ->where('id', $id)
+            ->delete('_collection');
     }
 
     /**
@@ -92,8 +105,11 @@ class Collection_model extends CI_Model
      */
     public function count_collection($identifiant)
     {
-        $sql = "SELECT COUNT(*) FROM jeux._collection WHERE identifiant = ?";
-        $query = $this->db->query($sql, $identifiant);
-        return $query->result_array()[0]["count"];
+        $query = $this->db
+            ->select('*')
+            ->from('_collection')
+            ->where('identifiant', $identifiant)
+            ->get();
+        return $query->num_rows();
     }
 }

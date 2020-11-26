@@ -1,21 +1,18 @@
 Projet WEB de S3
 
-TODO: 
+TODO:
 Important:
 Gérer la rupture de la contrainte(erreur)
 
-
 BUGFIXES:
 
-
 Verifier tous les boutons
-Possiblement: 
+Possiblement:
 
-Fonction de tri
-
+gérer les dates nulles
+corriger la barre de recherceh
 
 Joli code:
-Titre Lannion Game centré en vertical
 Pages sans scroll nécessaire
 
 Query de la forme de CodeIgniter

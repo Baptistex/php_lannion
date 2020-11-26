@@ -44,6 +44,11 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
+    /**
+     * Retourne un tableau contenant les 5 jeux les plus récents.
+     *
+     * @return array 
+     */
     public function get_recent_games()
     {
         $query = $this->db
@@ -58,34 +63,28 @@ class Jeux_model extends CI_Model
 
     public function sort($tri, $text)
     {
-        if($tri==2){
+        if ($tri == 2) {
             $query = $this->db
                 ->select("*")
                 ->from("_jeu")
                 ->like('LOWER(titre)', strtolower($text), 'both')
                 ->order_by("titre", "ASC")
                 ->get();
-        }
-        elseif($tri==3)
-        {
+        } elseif ($tri == 3) {
             $query = $this->db
                 ->select("*")
                 ->from("_jeu")
                 ->like('LOWER(titre)', strtolower($text), 'both')
                 ->order_by("titre", "DSC")
                 ->get();
-        }
-         elseif($tri==4)
-         {
+        } elseif ($tri == 4) {
             $query = $this->db
                 ->select("*")
                 ->from("_jeu")
                 ->like('LOWER(titre)', strtolower($text), 'both')
                 ->order_by("sortie", "ASC")
                 ->get();
-        }
-         elseif($tri==5)
-         {
+        } elseif ($tri == 5) {
             $query = $this->db
                 ->select("*")
                 ->from("_jeu")
