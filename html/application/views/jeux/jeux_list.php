@@ -3,18 +3,18 @@
 <div class="recherche">
     <?php echo form_open('jeux/index') ?>
     <input id="searchbar" type="text" name="searchtext" placeholder="Rechercher un jeu"
-        onkeyup="ajaxSearch(this.value)">
+        onkeyup="ajaxSearch()">
     <div class="search"></div>
     </form>
 </div>
 <form method="post">
-<select name="liste">
+<select id='liste' name="liste" onclick="ajaxSearch()">
     <option value="1" Selected> </option>
     <option value="2">A-Z</option>
     <option value="3">Z-A</option>
-    <option value="4">Date</option>
+    <option value="4">Plus ancien</option>
+    <option value="5">Plus récent</option>
 </select>
-<input type="submit" value="ok">
 </form>
 <div id="catalogue">
     <div class="jeux_recents">
@@ -66,12 +66,17 @@
     </div>
 </div>
 <script>
-function ajaxSearch(str) {
+function ajaxSearch() {
+    str = document.getElementById('searchbar').value;
+    liste = document.getElementById('liste');
+    tri = liste.options[liste.selectedIndex].value;
+    console.log(tri);
     $.ajax({
         method: "post",
         url: "<?php echo site_url(); ?>jeux/index",
         data: {
-            "searchtext": str
+            "searchtext": str,
+            "liste" : tri
         },
         success: function(response) {
             $("#catalogue").html(response);
