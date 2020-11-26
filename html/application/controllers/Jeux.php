@@ -17,10 +17,11 @@ class Jeux extends CI_Controller
         user_exists();
         $this->load->library('form_validation');
         $search = $this->input->post('searchtext');
+        $tri = $this->input->post('liste');
 
 
         $data['title']      =   'Liste des jeux';
-        if (!isset($search)) {
+        if (!isset($search) && !isset($tri)) {
             $data['jeuxlist'] = $this->jeux_model->get_jeux();
             $data['recent'] = $this->jeux_model->get_recent_games();
             $data['recent_title']      =   '<h3>Jeux récents</h3>';
@@ -36,7 +37,8 @@ class Jeux extends CI_Controller
                 $data['recent'] = array();
                 $data['recent_title']      =   '';
             }
-            $data['jeuxlist'] = $this->jeux_model->get_search($search);
+            $tri = $this->input->post('liste');
+            $data['jeuxlist'] = $this->jeux_model->sort($tri, $search);
             $this->load->vars($data);
             $this->load->view('jeux/jeux_list_ajax');
         }
@@ -65,4 +67,5 @@ class Jeux extends CI_Controller
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
+
 }

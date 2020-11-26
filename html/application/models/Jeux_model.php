@@ -56,29 +56,42 @@ class Jeux_model extends CI_Model
         return $query->result_array();
     }
 
-    public function sort()
+    public function sort($tri, $text)
     {
-        if(($_POST['liste'])==2){
-            $query = $this->bd
+        if($tri==2){
+            $query = $this->db
                 ->select("*")
                 ->from("_jeu")
-                ->order_by("titre", "DESC")
-                ->get();
-            }
-        elseif(($_POST['liste'])==3){
-            $query = $this->bd
-                ->select("*")
-                ->from("_jeu")
+                ->like('LOWER(titre)', strtolower($text), 'both')
                 ->order_by("titre", "ASC")
                 ->get();
-            }
-         elseif(($_POST['liste'])==4){
-                $query = $this->bd
-                    ->select("*")
-                    ->from("_jeu")
-                    ->order_by("date", "ASC")
-                    ->get();
-                }
+        }
+        elseif($tri==3)
+        {
+            $query = $this->db
+                ->select("*")
+                ->from("_jeu")
+                ->like('LOWER(titre)', strtolower($text), 'both')
+                ->order_by("titre", "DSC")
+                ->get();
+        }
+         elseif($tri==4)
+         {
+            $query = $this->db
+                ->select("*")
+                ->from("_jeu")
+                ->like('LOWER(titre)', strtolower($text), 'both')
+                ->order_by("sortie", "ASC")
+                ->get();
+        }
+         elseif($tri==5)
+         {
+            $query = $this->db
+                ->select("*")
+                ->from("_jeu")
+                ->like('LOWER(titre)', strtolower($text), 'both')
+                ->order_by("sortie", "DESC")
+                ->get();
         }
         return $query->result_array();
     }
