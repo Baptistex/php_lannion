@@ -16,7 +16,9 @@ class User extends CI_Controller
         return password_hash($password, PASSWORD_BCRYPT);
     }
 
-    //Fonction pour la page affichant la liste des utilisateurs (visible seulement par un admin)
+    /**
+     * Fonction pour la page affichant la liste des utilisateurs (visible seulement par un admin)
+     */
     public function list()
     {
 
@@ -32,7 +34,9 @@ class User extends CI_Controller
         $this->load->vars($data);
         $this->load->view('templates/template');
     }
-
+    /**
+     * Page de création d'utilisateur.
+     */
     public function signup()
     {
         user_exists();
@@ -44,7 +48,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules(
             'identifiant',
             'Identifiant',
-            'required|callback_existing_user|alpha_numeric',
+            'required|callback__existing_user|alpha_numeric',
             array(
                 'required'      => 'Un identifiant est nécessaire.',
                 'alpha_numeric' => 'Utiliser uniquement charactères alphanumériques !'
@@ -63,7 +67,6 @@ class User extends CI_Controller
             )
         );
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
-
         if ($this->form_validation->run() !== FALSE) {
             $identifiant = $this->input->post('identifiant');
             $nom = $this->input->post('nom');
@@ -82,6 +85,10 @@ class User extends CI_Controller
         $this->load->view('templates/template');
     }
 
+
+    /**
+     * Page de création d'utilisateur.
+     */
     public function newadmin()
     {
         user_exists();
@@ -92,10 +99,12 @@ class User extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
 
+
+        //Regles de validation des formulaires
         $this->form_validation->set_rules(
             'identifiant',
             'Identifiant',
-            'required|callback_existing_user|alpha_numeric',
+            'required|callback__existing_user|alpha_numeric',
             array(
                 'required'      => 'Un identifiant est nécessaire.',
                 'alpha_numeric' => 'Utiliser uniquement charactères alphanumériques !'
@@ -132,35 +141,48 @@ class User extends CI_Controller
         $this->load->view('templates/template');
     }
 
-    public function existing_user($identifiant)
+    /**
+     *  Fonction de formulaire utilisée pour vérifier qu'un identifiant n'est pas déjà présent
+     * dans la base de donnée.
+     */
+    public function _existing_user($identifiant)
     {
         user_exists();
         if (!empty($this->user_model->log_user($identifiant))) {
-            $this->form_validation->set_message('existing_user', 'Cet identifiant est déjà utilisé !');
+            $this->form_validation->set_message('_existing_user', 'Cet identifiant est déjà utilisé !');
             return FALSE;
         } else {
             return TRUE;
         }
     }
 
-
+    /**
+     * Déconnecte un utilisateur.
+     * 
+     * Détruit sa session.
+     */
     public function disconnect()
     {
         if (isset($this->session->identifiant)) {
+            session_unset();
             $this->session->sess_destroy();
             redirect('user/login');
         };
         redirect('user/login');
     }
 
-
+    /**
+     * Page de connexion d'un utilisateur
+     * 
+     * Si l'utilisateur est connecté, le redirige vers le catalogue.
+     * Autrement, vérifie que les champs sur la pages sont corrects, et génère une session pour l'utilisateur si valides.
+     */
     public function login()
     {
         user_exists();
         if (isset($this->session->identifiant)) {
             redirect('/jeux');
         };
-
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -176,13 +198,9 @@ class User extends CI_Controller
             'required',
             array('required' => '<div class="alert alert-danger" role="alert">Un mot de passe est nécessaire.</div>')
         );
-
-
         if ($this->form_validation->run() !== FALSE) {
-
             $identifiant = $this->input->post('identifiant');
             $password = $this->input->post('mot_de_passe');
-
             $user_info = $this->user_model->log_user($identifiant);
 
             if (empty($user_info)) {
@@ -190,7 +208,6 @@ class User extends CI_Controller
             } elseif (!password_verify($password, $user_info[0]['mot_de_passe'])) {
                 $this->session->set_flashdata('login_attempt', '<div class="alert alert-danger" role="alert">Mot de passe incorrect !</div>');
             } else {
-
                 $this->session->role = $this->user_model->get_role($identifiant);
                 $this->session->identifiant = $identifiant;
                 redirect('/jeux');
@@ -206,7 +223,13 @@ class User extends CI_Controller
         $this->load->view('templates/template');
     }
 
-    //Supprimer un utilisateur
+
+    /**
+     * Supprime un utilisateur
+     * 
+     * Les utilisateurs ne peuvent supprimer qu'eux même.
+     * Les admins peuvent supprimer qui ils veulent, sauf eux même (évite qu'il n'y ai aucun admin dans la BDD) 
+     */
     public function delete($identifiant)
     {
         user_exists();
