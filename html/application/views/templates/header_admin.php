@@ -3,7 +3,8 @@
 </div>
 
 <div class="row">
-    <div class="d-none d-lg-block">
+<img id="headerimage" class="d-none d-lg-block" src="<?php echo base_url(); ?>public/images/fusee.png" height="50" width="50">
+    <div  class="d-none d-lg-block row">
         <h1>LANNION GAME</h1>
     </div>
     <div>
@@ -41,7 +42,9 @@
                 </ul>
             </div>
         </nav>
-        <div class="d-block d-lg-none">
+        </div>
+    <img id="headerimage" class="d-block d-lg-none" src="<?php echo base_url(); ?>public/images/fusee.png" height="50" width="50">
+    <div class="d-block d-lg-none">
             <h1>LANNION GAME</h1>
         </div>
-    </div>
+</div>
