@@ -39,7 +39,7 @@ class Collection extends CI_Controller
         if (($this->session->role) == 'admin') {
             $data['delete'] = "";
         } else {
-            $data['delete'] = "<button class='btn btn-light'><a href='" . site_url() . "user/delete/" . $identifiant . "'>Supprimer mon compte</a></button>";
+            $data['delete'] = "<button class='btn btn-light'><a href='" . site_url("user/delete/") . $identifiant . "'>Supprimer mon compte</a></button>";
         }
 
         //Paramètres de la page
@@ -110,7 +110,7 @@ class Collection extends CI_Controller
         if (($this->session->identifiant) == $identifiant) {
             $data['delete'] = "";
         } else {
-            $data['delete'] =  "<a href='" . site_url() . "user/delete/" . $identifiant . "'><button>Supprimer le compte</button></a>";
+            $data['delete'] =  "<a href='" . site_url("/user/delete/") . $identifiant . "'><button>Supprimer le compte</button></a>";
         }
 
         $data['identifiant'] = $identifiant;

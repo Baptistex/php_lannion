@@ -14,7 +14,7 @@
                     </div>
                     <div class="data">
                         <div class="content">
-                            <h1 class="title"> <a href="<?php echo site_url() . "jeux/game/" . $jeu["id"] ?>" class="inner"><?php echo $jeu['titre'] ?></a></h1>
+                            <h1 class="title"> <a href="<?php echo site_url("jeux/game/") . $jeu["id"] ?>" class="inner"><?php echo $jeu['titre'] ?></a></h1>
                             <p class="text"><?php echo $jeu["description"]; ?></p>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
         <div class="pattern">
             <ul class="list img-list">
                 <li>
-                    <a href="<?php echo site_url() . "jeux/game/" . $jeu["id"] ?>" class="inner">
+                    <a href="<?php echo site_url("jeux/game/") . $jeu["id"] ?>" class="inner">
                         <div class="li-img">
                             <img alt="<?php echo "Couverture de" . $jeu["titre"] ?>" src="<?php echo $jeu['couverture'] ?>" width="200" height="240">
                         </div>
