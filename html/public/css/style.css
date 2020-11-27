@@ -6,11 +6,15 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
 body {
     background-image: linear-gradient(to right, #bce3ff, #eff8ff);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100vh;
+    height: 100%;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -21,6 +25,24 @@ header{
     z-index: 4;
     color: white;
     padding-top: 1.5em;
+}
+
+main{
+    display: block;
+    position: relative;
+    min-height: 90.9%;
+}
+
+footer {
+    background-color: #08056a;
+    color: white;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    margin-top: 2em;
+    overflow: hidden;
+    padding-bottom: 1em;
+    padding-top: 0;
 }
 
 #headerimage{

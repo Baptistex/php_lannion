@@ -18,11 +18,18 @@
     <header>
         <?php $this->load->view($header); ?>
     </header>
-    <div id="global">
+    <main id="global">
         <!--# contenu -->
         <div id="contenu"><?php $this->load->view($content); ?></div>
-    </div>
+    </main>
     <!--#global-->
+
+    <footer>
+            <div>
+                <p>@2020 copyright: Thomas & Baptiste</p>
+            </div>
+        </footer>
+
     <div class="d-none d-lg-block">
         <a class="scrollup">Scroll</a>
     </div>
@@ -62,6 +69,8 @@
         });
     });
     </script>
+
+
 
 </body>
 
