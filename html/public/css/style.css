@@ -3,703 +3,676 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
 
 body {
-    background-image: linear-gradient(to right, #bce3ff, #eff8ff);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100%;
-    font-family: 'Open Sans', sans-serif;
+  background-image: linear-gradient(to right, #bce3ff, #eff8ff);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 
-header{
-    background-color: #08056a;
-    position: fixed;
-    width: 100%;
-    z-index: 4;
-    color: white;
-    padding-top: 1.5em;
+header {
+  background-color: #08056a;
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+  color: white;
+  padding-top: 1.5em;
 }
 
-main{
-    display: block;
-    position: relative;
-    min-height: 90.9%;
+main {
+  display: block;
+  position: relative;
+  min-height: 90.9%;
 }
 
 footer {
-    background-color: #08056a;
-    color: white;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    margin-top: 2em;
-    overflow: hidden;
-    padding-bottom: 1em;
-    padding-top: 0;
+  position: absolute;
+  background-color: #08056a;
+  color: white;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  margin-top: 2em;
+  overflow: hidden;
+  padding-bottom: 1em;
+  padding-top: 0;
 }
 
-#headerimage{
-    margin-left:5%;
+#headerimage {
+  margin-left: 5%;
 }
 
-#pseudo{
-    color: white;
-    margin-left: 80%;
-    position: absolute;
-    top: 2px;
+#pseudo {
+  color: white;
+  margin-left: 80%;
+  position: absolute;
+  top: 2px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    padding-left: 2em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  padding-left: 2em;
 }
 
-h2{
-    padding-top: 5em;
-    text-align: center;
+h2 {
+  padding-top: 5em;
+  text-align: center;
 }
 
-h3{
-    padding-top: 1em;
-    text-align: center;
+h3 {
+  padding-top: 1em;
+  text-align: center;
 }
 
-h4{
-    text-align: center;
+h4 {
+  text-align: center;
 }
 
-.content h1{
-    font-size: 2em;
+.content h1 {
+  font-size: 2em;
 }
 
 nav {
-    text-align: center;
-    padding-bottom: 1em;
-    display: block;
+  text-align: center;
+  padding-bottom: 1em;
+  display: block;
 }
-
 
 /*--------------------------------------------------------------------------------------------*/
 /*Bouton*/
 
-.raise:hover, .raise:focus {
-    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-    transform: translateY(-0.25em);
-    border-color: var(--hover);
-    color: #e5ff60;
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+  border-color: var(--hover);
+  color: #e5ff60;
 }
 .raise {
-    --hover: #e5ff60;
-    background: none;
-    border: 2px solid;
-    font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
-    margin-left: 2em;
-    color: #007bff;
-    transition: 0.25s;
-    margin-top: 0;
+  --hover: #e5ff60;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  margin-left: 2em;
+  color: #007bff;
+  transition: 0.25s;
+  margin-top: 0;
 }
 
-.btn-light{
-    background-color: #94ffc9 !important;
+.btn-light {
+  background-color: #94ffc9 !important;
 }
 
 /*--------------------------------------------------------------------------------------------*/
 /*menu burger*/
-#menuToggle
-{
+#menuToggle {
   display: block;
   position: relative;
   top: 0px;
   left: 30px;
-  
+
   z-index: 1;
-  
+
   -webkit-user-select: none;
   user-select: none;
 }
 
-#menuToggle a
-{
+#menuToggle a {
   text-decoration: none;
   color: #232323;
-  
+
   transition: color 0.3s ease;
 }
 
-#menuToggle a:hover
-{
+#menuToggle a:hover {
   color: tomato;
   text-decoration: none;
 }
 
-
-#menuToggle input
-{
+#menuToggle input {
   display: block;
   width: 40px;
   height: 32px;
   position: absolute;
   top: -7px;
   left: -5px;
-  
+
   cursor: pointer;
-  
+
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
-  
+
   -webkit-touch-callout: none;
 }
 
-#menuToggle span
-{
+#menuToggle span {
   display: block;
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  
+
   background: #cdcdcd;
   border-radius: 3px;
-  
+
   z-index: 1;
-  
+
   transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
-{
+#menuToggle span:first-child {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
+#menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
 
-
-#menuToggle input:checked ~ span
-{
+#menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
 }
 
-
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
+#menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
+#menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menu
-{
+#menu {
   position: absolute;
   width: 300px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  
+
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  
+
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-#menu li
-{
+#menu li {
   padding: 10px 0;
   font-size: 22px;
 }
-#menuToggle input:checked ~ ul
-{
+#menuToggle input:checked ~ ul {
   transform: none;
 }
 
 /*--------------------------------------------------------------------------------------------*/
 /*Moteur de recherche*/
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
- * {
-	 margin: 0;
-	 padding: 0;
-	 box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .recherche {
-    position: fixed;
-    right: 3%;
-    top: -0.5em; 
-	margin: auto;
-	width: 300px;
-    height: 150px;
-    z-index: 6;
+  position: fixed;
+  right: 3%;
+  top: -0.5em;
+  margin: auto;
+  width: 300px;
+  height: 150px;
+  z-index: 6;
 }
- .recherche .search {
-	 position: absolute;
-	 margin: auto;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 width: 60px;
-	 height: 60px;
-	 background: crimson;
-	 border-radius: 50%;
-	 transition: all 1s;
-	 z-index: 4;
-	 box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+.recherche .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: crimson;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
 }
- .recherche .search:hover {
-	 cursor: pointer;
+.recherche .search:hover {
+  cursor: pointer;
 }
- .recherche .search::before {
-	 content: "";
-	 position: absolute;
-	 margin: auto;
-	 top: 22px;
-	 right: 0;
-	 bottom: 0;
-	 left: 22px;
-	 width: 12px;
-	 height: 2px;
-	 background: white;
-	 transform: rotate(45deg);
-	 transition: all 0.5s;
+.recherche .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all 0.5s;
 }
- .recherche .search::after {
-	 content: "";
-	 position: absolute;
-	 margin: auto;
-	 top: -5px;
-	 right: 0;
-	 bottom: 0;
-	 left: -5px;
-	 width: 25px;
-	 height: 25px;
-	 border-radius: 50%;
-	 border: 2px solid white;
-	 transition: all 0.5s;
+.recherche .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.5s;
 }
- .recherche input {
-	 font-family: 'Inconsolata', monospace;
-	 position: absolute;
-	 margin: auto;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 width: 50px;
-	 height: 50px;
-	 outline: none;
-	 border: none;
-	 background: crimson;
-	 color: white;
-	 text-shadow: 0 0 10px crimson;
-	 padding: 0 80px 0 20px;
-	 border-radius: 30px;
-	 box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-	 transition: all 1s;
-	 opacity: 0;
-	 z-index: 5;
-	 font-weight: bolder;
-	 letter-spacing: 0.1em;
+.recherche input {
+  font-family: "Inconsolata", monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: crimson;
+  color: white;
+  text-shadow: 0 0 10px crimson;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
 }
- .recherche input:hover {
-	 cursor: pointer;
+.recherche input:hover {
+  cursor: pointer;
 }
- .recherche input:focus {
-	 width: 300px;
-	 opacity: 1;
-	 cursor: text;
+.recherche input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
 }
- .recherche input:focus ~ .search {
-	 right: -250px;
-	 background: #151515;
-	 z-index: 6;
+.recherche input:focus ~ .search {
+  right: -250px;
+  background: #151515;
+  z-index: 6;
 }
- .recherche input:focus ~ .search::before {
-	 top: 0;
-	 left: 0;
-	 width: 25px;
+.recherche input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
 }
- .recherche input:focus ~ .search::after {
-	 top: 0;
-	 left: 0;
-	 width: 25px;
-	 height: 2px;
-	 border: none;
-	 background: white;
-	 border-radius: 0%;
-	 transform: rotate(-45deg);
+.recherche input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
 }
- .recherche input::placeholder {
-	 color: white;
-	 opacity: 0.5;
-	 font-weight: bolder;
+.recherche input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
 }
 
 /*-------------------------------------------------------------*/
 /*Liste des jeux du catalogue*/
 
 .list li {
-    background-color: #d2d2d28f;
-    display: table;
-    border-collapse: collapse;
-    width: 100%;
-    word-break: break-word;
-    border-radius: 25px;
-    box-shadow: 0px 6px 17px 6px rgba(0, 0, 0, 0.46);
-  }
-  .inner {
-    display: table-row;
-    overflow: hidden;
-  }
-  .li-img {
-    display: table-cell;
-    vertical-align: middle;
-    width: 30%;
-    padding-right: 1em;
-  }
-  .li-img img {
-    display: block;
-  }
-  .li-text {
-    display: table-cell;
-    vertical-align: middle;
-    width: 70%;
-  }
-  .li-head {
-    margin: 0;
-  }
-  .li-sub {
-    margin: 0;
-  }
-  
-#listejeu{
-    margin-top: 2em;
+  background-color: #d2d2d28f;
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  word-break: break-word;
+  border-radius: 25px;
+  box-shadow: 0px 6px 17px 6px rgba(0, 0, 0, 0.46);
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+  padding-right: 1em;
+}
+.li-img img {
+  display: block;
+}
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+}
+.li-head {
+  margin: 0;
+}
+.li-sub {
+  margin: 0;
 }
 
-select{
-    position: fixed;
+#listejeu {
+  margin-top: 2em;
 }
 
-  @media all and (min-width: 45em) {
-    .list li {
-      float: left;
-      width: 48%;
-      margin: 1% 1%;
-    }
-  }
-  
-  @media all and (min-width: 90em) {
-    .list li {
-      width: 31.1111%;
-    }
-  }
+select {
+  position: fixed;
+}
 
+@media all and (min-width: 45em) {
+  .list li {
+    float: left;
+    width: 48%;
+    margin: 1% 1%;
+  }
+}
 
+@media all and (min-width: 90em) {
+  .list li {
+    width: 31.1111%;
+  }
+}
 
 /*--------------------------------------------------------------------------------------------------*/
 /*Ma Collection*/
 
-
 /*bouton*/
-#suppr{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    border-radius: 5px;
-    background-color: white;
+#suppr {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 5px;
+  background-color: white;
 }
 /*-------------------------------------------*/
 
 .card {
-    float: left;
-    margin-left: 1%;
-    margin-right: 1%;
+  float: left;
+  margin-left: 1%;
+  margin-right: 1%;
 
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .card .wrapper {
-    background-color: #fff;
-    min-height: 450px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
-    margin-left: 0;
+  background-color: #fff;
+  min-height: 450px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  margin-left: 0;
 }
 
 .card .wrapper:hover .data {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .card .data {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    transform: translateY(calc(70px + 1em));
-    transition: transform 0.3s;
-    height: 55%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(calc(70px + 1em));
+  transition: transform 0.3s;
+  height: 55%;
 }
 
 .card .data .content {
-    padding: 1em;
-    position: relative;
-    z-index: 1;
-    color: white;
-    transition: 0.3s;
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+  color: white;
+  transition: 0.3s;
 }
 
 .card .data .content:hover {
-    color: black;
+  color: black;
 }
 
 .card .author {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .card .title {
-    margin-top: 10px;
-    padding-left: 0 !important;
-
+  margin-top: 10px;
+  padding-left: 0 !important;
 }
-
 
 .card .text {
-    height: 70px;
-    margin: 0;
+  height: 70px;
+  margin: 0;
 }
 
-
-
-.card input[type='checkbox'] {
-    display: none;
+.card input[type="checkbox"] {
+  display: none;
 }
 
-.card input[type='checkbox']:checked + .menu-content {
-    transform: translateY(-60px);
+.card input[type="checkbox"]:checked + .menu-content {
+  transform: translateY(-60px);
 }
 
 .example-1 .date {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #77d7b9;
-    color: #fff;
-    padding: 0.8em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
 }
 
 .example-1 .date span {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 
 .example-1 .date .day {
-    font-weight: 700;
-    font-size: 24px;
-    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
 }
 
 .example-1 .date .month {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .example-1 .date .month,
 .example-1 .date .year {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .example-1 .content {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .example-1 .title a {
-    color: #808080;
+  color: #808080;
 }
-
 
 .container {
-    width: 500px !important;
-    height: 400px;
-    text-align: center;
-    margin: auto;
-    margin-top: 4em;
-    border-radius: 5px;
+  width: 500px !important;
+  height: 400px;
+  text-align: center;
+  margin: auto;
+  margin-top: 4em;
+  border-radius: 5px;
 }
 
-
-
 input {
-    height: 40px;
-    width: 300px;
-    font-size: 18px;
-    font-family: "Lato";
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding-left: 15px;
+  height: 40px;
+  width: 300px;
+  font-size: 18px;
+  font-family: "Lato";
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 .form-input {
-    position: relative;
-    padding-top: 15px;
+  position: relative;
+  padding-top: 15px;
 }
 
 .fa-lock,
 .fa-user {
-    position: absolute;
-    top: 8px;
-    left: 88px;
-    color: #3BA8A5;
+  position: absolute;
+  top: 8px;
+  left: 88px;
+  color: #3ba8a5;
 }
 
 #submit {
-    width: 80px;
-    height: 40px;
-    padding: 5px;
-    background-color: #94ffc9;
-    border-style: none;
-    margin-top: 30px;
-    margin-bottom: 30px
+  width: 80px;
+  height: 40px;
+  padding: 5px;
+  background-color: #94ffc9;
+  border-style: none;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #submit:hover {
-    cursor: pointer;
-    color: white;
+  cursor: pointer;
+  color: white;
 }
 
 a {
-    color: white;
+  color: white;
 }
-
-
 
 /*-------------------------------------------------------------*/
 
 /*fusée*/
 
 .scrollup {
-    background: url(../images/fusee.png) no-repeat scroll 0 0 transparent;
-    position: fixed;
-    cursor: pointer;
-    bottom: 0px;
-    display: none;
-    height: 110px;
-    width: 57px;
-    right: 30px;
-    text-indent: -9999px;
-    z-index: 10;
+  background: url(../images/fusee.png) no-repeat scroll 0 0 transparent;
+  position: fixed;
+  cursor: pointer;
+  bottom: 0px;
+  display: none;
+  height: 110px;
+  width: 57px;
+  right: 30px;
+  text-indent: -9999px;
+  z-index: 10;
 }
 
 /*-------------------------------------------------------------*/
 /*Page jeu*/
 
-label{
-    padding-top: 1em;
-    padding-left: 1em;
+label {
+  padding-top: 1em;
+  padding-left: 1em;
 }
 
-#bouton{
-    text-align: center; 
-    padding-top: 1.5em;   
+#bouton {
+  text-align: center;
+  padding-top: 1.5em;
 }
 
-#description{
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
+#description {
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
 
-    font-size: xx-large;
-    color: black;
+  font-size: xx-large;
+  color: black;
 }
 
-#jeux_game{
-    padding-top: 10%;
-    margin: 0% 20%;
-    padding-top: 10%;
+#jeux_game {
+  padding-top: 10%;
+  margin: 0% 20%;
+  padding-top: 10%;
 }
 
-#labeljeux{
-    font-size: xx-large;
-    color: black;
+#labeljeux {
+  font-size: xx-large;
+  color: black;
 }
 
-#game{
-    padding: 0.5rem;
-    padding-top: 1rem;
-    background-color: rgba(240, 240, 240, .1);
-    border: 2px solid rgba(240, 240, 240, .3);
-    border-radius: 2px;
-    box-shadow: 0px 6px 17px 6px rgba(0, 0, 0, 0.46);
-    margin-bottom: 1.5em;
-    z-index: 1;
+#game {
+  padding: 0.5rem;
+  padding-top: 1rem;
+  background-color: rgba(240, 240, 240, 0.1);
+  border: 2px solid rgba(240, 240, 240, 0.3);
+  border-radius: 2px;
+  box-shadow: 0px 6px 17px 6px rgba(0, 0, 0, 0.46);
+  margin-bottom: 1.5em;
+  z-index: 1;
 }
 
-#labels{
-    width: 72%;
+#labels {
+  width: 72%;
 }
 
-#labeldescription{
-    width: 100%;
+#labeldescription {
+  width: 100%;
 }
 
 /*-------------------------------------------------------------*/
 /*Liste collectionneurs*/
 
 #demo {
-    margin: 20px auto;
-    width: 960px;
-    padding-top: 2%;
+  margin: 20px auto;
+  width: 960px;
+  padding-top: 2%;
 }
 
 .shadow-z-1 {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
-    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
 }
 
 .table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 2rem;
-    background-color: #fff;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  background-color: #fff;
 }
 
 .table > thead > tr,
 .table > tbody > tr,
 .table > tfoot > tr {
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .table > thead > tr > th,
@@ -708,26 +681,25 @@ label{
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-    width:18%;
-    text-align: left;
-    padding: 1.6rem;
-    vertical-align: top;
-    border-top: 0;
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+  width: 18%;
+  text-align: left;
+  padding: 1.6rem;
+  vertical-align: top;
+  border-top: 0;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .table .email {
-    width:28%;
-    
+  width: 28%;
 }
 
 .table > thead > tr > th {
-    font-weight: 400;
-    color: #757575;
-    vertical-align: bottom;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  font-weight: 400;
+  color: #757575;
+  vertical-align: bottom;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .table > caption + thead > tr:first-child > th,
@@ -736,56 +708,54 @@ label{
 .table > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
-    border-top: 0;
+  border-top: 0;
 }
 
 .table > tbody + tbody {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
-    background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.12);
 }
 
 .table-hover.table-mc-light-blue > tbody > tr:hover > td,
 .table-hover.table-mc-light-blue > tbody > tr:hover > th {
-    background-color: #b3e5fc;
+  background-color: #b3e5fc;
 }
 
 .table .expand > td {
-    padding: 0;
-    margin: 0;
-    border-bottom: 0;
-    border-top: 0;
+  padding: 0;
+  margin: 0;
+  border-bottom: 0;
+  border-top: 0;
 }
 
 .table div {
-    position: relative;
-    padding-left: 8%;
-    padding-right: 5%;
+  position: relative;
+  padding-left: 8%;
+  padding-right: 5%;
 }
 
 .table div p {
-    display: inline-block;
-    width: 15%;
-    text-align: left;
-    line-height: 200%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    font-size: 1.1rem;
+  display: inline-block;
+  width: 15%;
+  text-align: left;
+  line-height: 200%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  font-size: 1.1rem;
 }
 
-
-.table div p:nth-child(even){
-    width: 18%
+.table div p:nth-child(even) {
+  width: 18%;
 }
-.table div p:nth-child(odd){
-    font-weight: bold;
-    
+.table div p:nth-child(odd) {
+  font-weight: bold;
 }
