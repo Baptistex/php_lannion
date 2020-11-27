@@ -2,41 +2,49 @@
     <?php echo $pseudonyme ?>
 </div>
 <div class="row">
-<img id="headerimage" class="d-none d-lg-block" src="<?php echo base_url(); ?>public/images/fusee.png" height="50" width="50">
-    <div  class="d-none d-lg-block row">
+    <img alt="Logo du site" class="d-none d-lg-block headerimage" src="<?php echo base_url(); ?>public/images/fusee.png" height="50" width="50">
+    <div class="d-none d-lg-block row">
         <h1>LANNION GAME</h1>
     </div>
     <div>
         <nav>
             <div class="button d-none d-lg-block">
-                <a href="<?php echo site_url(); ?>jeux/index"><button class="raise">Catalogue</button></a>
-                <a href="<?php echo site_url(); ?>collection/index"><button class="raise">Ma Collection</button></a>
-                <a href="<?php echo site_url(); ?>user/disconnect"><button class="raise">Déconnexion</button></a>
+                <a href="<?php echo site_url(); ?>jeux/index">
+                    <div class="raise headerbtn">Catalogue</div>
+                </a>
+                <a href="<?php echo site_url(); ?>collection/index">
+                    <div class="raise headerbtn">Ma Collection</div>
+                </a>
+                <a href="<?php echo site_url(); ?>user/disconnect">
+                    <div class="raise headerbtn">Déconnexion</div>
+                </a>
             </div>
         </nav>
-        <nav role="navigation" class="d-block d-lg-none">
+        <nav class="d-block d-lg-none">
             <div id="menuToggle">
                 <input type="checkbox" />
                 <span></span>
                 <span></span>
                 <span></span>
-                <ul id="menu">
+                <div id="menu">
                     <?php echo $pseudonyme ?>
-                    <a href="<?php echo site_url(); ?>jeux/index">
-                        <li>Catalogue</li>
-                    </a>
-                    <a href="<?php echo site_url(); ?>collection/index">
-                        <li>Ma Collection</li>
-                    </a>
-                    <a href="<?php echo site_url(); ?>user/disconnect">
-                        <li>Déconnexion</li>
-                    </a>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="<?php echo site_url(); ?>jeux/index">Catalogue</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url(); ?>collection/index">Ma Collection</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url(); ?>user/disconnect">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>
-    <img id="headerimage" class="d-block d-lg-none" src="<?php echo base_url(); ?>public/images/fusee.png" height="50" width="50">
+    <img alt="Logo du site" class="d-block d-lg-none headerimage" src="<?php echo base_url(); ?>public/images/fusee.png" height="50" width="50">
     <div class="d-block d-lg-none">
-            <h1>LANNION GAME</h1>
-        </div>
+        <h1>LANNION GAME</h1>
+    </div>
 </div>

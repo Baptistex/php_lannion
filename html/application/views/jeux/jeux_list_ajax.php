@@ -4,7 +4,7 @@
         <?php foreach ($recent as $jeu) : ?>
             <div class="example-1 card ">
                 <div class="wrapper">
-                    <img src=<?php echo $jeu['couverture'] ?> width="272.95">
+                    <img alt="<?php echo 'Couverture de' . $jeu["titre"] ?>" src=<?php echo $jeu['couverture'] ?> width="273">
                     <div class="date">
                         <span class="day"><?php if ($jeu['sortie'] != "null") {
                                                 echo $jeu['sortie'];
@@ -26,12 +26,12 @@
 
 <div id="listejeu" class="col-lg-10 offset-lg-1">
     <?php foreach ($jeuxlist as $jeu) : ?>
-        <div id="pattern" class="pattern">
+        <div class="pattern">
             <ul class="list img-list">
                 <li>
                     <a href="<?php echo site_url() . "jeux/game/" . $jeu["id"] ?>" class="inner">
                         <div class="li-img">
-                            <img src="<?php echo $jeu['couverture'] ?>" width="200" height="240">
+                            <img alt="<?php echo "Couverture de" . $jeu["titre"] ?>" src="<?php echo $jeu['couverture'] ?>" width="200" height="240">
                         </div>
                         <div class="li-text">
                             <h4 class="li-head"><?php echo $jeu['titre'] ?></h4>
