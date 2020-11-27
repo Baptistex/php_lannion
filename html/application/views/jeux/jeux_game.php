@@ -8,7 +8,11 @@
             </div>
             <div id="labels">
                 <label id="labeljeux"><?php echo $gamedata['titre'] ?></label><br>
-                <label id="labeljeux">Sorti le <?php echo $gamedata['sortie'] ?></label>
+                <label id="labeljeux"><?php if ($gamedata['sortie'] != "null") {
+                                            echo "Sorti le:" . $gamedata['sortie'];
+                                        } else {
+                                            echo "Sortie non déterminée";
+                                        } ?></span></label>
             </div>
 
             <div id="labeldescription">
